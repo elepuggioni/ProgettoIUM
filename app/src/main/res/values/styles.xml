@@ -20,4 +20,9 @@
         <item name="android:layout_margin">20dp</item>
     </style>
 
+    <style name="buttons">
+        <item name="android:color">@color/colorAccent</item>
+        <item name="android:textSize">8sp</item>
+    </style>
+
 </resources>

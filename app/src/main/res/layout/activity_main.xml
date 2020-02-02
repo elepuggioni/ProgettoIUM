@@ -37,7 +37,7 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="188dp"
+        android:layout_marginTop="200dp"
         android:text="QU    VAD    ?"
         android:textAppearance="@style/title_style"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,11 +45,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/o1"
+        android:layout_width="39dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="204dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginRight="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/title_dice" />
+
+    <ImageView
+        android:id="@+id/o2"
+        android:layout_width="41dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="66dp"
+        android:layout_marginLeft="66dp"
+        android:layout_marginTop="204dp"
+        android:layout_marginEnd="66dp"
+        android:layout_marginRight="66dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.226"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/title_dice" />
+
     <Button
         android:layout_width="200dp"
         android:layout_height="116dp"
         android:layout_marginTop="344dp"
-        android:text="PROVA MAPS"
+        android:text="ACCEDI"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.459"
