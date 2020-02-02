@@ -8,23 +8,10 @@
     tools:context=".login"
     >
 
-    <TextView
-        android:id="@+id/title2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="352dp"
-        android:fontFamily="@font/roboto_medium"
-        android:text="prova"
-        android:textAppearance="@style/title_style"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.019"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/yellow_shape"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="201dp"
+        android:layout_height="230dp"
         android:layout_marginStart="66dp"
         android:layout_marginLeft="66dp"
         android:layout_marginTop="32dp"
@@ -37,10 +24,10 @@
 
     <ImageView
         android:id="@+id/globe"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="133dp"
+        android:layout_height="115dp"
         android:layout_marginLeft="206dp"
-        android:layout_marginTop="85dp"
+        android:layout_marginTop="88dp"
         android:layout_marginRight="206dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,11 +38,12 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="256dp"
+        android:layout_marginTop="180dp"
         android:text="QU    VAD    ?"
         android:textAppearance="@style/title_style"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/yellow_shape" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
