@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         provamaps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent showHome = new Intent(MainActivity.this, Home.class);
+                Intent showHome = new Intent(MainActivity.this, Home2.class);
                 startActivity(showHome);
             }
         });
