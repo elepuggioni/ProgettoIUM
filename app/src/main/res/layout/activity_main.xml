@@ -81,7 +81,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
+        app:layout_constraintTop_toBottomOf="@+id/password_input" />
 
     <EditText
         android:id="@+id/username_input"
@@ -91,8 +91,8 @@
         android:layout_marginTop="8dp"
         android:drawable="@drawable/credentials_input_shape"
         android:ems="10"
+        android:hint="Inserisci lo username...."
         android:inputType="textPersonName"
-        android:text="Inserisci lo username...."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username_title" />
@@ -117,20 +117,22 @@
         android:layout_marginTop="23dp"
         android:layout_marginBottom="8dp"
         android:text="Password"
-        app:layout_constraintBottom_toTopOf="@+id/password"
+        app:layout_constraintBottom_toTopOf="@+id/password_input"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username_input" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/password_input"
         style="@style/credentials_input_box"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:drawable="@drawable/credentials_input_shape"
         android:ems="10"
-        android:text="Inserisci la password...."
+        android:hint="Inserisci la password...."
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password_title" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
