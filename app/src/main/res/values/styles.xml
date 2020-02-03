@@ -9,20 +9,41 @@
     </style>
 
     <style name="title_style">
-
         <item name="android:fontFamily">@font/josefin_slab_bold</item>
         <item name="android:textColor">#FF47525E</item>
         <item name="android:textSize">50sp</item>
         <item name="android:lineSpacingMultiplier">1.3</item>
     </style>
 
+    <!--
     <style name="login_theme">
         <item name="android:layout_margin">20dp</item>
     </style>
-
+    -->
     <style name="buttons">
-        <item name="android:color">@color/colorAccent</item>
-        <item name="android:textSize">8sp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:background">@drawable/bottoni_principali</item>
+        <item name="android:textAllCaps">true</item>
     </style>
 
+    <style name="credentials_input_title">
+        <item name="android:fontFamily">Lato</item>
+        <item name="android:textColor">#FF222222</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:lineSpacingMultiplier">1.3</item>
+    </style>
+
+    <style name="credentials_input_box">
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:background">@drawable/credentials_input_shape</item>
+        <item name="android:fontFamily">Roboto</item>
+        <item name="android:textColor">@color/light_grey</item>
+        <item name="android:lineSpacingMultiplier">1.3</item>
+        <item name="android:paddingLeft">12dp</item>
+    </style>
 </resources>

@@ -72,15 +72,15 @@
         app:srcCompat="@drawable/title_dice" />
 
     <Button
-        android:layout_width="200dp"
-        android:layout_height="116dp"
+        android:id="@+id/provamaps"
+        style="@style/buttons"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="344dp"
-        android:text="ACCEDI"
-        android:textSize="30dp"
+        android:layout_marginEnd="16dp"
+        android:text="Accedi"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.459"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/bottoni_principali"
-        android:id="@+id/provamaps"/>
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
