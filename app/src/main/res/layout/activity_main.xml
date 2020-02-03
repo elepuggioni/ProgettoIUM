@@ -81,5 +81,6 @@
         app:layout_constraintHorizontal_bias="0.459"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/bottoni_principali"
         android:id="@+id/provamaps"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
