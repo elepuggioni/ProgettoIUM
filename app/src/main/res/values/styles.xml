@@ -49,4 +49,8 @@
         <item name="android:lineSpacingMultiplier">1.3</item>
         <item name="android:paddingLeft">12dp</item>
     </style>
+    <style name="background_register">
+        <item name="android:background">@drawable/register_background</item>
+        <item name="android:padding">10dp</item>
+    </style>
 </resources>
