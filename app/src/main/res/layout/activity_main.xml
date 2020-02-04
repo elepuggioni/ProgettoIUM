@@ -36,55 +36,50 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/globe" />
 
-    <TextView
+    <!-- Titolo app -->
+    <LinearLayout
         android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="188dp"
-        android:text="QU    VAD    ?"
-        android:textAppearance="@style/title_style"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/o1"
-        android:layout_width="35dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="192dp"
-        android:layout_marginEnd="68dp"
-        android:layout_marginRight="68dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/title_dice" />
-
-    <ImageView
-        android:id="@+id/o2"
-        android:layout_width="34dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="66dp"
-        android:layout_marginLeft="66dp"
-        android:layout_marginTop="192dp"
-        android:layout_marginEnd="66dp"
-        android:layout_marginRight="66dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.204"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/title_dice" />
-
-    <Button
-        android:id="@+id/provamaps"
-        style="@style/buttons"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="30dp"
-        android:text="Accedi"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="188dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_input" />
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="QU"
+            android:textAppearance="@style/title_style" />
+
+        <ImageView
+            android:id="@+id/o1"
+            android:layout_width="40dp"
+            android:layout_height="33dp"
+            android:layout_marginTop="4dp"
+            app:srcCompat="@drawable/title_dice" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   VAD"
+            android:textAppearance="@style/title_style"/>
+
+        <ImageView
+            android:id="@+id/o2"
+            android:layout_width="40dp"
+            android:layout_height="33dp"
+            android:layout_marginTop="4dp"
+            app:srcCompat="@drawable/title_dice" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\?"
+            android:textAppearance="@style/title_style"/>
+    </LinearLayout>
+
 
     <EditText
         android:id="@+id/username_input"
@@ -137,21 +132,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password_title" />
 
+    <Button
+        android:id="@+id/provamaps"
+        style="@style/buttons"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="30dp"
+        android:text="Accedi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password_input" />
+
     <TextView
         android:id="@+id/register"
         style="@style/credentials_input_title"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="232dp"
-        android:layout_marginLeft="232dp"
+        android:gravity="end"
         android:layout_marginTop="25dp"
+        android:layout_marginRight="10dp"
+        android:paddingRight="10dp"
         android:contextClickable="true"
         android:fontFamily="@font/roboto_regular"
-        android:text="Registrati"
+        android:text="Registrati "
         android:textSize="16dp"
         android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@+id/password_input"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/provamaps"
-        app:layout_constraintVertical_bias="0.005" />
+        app:layout_constraintEnd_toEndOf="@id/provamaps"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="@id/provamaps"
+        app:layout_constraintTop_toBottomOf="@id/provamaps"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

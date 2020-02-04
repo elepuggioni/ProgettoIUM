@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         }else {
             username.setError(null);
         }
+
         if(password.getText() == null || password.getText().length() == 0
                 || !password.getText().toString().equals(person.getPassword()) ){
 
