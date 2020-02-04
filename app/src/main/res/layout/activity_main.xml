@@ -58,7 +58,7 @@
             android:id="@+id/o1"
             android:layout_width="40dp"
             android:layout_height="33dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="5dp"
             app:srcCompat="@drawable/title_dice" />
 
         <TextView
@@ -71,7 +71,7 @@
             android:id="@+id/o2"
             android:layout_width="40dp"
             android:layout_height="33dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="5dp"
             app:srcCompat="@drawable/title_dice" />
         <TextView
             android:layout_width="wrap_content"

@@ -1,5 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        style="@style/credentials_input_box">
 
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_height="30dp"
+            android:id="@+id/profile"
+            android:background="@drawable/ic_person"/>
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:id="@+id/ic_magnify"
+            android:layout_gravity="center"
+            android:layout_toRightOf="@id/profile"
+            android:background="@drawable/ic_magnify">
+
+        </ImageView>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/ic_magnify">
+
+        </EditText>
+
+    </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:map="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -7,6 +48,8 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Home"
-        tools:layout="@layout/layout_home_map"
-    />
+        tools:context=".Home"/>
+</LinearLayout>
+
+</LinearLayout>
+

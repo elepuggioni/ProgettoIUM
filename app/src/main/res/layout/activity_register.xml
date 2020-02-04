@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Register">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -49,7 +50,7 @@
                     android:layout_width="32dp"
                     android:layout_height="30dp"
                     app:srcCompat="@drawable/title_dice"
-                    android:layout_marginTop="4dp"/>
+                    android:layout_marginTop="5dp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -61,7 +62,7 @@
                     android:id="@+id/o2"
                     android:layout_width="32dp"
                     android:layout_height="30dp"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="5dp"
                     app:srcCompat="@drawable/title_dice" />
                 <TextView
                     android:layout_width="wrap_content"
@@ -86,7 +87,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/credentials_input_title"
-                android:text="Nome e Cognome:"/>
+                android:text="Username"/>
 
             <EditText
                 android:id="@+id/regUsername"
@@ -102,7 +103,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Password:"
+                android:text="Password"
                 style="@style/credentials_input_title"/>
 
             <EditText
@@ -121,7 +122,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Conferma password:"
+                android:text="Conferma password"
                 style="@style/credentials_input_title" />
 
             <EditText

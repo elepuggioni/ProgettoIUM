@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         int errori = 0;
 
         if (username.getText() == null || username.getText().length() == 0
-                || !username.getText().toString().equals(person.getNomeCognome())){
+                || !username.getText().toString().equals(person.getUsername())){
             username.setError("Username non corretto");
             errori++;
         }else {
