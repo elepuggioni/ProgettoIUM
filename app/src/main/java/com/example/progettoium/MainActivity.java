@@ -14,6 +14,10 @@ public class MainActivity extends AppCompatActivity {
     Person person;
     Button provamaps;
     TextView username, password, register;
+    static final String username_debug = "debug";
+    static final String password_debug = "debug";
+    static final boolean DEBUG = true;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +61,10 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean CheckInput() {
         int errori = 0;
+
+        //se la modalità debug è attiva e inserisci le credenziali di debug, per saltare la registrazione
+        if(DEBUG && username.getText().toString().equals(username_debug) && password.getText().toString().equals(password_debug))
+            return true;
 
         if (username.getText() == null || username.getText().length() == 0
                 || !username.getText().toString().equals(person.getUsername())){
