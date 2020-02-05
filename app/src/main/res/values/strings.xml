@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ProgettoIUM</string>
     <string name="title_activity_home">Home</string>
+    <!--<string name="city_title">&citta;, &state;</string>-->
 </resources>
