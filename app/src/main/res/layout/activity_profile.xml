@@ -8,14 +8,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#fff">
 
         <Button
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginBottom="5dp"
             android:background="@drawable/ic_back_arrow"
-            android:id="@+id/goHome">
+            android:id="@+id/goHome2">
         </Button>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -68,7 +69,7 @@
                 android:paddingTop="5dp"
                 android:text="Inserisci la tua bio qui"
                 style="@style/profile_subtitle"
-                android:id="@+id/username_bio">
+                android:id="@+id/profile_bio">
             </TextView>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -93,7 +94,7 @@
                     android:paddingTop="5dp"
                     android:text="La tua città"
                     style="@style/profile_subtitle"
-                    android:id="@+id/username_citta">
+                    android:id="@+id/profile_citta">
                 </TextView>
 
 
@@ -106,7 +107,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="60dp"
-                android:layout_marginLeft="350dp"
+                android:layout_marginLeft="330dp"
                 android:background="@drawable/heart"
 
                 app:layout_constraintEnd_toEndOf="parent"
@@ -117,7 +118,92 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="0dp">
+
+        <TextView
+            android:layout_width="125dp"
+            android:layout_height="60dp"
+            android:background="@drawable/profile_small_box"
+            style="@style/profile_subtitle"
+            android:text="7 Viaggi
+            Completati">
+
+        </TextView>
+        <TextView
+            android:layout_width="125dp"
+            android:layout_height="60dp"
+            android:background="#fff"
+            style="@style/profile_subtitle"
+            android:text="3 Viaggi
+            Programmati">
+
+        </TextView>
+    <TextView
+        android:layout_width="3dp"
+        android:layout_height="20dp"
+        android:background="@color/grigino">
+
+    </TextView>
+        <TextView
+            android:layout_width="125dp"
+            android:layout_height="60dp"
+            android:background="#fff"
+            style="@style/profile_subtitle"
+            android:text="2 Amici">
+
+        </TextView>
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/profile_small_box">
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="120dp"
+                android:background="@color/yellow">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="PARIGI">
+
+                </TextView>
 
 
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="120dp"
+                android:background="@color/yellow">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="BERLINO">
+                </TextView>
+
+
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

@@ -13,7 +13,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="0dp"
             android:layout_marginBottom="35dp"
             android:layout_marginRight="35dp"
             android:layout_marginLeft="35dp"
@@ -21,6 +21,13 @@
 
             <!-- Messaggio superiore -->
 
+            <Button
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/ic_back_arrow"
+                android:id="@+id/goHome1">
+            </Button>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

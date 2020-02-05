@@ -6,17 +6,20 @@ public class Person implements Serializable {
     private String username;
     private String password;
     private String citta;
+    private String bio;
 
     public Person(){
         this.setUsername("");
         this.setPassword("");
         this.setCitta("");
+        this.setBio("");
     }
 
-    public Person(String nomeCognome, String password, String citta){
+    public Person(String nomeCognome, String password, String citta,String bio){
         this.setUsername(nomeCognome);
         this.setPassword(password);
         this.setCitta(citta);
+        this.setBio(bio);
     }
 
 
@@ -42,5 +45,13 @@ public class Person implements Serializable {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
     }
 }

@@ -2,7 +2,11 @@ package com.example.progettoium;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -11,10 +15,14 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.io.Serializable;
+
 public class Home extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    
+    ImageButton profilo;
+    Person person;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +31,27 @@ public class Home extends FragmentActivity implements OnMapReadyCallback {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+
+        Intent intent = getIntent();
+        Serializable obj = intent.getSerializableExtra(Register.PERSONA);
+
+        if(obj instanceof Person){
+            person = (Person) obj;
+        }else {
+            person = new Person();
+        }
+
+        profilo = findViewById(R.id.profile);
+
+        profilo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent showProfile = new Intent(Home.this, Profile.class);
+                showProfile.putExtra(Register.PERSONA,person);
+                startActivity(showProfile);
+            }
+        });
     }
 
 
