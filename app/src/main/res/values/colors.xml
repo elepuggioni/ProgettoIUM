@@ -7,5 +7,7 @@
     <color name="yellow">#FFC82C</color>
     <color name="light_grey">#808080</color>
     <color name="grigino">#20608DA0</color>
+    <color name="grigio">#808080</color>
     <color name="black">#FF222222</color>
+    <color name="bianco">#FFFFFF</color>
 </resources>
