@@ -14,10 +14,12 @@ public class MainActivity extends AppCompatActivity {
     Person person;
     Button provamaps;
     TextView username, password, register;
+
+    //variabili di debug
     static final String username_debug = "debug";
     static final String password_debug = "debug";
     static final boolean DEBUG = true;
-
+    TextView debug_profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +59,21 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(showRegister);
             }
         });
+
+        //shortcut al profilo
+        if(DEBUG) {
+            debug_profile = findViewById(R.id.debug_profile);
+            debug_profile.setText(new String("Profile"));
+            debug_profile.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent showProfile = new Intent(MainActivity.this, Profile.class);
+                    showProfile.putExtra(Register.PERSONA, person);
+                    startActivity(showProfile);
+                }
+            });
+        }
+
     }
 
     private boolean CheckInput() {
