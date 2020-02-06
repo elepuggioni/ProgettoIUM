@@ -1,14 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PlanTrip">
 
-    <Button
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/ic_back_arrow"
-        android:id="@+id/goHome">
-    </Button>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <Button
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/ic_back_arrow"
+            android:id="@+id/goHome">
+        </Button>
 
+        <!--da rendere dinamico il testo-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Milano, Italy"
+            android:textAlignment="center"
+            style="@style/page_titles_style"
+            android:id="@+id/titlePlan"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="5dp" />
+
+        <!--da rendere dinamica l'immagine-->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:padding="0dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/milano"
+            android:id="@+id/imgPlan"/>
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="15dp" />
+
+    <!--campi da compilare-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginLeft="35dp"
+        android:orientation="vertical">
+
+        <!--Calendario-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:layout_width="172dp"
+                android:layout_height="wrap_content"
+                style="@style/credentials_input_box"
+                android:inputType="date"
+                android:textAlignment="center"
+                android:hint="Partenza"
+                android:id="@+id/partenzaDate"/>
+            <EditText
+                android:layout_width="172dp"
+                android:layout_height="wrap_content"
+                style="@style/credentials_input_box"
+                android:layout_alignParentRight="true"
+                android:inputType="date"
+                android:textAlignment="center"
+                android:hint="Ritorno"
+                android:id="@+id/ritornoDate"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_date_range_black_24dp"
+                android:layout_centerInParent="true"
+                android:background="@color/bianco"
+                android:id="@+id/dateIcon"/>
+
+        </RelativeLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+
+
+        <!--Alloggio-->
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown"
+            style="@style/credentials_input_box"
+            android:id="@+id/dropdownAlloggio"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+
+        <!--Budget-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Budget"
+            android:layout_marginBottom="15dp"
+            style="@style/credentials_input_title"
+            android:id="@+id/budgetTitle"/>
+
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/seekbarBudget"
+            android:max="5000" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="   0"
+                android:id="@+id/seekbarLeftText"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="5000+"
+                android:gravity="right"
+                android:id="@+id/seekbarRightText"/>
+        </RelativeLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+
+        <Button
+            android:id="@+id/continuaPlan1"
+            style="@style/buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Continua"
+            android:paddingRight="10dp"
+            android:paddingLeft="30dp"
+            android:drawableRight="@drawable/ic_arrow_forward_black_24dp"/>
+
+    </LinearLayout>
 </LinearLayout>
+

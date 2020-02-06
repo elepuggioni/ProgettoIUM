@@ -42,8 +42,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (CheckInput()){
-                    Intent showHome = new Intent(MainActivity.this, Home.class);
-                    showHome.putExtra(Register.PERSONA, person);
+                    Intent showHome = new Intent(MainActivity.this, PlanTrip.class);
                     startActivity(showHome);
                 }
             }
