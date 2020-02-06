@@ -20,7 +20,7 @@
             android:layout_marginLeft="0dp"
             android:layout_height="40dp"
             android:id="@+id/profile"
-            android:background="@drawable/profile_button"/>
+            android:background="@drawable/blob"/>
 
         <ImageView
             android:layout_width="20dp"
