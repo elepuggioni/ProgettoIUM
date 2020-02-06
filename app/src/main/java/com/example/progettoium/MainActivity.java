@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     static final String username_debug = "debug";
     static final String password_debug = "debug";
     static final boolean DEBUG = true;
-    TextView debug_profile;
+    TextView debug_profile, debug_plan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +72,18 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(showProfile);
                 }
             });
+
+            debug_plan = findViewById(R.id.debug_plan);
+            debug_plan.setText(new String("Pianificazione"));
+            debug_plan.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent showPlan = new Intent(MainActivity.this, PlanTrip.class);
+                    //showProfile.putExtra(Register.PERSONA, person);
+                    startActivity(showPlan);
+                }
+            });
+
         }
 
     }
