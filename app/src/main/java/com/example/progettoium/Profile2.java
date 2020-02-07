@@ -2,6 +2,7 @@ package com.example.progettoium;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,17 +11,17 @@ import android.widget.TextView;
 
 import java.io.Serializable;
 
-public class Profile extends AppCompatActivity {
-    TextView username, bio, citta, planned_trips;
+public class Profile2 extends AppCompatActivity {
+    TextView username, bio, citta, completed_trips;
     Person person;
     Button goHome, editProfile ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_profile2);
         //Transizioni tra le activity
         overridePendingTransition(0,0);
-
         Intent intent = getIntent();
         Serializable obj = intent.getSerializableExtra(Register.PERSONA);
 
@@ -35,7 +36,7 @@ public class Profile extends AppCompatActivity {
         bio = findViewById(R.id.profile_bio);
         goHome = findViewById(R.id.goHome2);
         editProfile = findViewById(R.id.edit_profile);
-        planned_trips = findViewById(R.id.planned_trips);
+        completed_trips = findViewById(R.id.completed_trips);
 
         if (person.getUsername().length() != 0){
             username.setText("@"+person.getUsername());
@@ -58,7 +59,7 @@ public class Profile extends AppCompatActivity {
         goHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent showHome = new Intent(Profile.this, Home.class);
+                Intent showHome = new Intent(Profile2.this, Home.class);
                 showHome.putExtra(Register.PERSONA,person);
                 startActivity(showHome);
             }
@@ -67,18 +68,19 @@ public class Profile extends AppCompatActivity {
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent showEditProfile = new Intent(Profile.this, EditProfile.class);
+                Intent showEditProfile = new Intent(Profile2.this, EditProfile.class);
                 showEditProfile.putExtra(Register.PERSONA,person);
                 startActivity(showEditProfile);
             }
         });
 
-        planned_trips.setOnClickListener(new View.OnClickListener() {
+        completed_trips.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent showProfile2 = new Intent(Profile.this, Profile2.class);
-                showProfile2.putExtra(Register.PERSONA,person);
-                startActivity(showProfile2);
+
+                Intent showProfile = new Intent(Profile2.this, Profile.class);
+                showProfile.putExtra(Register.PERSONA,person);
+                startActivity(showProfile);
             }
         });
     }

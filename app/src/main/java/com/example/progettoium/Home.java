@@ -118,12 +118,16 @@ public class Home extends FragmentActivity implements OnMapReadyCallback {
 
         if(list.size()>0){
             Address address = list.get(0);
-            Toast.makeText(this,address.toString(), Toast.LENGTH_SHORT).show();
-            LatLng city = new LatLng(address.getLatitude(), address.getLongitude());
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(city, 5.5F));
-            MarkerOptions options = new MarkerOptions().position(city).title(address.getAddressLine(0));
-            mMap.addMarker(options)   ;
+            moveCamera(address);
         }
 
+    }
+
+    private void moveCamera(Address address){
+        mMap.clear();
+        LatLng city = new LatLng(address.getLatitude(), address.getLongitude());
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(city, 5.5F));
+        MarkerOptions options = new MarkerOptions().position(city).title(address.getAddressLine(0));
+        mMap.addMarker(options);
     }
 }

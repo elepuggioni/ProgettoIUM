@@ -2,7 +2,9 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:drawable="@drawable/ic_bell"
-        android:id="@+id/bell">
+        android:id="@+id/bell"
+        android:height="30dp"
+        android:width="30dp">
 
     </item>
 
@@ -11,10 +13,10 @@
         android:gravity="end"
         android:height="10dp"
         android:width="10dp"
-        android:top="2dp"
-        android:bottom="2dp"
-        android:left="2dp"
-        android:right="2dp"
-       />
-
+        android:top="20dp"
+        android:bottom="0dp"
+        android:left="0dp"
+        android:right="0dp"
+        >
+    </item>
 </layer-list>
