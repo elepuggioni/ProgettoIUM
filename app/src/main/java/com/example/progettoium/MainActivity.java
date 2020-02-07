@@ -13,11 +13,13 @@ import java.io.Serializable;
 public class MainActivity extends AppCompatActivity {
     Person person;
     Button provamaps;
-    TextView username, password, register, plantrip;
+    TextView username, password, register;
+
+    //variabili di debug
     static final String username_debug = "debug";
     static final String password_debug = "debug";
     static final boolean DEBUG = true;
-
+    TextView debug_profile, debug_plan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         provamaps = findViewById(R.id.provamaps);
-        plantrip = findViewById(R.id.plantrip); //PROVA PLAN TRIP
         username = findViewById(R.id.username_input);
         password = findViewById(R.id.password_input);
         register= findViewById(R.id.register);
@@ -59,14 +60,32 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //PROVA PLAN TRIP
-        plantrip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent showPlantrip = new Intent(MainActivity.this, PlanTrip.class);
-                startActivity(showPlantrip);
-            }
-        });
+        //shortcut al profilo
+        if(DEBUG) {
+            debug_profile = findViewById(R.id.debug_profile);
+            debug_profile.setText(new String("Profile"));
+            debug_profile.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent showProfile = new Intent(MainActivity.this, Profile.class);
+                    showProfile.putExtra(Register.PERSONA, person);
+                    startActivity(showProfile);
+                }
+            });
+
+            debug_plan = findViewById(R.id.debug_plan);
+            debug_plan.setText(new String("Pianificazione"));
+            debug_plan.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent showPlan = new Intent(MainActivity.this, PlanTrip.class);
+                    //showProfile.putExtra(Register.PERSONA, person);
+                    startActivity(showPlan);
+                }
+            });
+
+        }
+
     }
 
     private boolean CheckInput() {

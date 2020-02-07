@@ -1,5 +1,7 @@
 package com.example.progettoium;
 
+import android.widget.ImageView;
+
 import java.io.Serializable;
 
 public class Person implements Serializable {
@@ -7,6 +9,12 @@ public class Person implements Serializable {
     private String password;
     private String citta;
     private String bio;
+/*
+    si può fare così??? idk
+    private ImageView foto;
+    private ImageView copertina;
+*/
+
 
     public Person(){
         this.setUsername("");

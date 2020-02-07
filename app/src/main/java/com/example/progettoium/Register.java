@@ -75,7 +75,7 @@ public class Register extends AppCompatActivity {
         return errori ==0;
     }
 
-    private void UpdatePerson(){
+    protected void UpdatePerson(){
         this.person.setUsername(this.username.getText().toString());
         this.person.setPassword(this.password.getText().toString());
         this.person.setCitta(this.citta.getText().toString());

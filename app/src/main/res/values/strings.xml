@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">ProgettoIUM</string>
+    <string name="app_name">QuoVado?</string>
     <string name="title_activity_home">Home</string>
-    <!--<string name="city_title">&city;, &state;</string>-->
+    <string name="title_activity_prova">Map</string>
+    <!--<string name="city_title">&citta;, &state;</string>-->
 </resources>

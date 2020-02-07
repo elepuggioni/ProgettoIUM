@@ -64,7 +64,6 @@ public class Profile extends AppCompatActivity {
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent showEditProfile = new Intent(Profile.this, EditProfile.class);
                 showEditProfile.putExtra(Register.PERSONA,person);
                 startActivity(showEditProfile);

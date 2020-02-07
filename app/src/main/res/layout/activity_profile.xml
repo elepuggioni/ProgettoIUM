@@ -92,34 +92,35 @@
                 style="@style/profile_subtitle"
                 android:id="@+id/profile_bio">
             </TextView>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
 
-                <ImageView
-                    android:layout_width="12dp"
-                    android:layout_height="12dp"
-                    android:layout_marginRight="5dp"
-                    android:background="@drawable/placeholder"
-                    android:backgroundTint="@color/light_grey"
-                    android:layout_gravity="bottom"
-                    android:layout_marginBottom="3dp">
-
-                </ImageView>
-
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingTop="5dp"
-                    android:text="La tua città"
-                    style="@style/profile_subtitle"
-                    android:id="@+id/profile_citta">
-                </TextView>
+                    android:clickable="false"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:layout_gravity="bottom"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="3dp"
+                        android:background="@drawable/placeholder"
+                        android:backgroundTint="@color/light_grey">
+
+                    </ImageView>
+
+                    <TextView
+                        android:id="@+id/profile_citta"
+                        style="@style/profile_subtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:text="La tua città"></TextView>
 
 
-            </LinearLayout>
+                </LinearLayout>
 
 
             </LinearLayout>
