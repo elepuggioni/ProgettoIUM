@@ -1,21 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     tools:context=".Home">
-    <LinearLayout
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Home"
+        map:layout_constraintStart_toStartOf="parent"
+        map:layout_constrainedHeight="true"
+        map:layout_constraintEnd_toEndOf="parent"
+        map:layout_constraintTop_toTopOf="parent"
+        />
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="10dp"
         android:orientation="horizontal"
-        style="@style/credentials_input_box">
+        android:background="@drawable/white_border">
 
         <ImageButton
             android:layout_width="40dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="0dp"
             android:layout_height="40dp"
@@ -26,7 +41,7 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:id="@+id/ic_magnify"
-            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
             android:layout_toRightOf="@id/profile"
             android:background="@drawable/ic_magnify">
@@ -35,46 +50,29 @@
 
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_toRightOf="@id/profile"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/ic_magnify"
             android:hint="Seleziona la tua prossima destinazione"
             style="@style/search_bar_style"
-            android:id="@+id/search">
+            android:id="@+id/search"
+            android:imeOptions="actionSearch">
 
         </EditText>
 
-    </LinearLayout>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    </RelativeLayout>
 
-        <Button
-            android:id="@+id/random"
-            android:layout_width="56dp"
-            android:layout_height="51dp"
-            android:layout_marginTop="584dp"
-            android:background="@drawable/random_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.916"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:map="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/map"
-            android:name="com.google.android.gms.maps.SupportMapFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context=".Home"
-            map:layout_constraintStart_toStartOf="parent"
-            map:layout_constrainedHeight="true"
-            map:layout_constraintEnd_toEndOf="parent"
-            map:layout_constraintTop_toTopOf="parent"
-            />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/random"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="500dp"
+        android:layout_marginLeft="270dp"
+        android:background="@drawable/random_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.916"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
-</LinearLayout>
+</RelativeLayout>
 

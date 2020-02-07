@@ -3,10 +3,18 @@ package com.example.progettoium;
 import androidx.fragment.app.FragmentActivity;
 
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -15,14 +23,19 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Home extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     ImageButton profilo;
     Person person;
+    EditText mSearchText;
 
+    //Widgets
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +56,7 @@ public class Home extends FragmentActivity implements OnMapReadyCallback {
         }
 
         profilo = findViewById(R.id.profile);
+        mSearchText = findViewById(R.id.search);
 
         profilo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +66,8 @@ public class Home extends FragmentActivity implements OnMapReadyCallback {
                 startActivity(showProfile);
             }
         });
+
+        init();
     }
 
 
@@ -72,5 +88,42 @@ public class Home extends FragmentActivity implements OnMapReadyCallback {
         LatLng cagliari = new LatLng(39.226979, 9.114642);
         mMap.addMarker(new MarkerOptions().position(cagliari).title("Marker in Cagliari"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(cagliari, 5.5F));
+    }
+
+    private void init(){
+        mSearchText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent keyEvent) {
+                if(actionId == EditorInfo.IME_ACTION_SEARCH
+                || actionId== EditorInfo.IME_ACTION_DONE
+                || keyEvent.getAction() == KeyEvent.ACTION_DOWN
+                || keyEvent.getAction() == KeyEvent.KEYCODE_ENTER){
+                    geoLocate();
+                }
+                return false;
+            }
+        });
+    }
+
+    private void geoLocate(){
+        String searchString = mSearchText.getText().toString();
+
+        Geocoder geocoder = new Geocoder(Home.this);
+        List<Address> list = new ArrayList<>();
+        try {
+            list = geocoder.getFromLocationName(searchString,1);
+        }catch (IOException e){
+
+        };
+
+        if(list.size()>0){
+            Address address = list.get(0);
+            Toast.makeText(this,address.toString(), Toast.LENGTH_SHORT).show();
+            LatLng city = new LatLng(address.getLatitude(), address.getLongitude());
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(city, 5.5F));
+            MarkerOptions options = new MarkerOptions().position(city).title(address.getAddressLine(0));
+            mMap.addMarker(options)   ;
+        }
+
     }
 }
