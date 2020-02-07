@@ -13,7 +13,7 @@ import java.io.Serializable;
 public class MainActivity extends AppCompatActivity {
     Person person;
     Button provamaps;
-    TextView username, password, register;
+    TextView username, password, register, plantrip;
     static final String username_debug = "debug";
     static final String password_debug = "debug";
     static final boolean DEBUG = true;
@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         provamaps = findViewById(R.id.provamaps);
+        plantrip = findViewById(R.id.plantrip); //PROVA PLAN TRIP
         username = findViewById(R.id.username_input);
         password = findViewById(R.id.password_input);
         register= findViewById(R.id.register);
@@ -55,6 +56,15 @@ public class MainActivity extends AppCompatActivity {
                 Intent showRegister = new Intent(MainActivity.this, Register.class);
                 showRegister.putExtra(Register.PERSONA,person);
                 startActivity(showRegister);
+            }
+        });
+
+        //PROVA PLAN TRIP
+        plantrip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent showPlantrip = new Intent(MainActivity.this, PlanTrip.class);
+                startActivity(showPlantrip);
             }
         });
     }
