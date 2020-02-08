@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             });
 
             debug_plan = findViewById(R.id.debug_plan);
-            debug_plan.setText(new String("Modifica viaggio"));
+            debug_plan.setText(new String("Pianificazione"));
             debug_plan.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
             });
 
             debug_edittrip = findViewById(R.id.debug_edittrip);
-            debug_edittrip.setText(new String("Pianificazione"));
+            debug_edittrip.setText(new String("Modifica viaggio"));
             debug_edittrip.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
