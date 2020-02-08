@@ -2,5 +2,11 @@
     <string name="app_name">QuoVado?</string>
     <string name="title_activity_home">Home</string>
     <string name="title_activity_prova">Map</string>
-    <!--<string name="city_title">&citta;, &state;</string>-->
+    <string-array name="tipo_alloggio">
+        <item>Scegli il tipo di alloggio</item>
+        <item>Bed \u0026 Breakfast</item>
+        <item>Albergo</item>
+        <item>Appartamento</item>
+    </string-array>
+    <!--<string name="city_title">%1$s</string>-->
 </resources>
