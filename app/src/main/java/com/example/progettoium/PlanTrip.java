@@ -3,6 +3,7 @@ package com.example.progettoium;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -21,7 +22,12 @@ public class PlanTrip extends AppCompatActivity {
     TextView titleCity;
     ImageView image;
     Spinner alloggio;
+
     SeekBar budget;
+    TextView bTitle;
+    int minValue = 0;
+    int maxValue = 1500;
+    int modelValue = 0;
 
     Trip viaggio;
 
@@ -35,6 +41,7 @@ public class PlanTrip extends AppCompatActivity {
         image = findViewById(R.id.imgPlan);
         alloggio = findViewById(R.id.dropdownAlloggio);
         budget = findViewById(R.id.seekbarBudget);
+        bTitle = findViewById(R.id.budgetTitle);
 
         viaggio = new Trip();
         viaggio.setCity(titleCity.toString());
@@ -62,6 +69,22 @@ public class PlanTrip extends AppCompatActivity {
         });
 
 
+        budget.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                updateValue(seekBar.getProgress());
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                updateValue(seekBar.getProgress());
+            }
+        });
+
+        viaggio.setBudget(modelValue);
 
         goBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,5 +94,21 @@ public class PlanTrip extends AppCompatActivity {
             }
         });
 
+    }
+
+    protected void updateValue(int newValue){
+        //verifico che newValue sia nel range e minore di 100
+        newValue = newValue > maxValue ? maxValue : newValue;
+        //verifico che newValue sia nel range e maggiore di 0
+        newValue = newValue < minValue ? minValue : newValue;
+
+        //aggiorno il valore visualizzato sulla seekbar
+        if(this.budget.getProgress() != modelValue){
+            this.budget.setProgress(modelValue);
+        }
+
+        //aggiorno la variabile che indica il valore attuale della calcolatrice
+        this.modelValue = newValue;
+        bTitle.setText("Budget: "+this.modelValue);
     }
 }
