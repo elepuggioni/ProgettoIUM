@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/ic_magnify"
-            android:hint="Seleziona la tua prossima destinazione"
+            android:hint="Cerca la tua prossima destinazione"
             style="@style/search_bar_style"
             android:id="@+id/search"
             android:imeOptions="actionSearch">
@@ -66,7 +66,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="500dp"
-        android:layout_marginLeft="270dp"
+        android:layout_marginLeft="295dp"
         android:background="@drawable/random_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.916"

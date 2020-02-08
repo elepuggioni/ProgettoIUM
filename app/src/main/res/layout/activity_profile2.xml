@@ -163,7 +163,7 @@
 
             </TextView>
             <TextView
-                android:layout_width="112dp"
+                android:layout_width="113dp"
                 android:layout_height="60dp"
                 android:background="@color/grigino"
                 style="@style/profile_subtitle"
@@ -196,23 +196,23 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="0dp"
-                android:paddingTop="10dp"
+                android:paddingTop="5dp"
                 android:background="@color/grigino"
                 android:orientation="horizontal">
                 <ImageButton
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_marginLeft="50dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="5dp"
                     android:background="@drawable/ic_action_name">
 
                 </ImageButton>
                 <LinearLayout
-                    android:layout_width="200dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
+                    android:layout_width="210dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
                     android:orientation="vertical"
                     style="@style/profile_subtitle"
                     android:gravity="start">
@@ -220,6 +220,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Milano"
+                        android:textSize="16dp"
+                        android:fontFamily="@font/roboto_medium"
                         android:textColor="#000">
 
                     </TextView>
@@ -227,7 +229,10 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="13/04/2020  -  20/04/2020">
+                        android:text="13/04/2020  -  20/04/2020"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textSize="14dp"
+                        android:layout_marginBottom="5dp">
 
                     </TextView>
                     <LinearLayout
@@ -235,8 +240,8 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <ImageButton
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
                             android:background="@drawable/blob"
                             android:layout_marginRight="5dp">
                         </ImageButton>
@@ -252,63 +257,201 @@
 
 
                 <ImageButton
-                    android:layout_width="35.5dp"
-                    android:layout_height="29.5dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_gravity="center_vertical"
                     android:background="@drawable/bin">
 
                 </ImageButton>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
+            <TextView
                 android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="135dp"
-                android:background="@drawable/bangkok">
+                android:layout_height="0.2dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="55dp"
+                android:layout_marginRight="0dp"
+                android:alpha="0.3"
+                android:background="@color/grigio">
 
-                <TextView
-                    style="@style/trips_completed"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="BANGKOK">
-                </TextView>
+            </TextView>
+            </LinearLayout>
 
-                <TextView
-                    style="@style/trips_completed_date"
-                    android:layout_width="match_parent"
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:paddingTop="10dp"
+            android:background="@color/grigino">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:paddingTop="5dp"
+                android:background="@color/grigino"
+                android:orientation="horizontal">
+                <ImageButton
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/ic_action_name">
+
+                </ImageButton>
+                <LinearLayout
+                    android:layout_width="210dp"
                     android:layout_height="wrap_content"
-                    android:text="1.03.19 - 14.03.19">
-                </TextView>
+                    android:layout_marginLeft="20dp"
+                    android:orientation="vertical"
+                    style="@style/profile_subtitle"
+                    android:gravity="start">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Vienna"
+                        android:textSize="16dp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:textColor="#000">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="7/02/2020  -  13/02/2020"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textSize="14dp"
+                        android:layout_marginBottom="5dp">
+
+                    </TextView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <ImageButton
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:background="@drawable/blob"
+                            android:layout_marginRight="5dp">
+                        </ImageButton>
+
+                        <ImageButton
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@drawable/amico2"
+                            android:layout_marginRight="5dp">
+                        </ImageButton>
+
+                        <ImageButton
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@drawable/amico1">
+                        </ImageButton>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <ImageButton
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/bin">
+
+                </ImageButton>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="55dp"
+                android:layout_marginRight="0dp"
+                android:alpha="0.3"
+                android:background="@color/grigio">
+
+            </TextView>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_horizontal">
+                    android:layout_marginBottom="0dp"
+                    android:paddingTop="5dp"
+                    android:background="@color/grigino"
+                    android:orientation="horizontal">
                     <ImageButton
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:background="@drawable/blob"
-                        android:layout_marginRight="5dp">
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/ic_action_name">
+
                     </ImageButton>
+                    <LinearLayout
+                        android:layout_width="210dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:orientation="vertical"
+                        style="@style/profile_subtitle"
+                        android:gravity="start">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Parigi"
+                            android:textSize="16dp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:textColor="#000">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="30/12/2019  -  3/01/2020"
+                            android:fontFamily="@font/roboto_regular"
+                            android:textSize="14dp"
+                            android:layout_marginBottom="5dp">
+
+                        </TextView>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <ImageButton
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:background="@drawable/blob"
+                                android:layout_marginRight="5dp">
+                            </ImageButton>
+
+                            <ImageButton
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:background="@drawable/amico2">
+                            </ImageButton>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
 
                     <ImageButton
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:background="@drawable/amico2"
-                        android:layout_marginRight="5dp">
-                    </ImageButton>
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/bin">
 
-                    <ImageButton
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:background="@drawable/amico1">
                     </ImageButton>
                 </LinearLayout>
+
+
             </LinearLayout>
+
         </LinearLayout>
-    </LinearLayout>
 </ScrollView>
