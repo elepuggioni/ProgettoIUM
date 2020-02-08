@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     static final String username_debug = "debug";
     static final String password_debug = "debug";
     static final boolean DEBUG = true;
-    TextView debug_profile, debug_plan;
+    TextView debug_profile, debug_plan, debug_edittrip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,23 +29,23 @@ public class MainActivity extends AppCompatActivity {
         provamaps = findViewById(R.id.provamaps);
         username = findViewById(R.id.username_input);
         password = findViewById(R.id.password_input);
-        register= findViewById(R.id.register);
+        register = findViewById(R.id.register);
 
         Intent intent = getIntent();
         Serializable obj = intent.getSerializableExtra(Register.PERSONA);
 
-        if(obj instanceof Person){
+        if (obj instanceof Person) {
             person = (Person) obj;
-        }else {
+        } else {
             person = new Person();
         }
 
         provamaps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (CheckInput()){
+                if (CheckInput()) {
                     Intent showHome = new Intent(MainActivity.this, Home.class);
-                    showHome.putExtra(Register.PERSONA,person);
+                    showHome.putExtra(Register.PERSONA, person);
                     startActivity(showHome);
                 }
             }
@@ -55,13 +55,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent showRegister = new Intent(MainActivity.this, Register.class);
-                showRegister.putExtra(Register.PERSONA,person);
+                showRegister.putExtra(Register.PERSONA, person);
                 startActivity(showRegister);
             }
         });
 
         //shortcut al profilo
-        if(DEBUG) {
+        if (DEBUG) {
             debug_profile = findViewById(R.id.debug_profile);
             debug_profile.setText(new String("Profile"));
             debug_profile.setOnClickListener(new View.OnClickListener() {
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             });
 
             debug_plan = findViewById(R.id.debug_plan);
-            debug_plan.setText(new String("Pianificazione"));
+            debug_plan.setText(new String("Modifica viaggio"));
             debug_plan.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -84,10 +84,18 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
+            debug_edittrip = findViewById(R.id.debug_edittrip);
+            debug_edittrip.setText(new String("Pianificazione"));
+            debug_edittrip.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent showPlan = new Intent(MainActivity.this, EditTrip.class);
+                    //showProfile.putExtra(Register.PERSONA, person);
+                    startActivity(showPlan);
+                }
+            });
         }
-
     }
-
     private boolean CheckInput() {
         int errori = 0;
 

@@ -280,7 +280,7 @@
 
             <Button
                 android:id="@+id/salva"
-                style="@style/buttons"
+                style="@style/buttons_with_arrow"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Salva" />

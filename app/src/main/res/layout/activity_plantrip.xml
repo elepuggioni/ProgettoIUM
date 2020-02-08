@@ -159,13 +159,10 @@
 
         <Button
             android:id="@+id/continuaPlan1"
-            style="@style/buttons"
+            style="@style/buttons_with_arrow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Continua"
-            android:paddingRight="10dp"
-            android:paddingLeft="30dp"
-            android:drawableRight="@drawable/ic_arrow_forward_black_24dp"/>
+            android:text="Continua" />
 
     </LinearLayout>
     </LinearLayout>

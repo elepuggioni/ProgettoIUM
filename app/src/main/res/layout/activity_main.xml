@@ -177,4 +177,11 @@
         android:layout_height="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/debug_profile" />
+
+    <TextView
+        android:id="@+id/debug_edittrip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/debug_plan" />
 </androidx.constraintlayout.widget.ConstraintLayout>
