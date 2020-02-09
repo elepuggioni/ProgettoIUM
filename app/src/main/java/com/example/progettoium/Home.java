@@ -13,6 +13,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
@@ -127,7 +129,20 @@ public class Home extends FragmentActivity implements OnMapReadyCallback {
         mMap.clear();
         LatLng city = new LatLng(address.getLatitude(), address.getLongitude());
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(city, 5.5F));
-        MarkerOptions options = new MarkerOptions().position(city).title(address.getAddressLine(0));
-        mMap.addMarker(options);
+
+        mMap.setInfoWindowAdapter(new CityWindow(Home.this));
+        final Marker marker = mMap.addMarker(new MarkerOptions()
+                .position(city)
+                .title(address.getAddressLine(0)));
+
+        marker.showInfoWindow();
+
+        mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+            @Override
+            public void onInfoWindowClick(Marker marker) {
+                Intent showPlanTrip = new Intent(Home.this, PlanTrip.class);
+                startActivity(showPlanTrip);
+            }
+        });
     }
 }
