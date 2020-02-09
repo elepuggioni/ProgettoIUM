@@ -3,6 +3,8 @@ package com.example.progettoium;
 import androidx.fragment.app.FragmentActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
@@ -21,6 +23,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -131,9 +134,13 @@ public class Home extends FragmentActivity implements OnMapReadyCallback {
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(city, 5.5F));
 
         mMap.setInfoWindowAdapter(new CityWindow(Home.this));
+
+
         final Marker marker = mMap.addMarker(new MarkerOptions()
                 .position(city)
-                .title(address.getAddressLine(0)));
+                .title(address.getAddressLine(0))
+                //.icon(BitmapDescriptorFactory.fromAsset()
+        );
 
         marker.showInfoWindow();
 
