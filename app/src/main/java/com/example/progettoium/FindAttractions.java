@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -22,8 +24,11 @@ import java.util.List;
 
 public class FindAttractions extends FragmentActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
-    TextView title;
+    TextView title, subtitle1;
     Trip trip;
+    int categoria;
+    Button confirm;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +48,33 @@ public class FindAttractions extends FragmentActivity implements OnMapReadyCallb
 
         title = findViewById(R.id.attraction_title);
         title.setText(trip.getCity());
+
+        int obj2 = intent.getIntExtra(Activities.CATEGORIA,0);
+        if (obj2!= 0){
+            categoria = obj2;
+        }
+
+        showActivities(categoria);
+        subtitle1 =findViewById(R.id.attraction_subtitle1);
+        switch (categoria){
+            case 1: subtitle1.setText("ARTE");
+            break;
+            case 2: subtitle1.setText("SPORT");
+            break;
+            case 3: subtitle1.setText("SHOPPING");
+            break;
+            case 4: subtitle1.setText("RISTORANTI");
+            break;
+            default: subtitle1.setText("CATEGORIA NON TROVATA");
+        }
+
+        confirm = findViewById(R.id.attraction_confirm);
+        /*confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });*/
+
     }
 
     @Override
@@ -60,5 +92,15 @@ public class FindAttractions extends FragmentActivity implements OnMapReadyCallb
             LatLng citta = new LatLng(address.getLatitude(),address.getLongitude());
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(citta, 12F));
         }
+    }
+
+    public void showActivities(int categoria){
+        /*switch (categoria){
+            case 1:
+                int i =0;
+                for(i, i<5, ++i ){
+
+                };
+        }*/
     }
 }

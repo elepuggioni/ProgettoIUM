@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.io.Serializable;
 
 public class Activities extends AppCompatActivity {
+    public static final String CATEGORIA = "Categoria";
+
     Button goBack, continua;
     TextView titleCity;
     ImageView arte, sport, shopping, risto;
@@ -41,12 +43,13 @@ public class Activities extends AppCompatActivity {
             viaggio = new Trip();
         }
 
-        //scelta diverse categorie
-        /*arte.setOnClickListener(new View.OnClickListener() {
+        //scelta diverse categorie; viene passato un valore all'activity
+        arte.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent showArte = new Intent(Activities.this, ChooseArt.class);
-                showArte.putExtra(PlanTrip.VIAGGIO, viaggio);
+                Intent showArte = new Intent(Activities.this, FindAttractions.class);
+                showArte.putExtra(Home.TRIP, viaggio);
+                showArte.putExtra(Activities.CATEGORIA, 1);
                 startActivity(showArte);
             }
         });
@@ -54,8 +57,9 @@ public class Activities extends AppCompatActivity {
         sport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent showSport = new Intent(Activities.this, ChooseSport.class);
-                showSport.putExtra(PlanTrip.VIAGGIO, viaggio);
+                Intent showSport = new Intent(Activities.this, FindAttractions.class);
+                showSport.putExtra(Home.TRIP, viaggio);
+                showSport.putExtra(Activities.CATEGORIA, 2);
                 startActivity(showSport);
             }
         });
@@ -63,8 +67,9 @@ public class Activities extends AppCompatActivity {
         shopping.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent showShopping = new Intent(Activities.this, ChooseShopping.class);
-                showShopping.putExtra(PlanTrip.VIAGGIO, viaggio);
+                Intent showShopping = new Intent(Activities.this, FindAttractions.class);
+                showShopping.putExtra(Home.TRIP, viaggio);
+                showShopping.putExtra(Activities.CATEGORIA, 3);
                 startActivity(showShopping);
             }
         });
@@ -72,11 +77,12 @@ public class Activities extends AppCompatActivity {
         risto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent showRisto = new Intent(Activities.this, ChooseRestaurant.class);
-                showRisto.putExtra(PlanTrip.VIAGGIO, viaggio);
+                Intent showRisto = new Intent(Activities.this, FindAttractions.class);
+                showRisto.putExtra(Home.TRIP, viaggio);
+                showRisto.putExtra(Activities.CATEGORIA, 4);
                 startActivity(showRisto);
             }
-        });*/
+        });
 
 
         //Continua su scelta amici

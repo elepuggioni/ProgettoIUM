@@ -52,14 +52,14 @@
         android:textStyle="bold"
         android:textSize="20dp"
         style="@style/profile_subtitle"
+        android:id="@+id/attraction_subtitle1"
         android:text="Categoria">
 
     </TextView>
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="@color/yellow"
-        >
+        android:background="@color/yellow">
 
     </ImageView>
 
@@ -70,6 +70,7 @@
         android:layout_marginBottom="20dp"
         android:textSize="16dp"
         style="@style/profile_subtitle"
+        android:id="@+id/attraction_subtitle2"
         android:text="Seleziona le attrazioni da \nvedere nel tuo prossimo viaggio">
 
     </TextView>
@@ -143,6 +144,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/buttons"
+        android:id="@+id/attraction_confirm"
         android:text="Continua">
 
     </Button>
