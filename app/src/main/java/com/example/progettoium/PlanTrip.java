@@ -18,7 +18,7 @@ import android.widget.TextView;
 public class PlanTrip extends AppCompatActivity {
     public static final String VIAGGIO = "Viaggio";
 
-    Button goBack;
+    Button goBack, continua;
     TextView titleCity;
     ImageView image;
     Spinner alloggio;
@@ -37,6 +37,7 @@ public class PlanTrip extends AppCompatActivity {
         setContentView(R.layout.activity_plantrip);
 
         goBack = findViewById(R.id.goHome);
+        continua = findViewById(R.id.continuaPlan1);
         titleCity = findViewById(R.id.titlePlan);
         image = findViewById(R.id.imgPlan);
         alloggio = findViewById(R.id.dropdownAlloggio);
@@ -50,8 +51,6 @@ public class PlanTrip extends AppCompatActivity {
                 (this,R.array.tipo_alloggio, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         alloggio.setAdapter(adapter);
-
-
 
         alloggio.setOnItemSelectedListener(new OnItemSelectedListener(){
 
@@ -69,9 +68,13 @@ public class PlanTrip extends AppCompatActivity {
         });
 
 
+        budget.incrementProgressBy(50);
         budget.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                progress = progress / 50;
+                progress = progress * 50;
+                bTitle.setText("Budget: "+ progress);
                 updateValue(seekBar.getProgress());
             }
             @Override
@@ -85,6 +88,15 @@ public class PlanTrip extends AppCompatActivity {
         });
 
         viaggio.setBudget(modelValue);
+
+        continua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent showContinua = new Intent(PlanTrip.this, Activities.class);
+                showContinua.putExtra(VIAGGIO, viaggio);
+                startActivity(showContinua);
+            }
+        });
 
         goBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,6 +121,5 @@ public class PlanTrip extends AppCompatActivity {
 
         //aggiorno la variabile che indica il valore attuale della calcolatrice
         this.modelValue = newValue;
-        bTitle.setText("Budget: "+this.modelValue);
     }
 }

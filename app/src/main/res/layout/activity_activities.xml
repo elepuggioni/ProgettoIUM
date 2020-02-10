@@ -165,7 +165,7 @@
             android:layout_height="20dp"/>
 
         <Button
-            android:id="@+id/continuaPlan1"
+            android:id="@+id/continuaPlan2"
             style="@style/buttons_with_arrow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
