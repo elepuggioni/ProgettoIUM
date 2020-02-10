@@ -115,7 +115,6 @@
             android:spinnerMode="dropdown"
             android:entries="@array/tipo_alloggio"
             android:dropDownWidth="fill_parent"
-
             style="@style/credentials_input_box"
             android:id="@+id/dropdownAlloggio"/>
 
