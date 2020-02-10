@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Profile">
+    tools:context=".Profile2">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -153,32 +160,35 @@
             android:layout_marginBottom="0dp">
 
             <TextView
-                android:layout_width="110dp"
-                android:layout_height="60dp"
                 android:id="@+id/completed_trips"
                 style="@style/profile_subtitle"
+                android:layout_width="125dp"
+                android:layout_height="60dp"
                 android:paddingRight="0dp"
                 android:text="7 Viaggi
             Completati">
 
             </TextView>
+
             <TextView
-                android:layout_width="113dp"
+                style="@style/profile_subtitle"
+                android:layout_width="125dp"
                 android:layout_height="60dp"
                 android:background="@color/grigino"
-                style="@style/profile_subtitle"
                 android:text="3 Viaggi
             Programmati">
 
             </TextView>
+
             <TextView
-                android:layout_width="115dp"
+                android:id="@+id/friends"
+                style="@style/profile_subtitle"
+                android:layout_width="fill_parent"
                 android:layout_height="60dp"
                 android:background="#fff"
-                style="@style/profile_subtitle"
                 android:gravity="center"
-                android:textAlignment="center"
-                android:text="2 Amici">
+                android:text="2 Amici"
+                android:textAlignment="center">
 
             </TextView>
         </LinearLayout>
@@ -455,3 +465,4 @@
 
         </LinearLayout>
 </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

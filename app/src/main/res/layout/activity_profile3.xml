@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Profile3">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/goHome2"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/ic_back_arrow"/>
+
+                <Button
+                    android:id="@+id/notification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="300dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/notification_1">
+
+                </Button>
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/copertina"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@color/yellow"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <ImageView
+                    android:id="@+id/profile_button"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="88dp"
+                    android:background="@drawable/blob"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                </ImageView>
+
+                <LinearLayout
+                    android:id="@+id/descriptions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/profile_button">
+
+                    <TextView
+                        android:id="@+id/username_profile"
+                        style="@style/profile_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="\@username">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/profile_bio"
+                        style="@style/profile_subtitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:text="Inserisci la tua bio qui"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:layout_gravity="bottom"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginBottom="3dp"
+                            android:background="@drawable/placeholder"
+                            android:backgroundTint="@color/light_grey">
+
+                        </ImageView>
+
+                        <TextView
+                            android:id="@+id/profile_citta"
+                            style="@style/profile_subtitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"
+                            android:text="La tua città">
+
+                        </TextView>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/edit_profile"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="300dp"
+                    android:background="@drawable/pencil"
+                    app:layout_constraintBottom_toBottomOf="@id/descriptions"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/profile_small_box"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="1dp">
+
+                <TextView
+                    android:id="@+id/completed_trips"
+                    style="@style/profile_subtitle"
+                    android:layout_width="125dp"
+                    android:layout_height="60dp"
+                    android:paddingRight="0dp"
+                    android:text="7 Viaggi             Completati">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/planned_trips"
+                    style="@style/profile_subtitle"
+                    android:layout_width="125dp"
+                    android:layout_height="60dp"
+                    android:autoText="false"
+                    android:text="3 Viaggi Programmati">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/friends"
+                    style="@style/profile_subtitle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="60dp"
+                    android:background="@color/grigino"
+                    android:clickable="false"
+                    android:text="2 Amici"
+                    android:textAlignment="center">
+
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="15dp"
+                android:background="@color/grigino"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="10dp">
+
+                <SearchView
+                    android:id="@+id/searchbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@color/bianco"
+                    android:queryHint="Cerca amici o persone..." />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="15dp"
+                android:background="@color/grigino"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="0dp"
+                    android:background="@color/grigino"
+                    android:orientation="horizontal"
+                    android:paddingTop="5dp">
+
+                    <ImageButton
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/amico2">
+
+                    </ImageButton>
+
+                    <LinearLayout
+                        style="@style/profile_subtitle"
+                        android:layout_width="210dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="start"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="Mary Jane Watson"
+                            android:textColor="#000"
+                            android:textSize="16dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="Johannesbourg, South Africa"
+                            android:textSize="14dp">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+
+                    <ImageButton
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/add_contact">
+
+                    </ImageButton>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0.2dp"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginBottom="10dp"
+                    android:alpha="0.3"
+                    android:background="@color/grigio">
+
+                </TextView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="0dp"
+                    android:background="@color/grigino"
+                    android:orientation="horizontal"
+                    android:paddingTop="5dp">
+
+                    <ImageButton
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/amico1">
+
+                    </ImageButton>
+
+                    <LinearLayout
+                        style="@style/profile_subtitle"
+                        android:layout_width="210dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="start"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="Mark Ruffalo"
+                            android:textColor="#000"
+                            android:textSize="16dp">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="Kenosha, United States"
+                            android:textSize="14dp">
+
+                        </TextView>
+
+                    </LinearLayout>
+
+
+                    <ImageButton
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/remove_contact" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
