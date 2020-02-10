@@ -20,7 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Profile3"></activity>
+        <activity android:name=".FindAttractions" />
         <activity android:name=".EditTrip" />
         <activity android:name=".Profile2" />
         <!--
@@ -39,6 +39,7 @@
         <activity android:name=".Profile" />
         <activity android:name=".Register" />
         <activity android:name=".PlanTrip" />
+        <activity android:name=".Activities" />
 
         <meta-data
             android:name="com.google.android.gms.version"

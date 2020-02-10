@@ -40,7 +40,7 @@ public class CityWindow implements GoogleMap.InfoWindowAdapter{
         if(title.equals("Milano MI, Italia")){
             tvImage.setImageResource(R.drawable.milano);
         }else if(title.equals("Roma RM, Italia")){
-            tvImage.setImageResource(R.drawable.roma);
+            tvImage.setImageResource(R.drawable.milano);
         }
 
         tvImage.setScaleType(ImageView.ScaleType.CENTER_CROP);

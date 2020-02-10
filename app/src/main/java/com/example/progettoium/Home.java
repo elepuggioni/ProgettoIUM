@@ -5,6 +5,8 @@ import androidx.fragment.app.FragmentActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
@@ -23,6 +25,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -34,11 +37,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Home extends FragmentActivity implements OnMapReadyCallback {
-
+    public static final String TRIP = "Trip";
     private GoogleMap mMap;
     ImageButton profilo;
-    Person person;
     EditText mSearchText;
+    Person person;
+    Trip trip;
 
     //Widgets
     @Override
@@ -62,6 +66,8 @@ public class Home extends FragmentActivity implements OnMapReadyCallback {
 
         profilo = findViewById(R.id.profile);
         mSearchText = findViewById(R.id.search);
+        trip = new Trip();  //E' stato creato un nuovo viaggio
+
 
         profilo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,28 +134,30 @@ public class Home extends FragmentActivity implements OnMapReadyCallback {
 
     }
 
-    private void moveCamera(Address address){
+    private void moveCamera(final Address address){
         mMap.clear();
         LatLng city = new LatLng(address.getLatitude(), address.getLongitude());
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(city, 5.5F));
 
         mMap.setInfoWindowAdapter(new CityWindow(Home.this));
 
-
         final Marker marker = mMap.addMarker(new MarkerOptions()
                 .position(city)
                 .title(address.getAddressLine(0))
-                //.icon(BitmapDescriptorFactory.fromAsset()
         );
 
+        marker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.down_arrow));
         marker.showInfoWindow();
 
         mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             @Override
             public void onInfoWindowClick(Marker marker) {
                 Intent showPlanTrip = new Intent(Home.this, PlanTrip.class);
+                trip.setCity(address.getAddressLine(0));
+                showPlanTrip.putExtra(Home.TRIP, trip );
                 startActivity(showPlanTrip);
             }
         });
     }
+
 }

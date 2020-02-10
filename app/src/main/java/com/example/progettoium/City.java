@@ -2,19 +2,19 @@ package com.example.progettoium;
 
 import android.media.Image;
 
-public class City {
+import java.io.Serializable;
+
+public class City implements Serializable {
     private String city;
-    private Image img;
+
     /*lista categorie??*/
 
     public City(){
         this.setCity("");
-        this.setImg(null);
     }
 
     public City(String city, Image img){
         this.setCity(city);
-        this.setImg(img);
     }
 
     public String getCity() {
@@ -23,13 +23,5 @@ public class City {
 
     public void setCity(String city) {
         this.city = city;
-    }
-
-    public Image getImg() {
-        return img;
-    }
-
-    public void setImg(Image img) {
-        this.img = img;
     }
 }
