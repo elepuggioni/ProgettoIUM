@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <Button
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/ic_back_arrow"
+                android:id="@+id/goHome">
+            </Button>
+
+            <!--da rendere dinamico il testo-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Milano, Italy"
+                android:textAlignment="center"
+                style="@style/page_titles_style"
+                android:id="@+id/titlePlan"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Scegli la categoria di attività:"
+                android:textAlignment="center"
+                style="@style/page_subtitles_style"
+                android:id="@+id/subTitleActivities"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginLeft="35dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Arte"
+                    android:textAlignment="center"
+                    style="@style/profile_title"
+                    android:id="@+id/arteTitle"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="15dp"
+                    android:layout_marginVertical="5dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/museo"
+                    android:id="@+id/arteImage"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sport"
+                    android:textAlignment="center"
+                    style="@style/profile_title"
+                    android:id="@+id/sportTitle"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="15dp"
+                    android:layout_marginVertical="5dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/sport"
+                    android:id="@+id/sportImage"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginLeft="35dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Shopping"
+                    android:textAlignment="center"
+                    style="@style/profile_title"
+                    android:id="@+id/shoppingTitle"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="15dp"
+                    android:layout_marginVertical="5dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/shopping"
+                    android:id="@+id/shoppingImage"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ristoranti"
+                    android:textAlignment="center"
+                    style="@style/profile_title"
+                    android:id="@+id/ristoTitle"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="15dp"
+                    android:layout_marginVertical="5dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/ristoranti"
+                    android:id="@+id/ristoImage"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
+
+        <Button
+            android:id="@+id/continuaPlan1"
+            style="@style/buttons_with_arrow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Non adesso..."
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginLeft="35dp"/>
+
+    </LinearLayout>
+</ScrollView>
