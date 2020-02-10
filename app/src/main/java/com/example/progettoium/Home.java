@@ -37,11 +37,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Home extends FragmentActivity implements OnMapReadyCallback {
-
+    public static final String TRIP = "Trip";
     private GoogleMap mMap;
     ImageButton profilo;
-    Person person;
     EditText mSearchText;
+    Person person;
+    Trip trip;
 
     //Widgets
     @Override
@@ -65,6 +66,8 @@ public class Home extends FragmentActivity implements OnMapReadyCallback {
 
         profilo = findViewById(R.id.profile);
         mSearchText = findViewById(R.id.search);
+        trip = new Trip();  //E' stato creato un nuovo viaggio
+
 
         profilo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,7 +134,7 @@ public class Home extends FragmentActivity implements OnMapReadyCallback {
 
     }
 
-    private void moveCamera(Address address){
+    private void moveCamera(final Address address){
         mMap.clear();
         LatLng city = new LatLng(address.getLatitude(), address.getLongitude());
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(city, 5.5F));
@@ -150,6 +153,8 @@ public class Home extends FragmentActivity implements OnMapReadyCallback {
             @Override
             public void onInfoWindowClick(Marker marker) {
                 Intent showPlanTrip = new Intent(Home.this, PlanTrip.class);
+                trip.setCity(address.getAddressLine(0));
+                showPlanTrip.putExtra(Home.TRIP, trip );
                 startActivity(showPlanTrip);
             }
         });

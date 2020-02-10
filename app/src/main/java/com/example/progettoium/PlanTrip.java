@@ -3,7 +3,6 @@ package com.example.progettoium;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,10 +14,10 @@ import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class PlanTrip extends AppCompatActivity {
-    public static final String VIAGGIO = "Viaggio";
+import java.io.Serializable;
 
-    Button goBack;
+public class PlanTrip extends AppCompatActivity {
+    Button goBack, continuaPlan1;
     TextView titleCity;
     ImageView image;
     Spinner alloggio;
@@ -29,7 +28,7 @@ public class PlanTrip extends AppCompatActivity {
     int maxValue = 1500;
     int modelValue = 0;
 
-    Trip viaggio;
+    Trip trip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,23 +41,37 @@ public class PlanTrip extends AppCompatActivity {
         alloggio = findViewById(R.id.dropdownAlloggio);
         budget = findViewById(R.id.seekbarBudget);
         bTitle = findViewById(R.id.budgetTitle);
+        continuaPlan1 = findViewById(R.id.continuaPlan1);
 
-        viaggio = new Trip();
-        viaggio.setCity(titleCity.toString());
+        Intent intent = getIntent();
+        Serializable obj = intent.getSerializableExtra(Home.TRIP);
+
+        if(obj instanceof Trip){
+            trip = (Trip) obj;
+        }else {
+            trip = new Trip();
+        }
+
+        //Cambio le scritte in base alla città scelta dall'utente
+        titleCity.setText(trip.getCity());
+        if(trip.getCity().equals("Milano MI, Italia")){
+            image.setImageResource(R.drawable.milano);
+        }
+
+        if (trip.getCity().equals("Roma RM, Italia")){
+            image.setImageResource(R.drawable.romap);
+        }
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource
                 (this,R.array.tipo_alloggio, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         alloggio.setAdapter(adapter);
-
-
-
         alloggio.setOnItemSelectedListener(new OnItemSelectedListener(){
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selection = parent.getItemAtPosition(position).toString();
-                viaggio.setAlloggio(selection);
+                trip.setAlloggio(selection);
             }
 
             @Override
@@ -84,7 +97,7 @@ public class PlanTrip extends AppCompatActivity {
             }
         });
 
-        viaggio.setBudget(modelValue);
+        trip.setBudget(modelValue);
 
         goBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,6 +107,14 @@ public class PlanTrip extends AppCompatActivity {
             }
         });
 
+        continuaPlan1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent showFindAttr = new Intent(PlanTrip.this, FindAttractions.class);
+                showFindAttr.putExtra(Home.TRIP, trip);
+                startActivity(showFindAttr);
+            }
+        });
     }
 
     protected void updateValue(int newValue){

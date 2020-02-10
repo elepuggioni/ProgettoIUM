@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     static final String username_debug = "debug";
     static final String password_debug = "debug";
     static final boolean DEBUG = true;
-    TextView debug_profile, debug_plan, debug_edittrip;
+    TextView debug_profile, debug_plan, debug_edittrip, debug_findattractions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(showPlan);
                 }
             });
+
         }
     }
     private boolean CheckInput() {

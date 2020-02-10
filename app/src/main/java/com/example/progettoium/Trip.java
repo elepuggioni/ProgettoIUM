@@ -9,7 +9,7 @@ public class Trip implements Serializable {
     //foto, categorie, amici, date...
 
     public Trip(){
-        this.setCity("");
+        this.setCity("Milano MI, Italia");  //Città di default
         this.setAlloggio("");
         this.setBudget(0);
     }
