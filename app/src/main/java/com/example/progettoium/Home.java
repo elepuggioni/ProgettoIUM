@@ -5,6 +5,8 @@ import androidx.fragment.app.FragmentActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
@@ -23,6 +25,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -135,13 +138,12 @@ public class Home extends FragmentActivity implements OnMapReadyCallback {
 
         mMap.setInfoWindowAdapter(new CityWindow(Home.this));
 
-
         final Marker marker = mMap.addMarker(new MarkerOptions()
                 .position(city)
                 .title(address.getAddressLine(0))
-                //.icon(BitmapDescriptorFactory.fromAsset()
         );
 
+        marker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.down_arrow));
         marker.showInfoWindow();
 
         mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
@@ -152,4 +154,5 @@ public class Home extends FragmentActivity implements OnMapReadyCallback {
             }
         });
     }
+
 }
