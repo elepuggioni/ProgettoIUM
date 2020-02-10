@@ -110,7 +110,7 @@ public class PlanTrip extends AppCompatActivity {
         continuaPlan1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent showFindAttr = new Intent(PlanTrip.this, FindAttractions.class);
+                Intent showFindAttr = new Intent(PlanTrip.this, Activities.class);
                 showFindAttr.putExtra(Home.TRIP, trip);
                 startActivity(showFindAttr);
             }

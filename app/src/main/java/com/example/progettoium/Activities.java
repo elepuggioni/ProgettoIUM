@@ -22,7 +22,7 @@ public class Activities extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_activities);
+        setContentView(R.layout.activity_attrazioni);
 
         goBack = findViewById(R.id.goHome);
         continua = findViewById(R.id.continuaPlan2);
@@ -33,7 +33,7 @@ public class Activities extends AppCompatActivity {
         risto = findViewById(R.id.ristoImage);
 
         Intent intent = getIntent();
-        Serializable obj = intent.getSerializableExtra(PlanTrip.VIAGGIO);
+        Serializable obj = intent.getSerializableExtra(Home.TRIP);
 
         if(obj instanceof Trip){
             viaggio = (Trip) obj;
