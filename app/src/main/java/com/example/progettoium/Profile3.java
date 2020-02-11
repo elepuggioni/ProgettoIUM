@@ -2,25 +2,23 @@ package com.example.progettoium;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import java.io.Serializable;
 
-public class Profile2 extends AppCompatActivity {
-    TextView username, bio, citta, completed_trips, friends;
+public class Profile3 extends AppCompatActivity {
+    TextView username, bio, citta, completed_trips, planned_trips;
     Person person;
     Button goHome, editProfile ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile2);
+        setContentView(R.layout.activity_profile3);
         //Transizioni tra le activity
         overridePendingTransition(0,0);
         Intent intent = getIntent();
@@ -38,7 +36,8 @@ public class Profile2 extends AppCompatActivity {
         goHome = findViewById(R.id.goHome2);
         editProfile = findViewById(R.id.edit_profile);
         completed_trips = findViewById(R.id.completed_trips);
-        friends = findViewById(R.id.friends);
+        planned_trips = findViewById(R.id.planned_trips);
+
 
         if (person.getUsername().length() != 0){
             username.setText("@"+person.getUsername());
@@ -61,7 +60,7 @@ public class Profile2 extends AppCompatActivity {
         goHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent showHome = new Intent(Profile2.this, Home.class);
+                Intent showHome = new Intent(Profile3.this, Home.class);
                 showHome.putExtra(Register.PERSONA,person);
                 startActivity(showHome);
             }
@@ -70,7 +69,7 @@ public class Profile2 extends AppCompatActivity {
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent showEditProfile = new Intent(Profile2.this, EditProfile.class);
+                Intent showEditProfile = new Intent(Profile3.this, EditProfile.class);
                 showEditProfile.putExtra(Register.PERSONA,person);
                 startActivity(showEditProfile);
             }
@@ -79,20 +78,19 @@ public class Profile2 extends AppCompatActivity {
         completed_trips.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    Intent showProfile = new Intent(Profile2.this, Profile.class);
+                    Intent showProfile = new Intent(Profile3.this, Profile.class);
                     showProfile.putExtra(Register.PERSONA, person);
                     startActivity(showProfile);
-            }
-        });
-
-        friends.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                    Intent showProfile3 = new Intent(Profile2.this, Profile3.class);
-                    showProfile3.putExtra(Register.PERSONA, person);
-                    startActivity(showProfile3);
                 }
         });
 
+        planned_trips.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    Intent showProfile2 = new Intent(Profile3.this, Profile2.class);
+                    showProfile2.putExtra(Register.PERSONA, person);
+                    startActivity(showProfile2);
+            }
+        });
     }
 }

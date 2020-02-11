@@ -125,13 +125,14 @@
                 style="@style/general_input_field_title"
                 android:text="Modifica il tipo di alloggio:" />
 
-            <EditText
+            <Spinner
                 android:id="@+id/input_alloggio"
-                style="@style/credentials_input_box"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="date" />
+                android:spinnerMode="dropdown"
+                android:entries="@array/tipo_alloggio"
+                android:dropDownWidth="fill_parent"
+                style="@style/credentials_input_box" />
 
         </LinearLayout>
 
@@ -251,6 +252,17 @@
                     android:layout_height="30dp"
                     app:srcCompat="@drawable/amico1" />
             </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:alpha="0.3"
+                android:background="@color/grigio" />
+
         </LinearLayout>
 
         <Space
