@@ -131,17 +131,6 @@
 
                 </LinearLayout>
 
-                <Button
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_marginLeft="300dp"
-                    android:id="@+id/edit_profile"
-                    android:background="@drawable/pencil"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toBottomOf="@id/descriptions">
-                </Button>
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
@@ -255,10 +244,10 @@
 
 
                     <ImageButton
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="10dp"
                         android:background="@drawable/heart">
 
                     </ImageButton>
@@ -268,8 +257,8 @@
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="5dp"
-                        app:srcCompat="@android:drawable/ic_menu_share" />
+                        android:layout_marginLeft="10dp"
+                        app:srcCompat="@drawable/share" />
                 </LinearLayout>
 
             </LinearLayout>
