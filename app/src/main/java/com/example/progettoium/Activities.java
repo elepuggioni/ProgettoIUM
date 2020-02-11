@@ -43,6 +43,7 @@ public class Activities extends AppCompatActivity {
             viaggio = new Trip();
         }
 
+        titleCity.setText(viaggio.getCity());
         //scelta diverse categorie; viene passato un valore all'activity
         arte.setOnClickListener(new View.OnClickListener() {
             @Override
