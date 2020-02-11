@@ -100,6 +100,7 @@ public class Activities extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent showHome = new Intent(Activities.this, PlanTrip.class);
+                showHome.putExtra(Home.TRIP, viaggio);
                 startActivity(showHome);
             }
         });

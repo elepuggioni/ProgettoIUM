@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,7 +22,6 @@ public class CityWindow implements GoogleMap.InfoWindowAdapter{
     // "title" and "snippet".
     private final View mWindow;
     private Context mContext;
-
 
     public CityWindow(final Context context) {
         mContext = context;

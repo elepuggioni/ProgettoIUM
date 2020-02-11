@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textStyle="bold"
-        android:textSize="20dp"
+        android:textSize="22dp"
         style="@style/profile_subtitle"
         android:id="@+id/attraction_subtitle1"
         android:text="Categoria">
@@ -93,23 +93,64 @@
             />
 
         <LinearLayout
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
             android:orientation="vertical"
+            android:id="@+id/attraction_top3"
             style="@style/credentials_input_box">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TOP 3:">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/profile_title"
+                    android:text="TOP 3:">
 
-            </TextView>
+                </TextView>
+
+                <Button
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="40dp"
+                    android:id="@+id/attraction_remove_top3"
+                    android:background="@drawable/ic_remove">
+
+                </Button>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/attraction_checkboxes">
+
+                <CheckBox android:id="@+id/cb1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="cb1"
+                    android:clickable="true"/>
+                <CheckBox android:id="@+id/cb2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="cb2"
+                    android:clickable="true"/>
+
+                <CheckBox android:id="@+id/cb3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="cb2"
+                    android:clickable="true"/>
+            </LinearLayout>
 
 
         </LinearLayout>
 
         <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_margin="10dp"
         android:padding="10dp"
         android:orientation="horizontal"
@@ -120,7 +161,7 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:id="@+id/ic_magnify"
-            android:layout_marginTop="10dp"
+            android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
             android:background="@drawable/ic_magnify">
 
@@ -129,8 +170,9 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_toRightOf="@id/ic_magnify"
-            android:hint="Cerca la tua prossima destinazione"
+            android:hint="Cerca l'attrazione"
             style="@style/search_bar_style"
             android:id="@+id/search"
             android:imeOptions="actionSearch">

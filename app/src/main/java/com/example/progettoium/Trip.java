@@ -1,11 +1,18 @@
 package com.example.progettoium;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Trip implements Serializable {
     private String city;
     private String alloggio;
     private Integer budget;
+    private List<String> arte = new ArrayList<>();
+    private List<String> sport = new ArrayList<>();
+    private List<String> shopping = new ArrayList<>();
+    private List<String> ristoranti = new ArrayList<>();
+
     //foto, categorie, amici, date...
 
     public Trip(){
@@ -42,5 +49,37 @@ public class Trip implements Serializable {
 
     public void setBudget(Integer budget) {
         this.budget = budget;
+    }
+
+    public List<String> getArte() {
+        return arte;
+    }
+
+    public void setArte(List<String> arte) {
+        this.arte = arte;
+    }
+
+    public List<String> getSport() {
+        return sport;
+    }
+
+    public void setSport(List<String> sport) {
+        this.sport = sport;
+    }
+
+    public List<String> getShopping() {
+        return shopping;
+    }
+
+    public void setShopping(List<String> shopping) {
+        this.shopping = shopping;
+    }
+
+    public List<String> getRistoranti() {
+        return ristoranti;
+    }
+
+    public void setRistoranti(List<String> ristoranti) {
+        this.ristoranti = ristoranti;
     }
 }
