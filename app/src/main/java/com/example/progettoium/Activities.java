@@ -86,15 +86,14 @@ public class Activities extends AppCompatActivity {
         });
 
 
-        //Continua su scelta amici
-        /*continua.setOnClickListener(new View.OnClickListener() {
+        continua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent showContinua = new Intent(Activities.this, Friends.class);
-                showContinua.putExtra(PlanTrip.VIAGGIO, viaggio);
+                Intent showContinua = new Intent(Activities.this, AddFriends.class);
+                showContinua.putExtra(Home.TRIP, viaggio);
                 startActivity(showContinua);
             }
-        });*/
+        });
 
         goBack.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -42,6 +42,7 @@
         <activity android:name=".Activities" />
         <activity android:name=".FindAttractions" />
         <activity android:name=".EditTrip" />
+        <activity android:name=".AddFriends"/>
 
         <meta-data
             android:name="com.google.android.gms.version"

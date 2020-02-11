@@ -185,7 +185,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/buttons"
+        style="@style/buttons_with_arrow"
         android:id="@+id/attraction_confirm"
         android:text="Continua">
 

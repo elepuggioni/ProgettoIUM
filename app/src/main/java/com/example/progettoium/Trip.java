@@ -12,8 +12,9 @@ public class Trip implements Serializable {
     private List<String> sport = new ArrayList<>();
     private List<String> shopping = new ArrayList<>();
     private List<String> ristoranti = new ArrayList<>();
+    private List<String> amici = new ArrayList<>();
 
-    //foto, categorie, amici, date...
+    //foto, date...
 
     public Trip(){
         this.setCity("Milano MI, Italia");  //Città di default
@@ -82,4 +83,8 @@ public class Trip implements Serializable {
     public void setRistoranti(List<String> ristoranti) {
         this.ristoranti = ristoranti;
     }
+
+    public List<String> getAmici() { return amici; }
+
+    public void setAmici(List<String> amici) { this.amici = amici; }
 }
