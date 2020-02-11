@@ -20,7 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-
+        <activity android:name=".FriendProfile"></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -36,7 +36,7 @@
         <activity android:name=".EditProfile" />
         <activity android:name=".Profile" />
         <activity android:name=".Profile2" />
-        <activity android:name=".Profile3"/>
+        <activity android:name=".Profile3" />
         <activity android:name=".Register" />
         <activity android:name=".PlanTrip" />
         <activity android:name=".Activities" />
