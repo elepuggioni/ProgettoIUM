@@ -93,7 +93,7 @@
             />
 
         <LinearLayout
-            android:layout_width="130dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:padding="5dp"
             android:orientation="vertical"
@@ -106,6 +106,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/profile_title"
+                    android:textSize="20dp"
+                    android:textColor="#ff0000"
                     android:text="TOP 3:">
 
                 </TextView>
@@ -131,18 +133,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="cb1"
-                    android:clickable="true"/>
+                    android:clickable="true"
+                    android:onClick="onCheckboxClicked"/>
                 <CheckBox android:id="@+id/cb2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="cb2"
-                    android:clickable="true"/>
+                    android:clickable="true"
+                    android:onClick="onCheckboxClicked"/>
 
                 <CheckBox android:id="@+id/cb3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="cb2"
-                    android:clickable="true"/>
+                    android:clickable="true"
+                    android:onClick="onCheckboxClicked"/>
             </LinearLayout>
 
 
@@ -174,7 +179,7 @@
             android:layout_toRightOf="@id/ic_magnify"
             android:hint="Cerca l'attrazione"
             style="@style/search_bar_style"
-            android:id="@+id/search"
+            android:id="@+id/attraction_search"
             android:imeOptions="actionSearch">
 
         </EditText>
