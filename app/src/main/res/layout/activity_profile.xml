@@ -12,302 +12,315 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="#fff">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/ic_back_arrow"
-                android:id="@+id/goHome2">
-            </Button>
-
-            <Button
-                android:id="@+id/notification"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="300dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/notification_1">
-
-            </Button>
-        </LinearLayout>
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginTop="0dp"
-                android:id="@+id/copertina"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:background="@drawable/copertina_icona">
-            </ImageView>
-
-            <ImageView
-                android:id="@+id/profile_button"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginTop="88dp"
-                android:background="@drawable/blob"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-            </ImageView>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:id="@+id/descriptions"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/profile_button">
-
-                <TextView
-                    android:id="@+id/username_profile"
-                    style="@style/profile_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:text="\@username">
-
-                </TextView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="5dp"
-                android:text="Inserisci la tua bio qui"
-                style="@style/profile_subtitle"
-                android:id="@+id/profile_bio">
-            </TextView>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="false"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="12dp"
-                        android:layout_height="12dp"
-                        android:layout_gravity="bottom"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginBottom="3dp"
-                        android:background="@drawable/placeholder"
-                        android:backgroundTint="@color/light_grey">
-
-                    </ImageView>
-
-                    <TextView
-                        android:id="@+id/profile_citta"
-                        style="@style/profile_subtitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="5dp"
-                        android:text="La tua città">
-
-                    </TextView>
-
-
-                </LinearLayout>
-
-
-            </LinearLayout>
-
-            <Button
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginLeft="300dp"
-                android:id="@+id/edit_profile"
-                android:background="@drawable/pencil"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="@id/descriptions">
-            </Button>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/profile_small_box"
-        android:gravity="center_vertical"
-        android:padding="1dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginBottom="0dp">
-
-        <TextView
-            android:id="@+id/completed_trips"
-            style="@style/profile_subtitle"
-            android:layout_width="125dp"
-            android:layout_height="60dp"
-            android:background="@color/grigino"
-            android:paddingRight="0dp"
-            android:text="7 Viaggi
-            Completati">
-
-        </TextView>
-
-        <TextView
-            android:id="@+id/planned_trips"
-            style="@style/profile_subtitle"
-            android:layout_width="125dp"
-            android:layout_height="60dp"
-            android:background="#fff"
-            android:text="3 Viaggi
-            Programmati">
-
-        </TextView>
-    <TextView
-        android:layout_width="3dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:padding="0dp"
-        android:gravity="center_horizontal"
-        android:background="@color/grigino">
-
-    </TextView>
-
-        <TextView
-            android:id="@+id/friends"
-            style="@style/profile_subtitle"
-            android:layout_width="fill_parent"
-            android:layout_height="60dp"
-            android:background="#fff"
-            android:gravity="center"
-            android:text="2 Amici"
-            android:textAlignment="center">
-
-        </TextView>
-    </LinearLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:gravity="center"
-            android:layout_marginTop="0dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:paddingTop="10dp"
-            android:background="@color/grigino"
->
+            android:background="#fff">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
                 android:layout_width="match_parent"
-                android:layout_height="135dp"
-                android:layout_marginBottom="0dp"
-                android:background="@drawable/paris"
-                android:orientation="vertical">
+                android:layout_height="40dp">
 
-                <TextView
-                    style="@style/trips_completed"
+                <Button
+                    android:id="@+id/goHome2"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/ic_back_arrow"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <ImageView
+                    android:id="@+id/number1"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginRight="5dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/number1" />
+
+                <Button
+                    android:id="@+id/notification"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="13dp"
+                    android:layout_marginRight="13dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/bell"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="PARIGI">
+                    android:layout_height="150dp"
+                    android:layout_marginTop="0dp"
+                    android:id="@+id/copertina"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@drawable/copertina_icona">
+                </ImageView>
 
-                </TextView>
-                <TextView
-                    style="@style/trips_completed_date"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="12.09.19 - 20.09.19">
+                <ImageView
+                    android:id="@+id/profile_button"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="88dp"
+                    android:background="@drawable/blob"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                </TextView>
+                </ImageView>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_horizontal">
-                    <ImageButton
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:background="@drawable/blob"
-                        android:layout_marginRight="5dp">
-                    </ImageButton>
+                    android:orientation="vertical"
+                    android:id="@+id/descriptions"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/profile_button">
 
-                    <ImageButton
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:background="@drawable/amico1">
-                    </ImageButton>
+                    <TextView
+                        android:id="@+id/username_profile"
+                        style="@style/profile_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="\@username">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="5dp"
+                        android:text="Inserisci la tua bio qui"
+                        style="@style/profile_subtitle"
+                        android:id="@+id/profile_bio">
+                    </TextView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:layout_gravity="bottom"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginBottom="3dp"
+                            android:background="@drawable/placeholder"
+                            android:backgroundTint="@color/light_grey">
+
+                        </ImageView>
+
+                        <TextView
+                            android:id="@+id/profile_citta"
+                            style="@style/profile_subtitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"
+                            android:text="La tua città">
+
+                        </TextView>
+
+
+                    </LinearLayout>
+
+
                 </LinearLayout>
 
+                <Button
+                    android:id="@+id/edit_profile"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/pencil"
+                    app:layout_constraintBottom_toBottomOf="@id/descriptions"
+                    app:layout_constraintEnd_toEndOf="parent"></Button>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/profile_small_box"
+                android:gravity="center_vertical"
+                android:padding="1dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="0dp">
+
+                <TextView
+                    android:id="@+id/completed_trips"
+                    style="@style/profile_subtitle"
+                    android:layout_height="60dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="@color/grigino"
+                    android:text="7 Viaggi
+            Completati"/>
+
+                <TextView
+                    android:id="@+id/planned_trips"
+                    style="@style/profile_subtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:background="#fff"
+                    android:text="3 Viaggi
+            Programmati"/>
+
+                <TextView
+                    android:id="@+id/friends"
+                    style="@style/profile_subtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1"
+                    android:background="#fff"
+                    android:gravity="center"
+                    android:text="2 Amici"
+                    android:textAlignment="center">
+
+                </TextView>
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:layout_height="135dp"
-                android:background="@drawable/bangkok">
-
-                <TextView
-                    style="@style/trips_completed"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="BANGKOK">
-                </TextView>
-
-                <TextView
-                    style="@style/trips_completed_date"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="1.03.19 - 14.03.19">
-                </TextView>
+                android:gravity="center"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:paddingTop="10dp"
+                android:background="@color/grigino">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_horizontal">
-                    <ImageButton
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:background="@drawable/blob"
-                        android:layout_marginRight="5dp">
-                    </ImageButton>
+                    android:layout_height="135dp"
+                    android:layout_marginBottom="0dp"
+                    android:background="@drawable/paris"
+                    android:orientation="vertical">
 
-                    <ImageButton
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:background="@drawable/amico2"
-                        android:layout_marginRight="5dp">
-                    </ImageButton>
+                    <TextView
+                        style="@style/trips_completed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="PARIGI">
 
-                    <ImageButton
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:background="@drawable/amico1">
-                    </ImageButton>
+                    </TextView>
+                    <TextView
+                        style="@style/trips_completed_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="12.09.19 - 20.09.19">
+
+                    </TextView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_horizontal">
+                        <ImageButton
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@drawable/blob"
+                            android:layout_marginRight="5dp">
+                        </ImageButton>
+
+                        <ImageButton
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@drawable/amico1">
+                        </ImageButton>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="135dp"
+                    android:background="@drawable/bangkok">
+
+                    <TextView
+                        style="@style/trips_completed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="BANGKOK">
+                    </TextView>
+
+                    <TextView
+                        style="@style/trips_completed_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1.03.19 - 14.03.19">
+                    </TextView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_horizontal">
+                        <ImageButton
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@drawable/blob"
+                            android:layout_marginRight="5dp">
+                        </ImageButton>
+
+                        <ImageButton
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@drawable/amico2"
+                            android:layout_marginRight="5dp">
+                        </ImageButton>
+
+                        <ImageButton
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@drawable/amico1">
+                        </ImageButton>
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent" />
         </LinearLayout>
-    </LinearLayout>
-</ScrollView>
+
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

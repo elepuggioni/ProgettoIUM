@@ -2,38 +2,53 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Register">
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginRight="32dp"
+        android:scaleType="centerInside"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/register_background2" />
+
     <ScrollView
+        android:id="@+id/scrollView3"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="0dp"
-            android:layout_marginBottom="35dp"
-            android:layout_marginRight="35dp"
             android:layout_marginLeft="35dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginBottom="35dp"
             android:orientation="vertical">
 
             <!-- Messaggio superiore -->
 
             <Button
+                android:id="@+id/goHome1"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginBottom="5dp"
-                android:background="@drawable/ic_back_arrow"
-                android:id="@+id/goHome1">
-            </Button>
+                android:background="@drawable/ic_back_arrow"></Button>
+
             <TextView
+                style="@style/page_titles_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Registrati"
-                android:textAlignment="center"
-                style="@style/page_titles_style"/>
+                android:textAlignment="center" />
 
             <Space
                 android:layout_width="match_parent"
@@ -43,27 +58,29 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginLeft="25dp">
+                android:layout_marginLeft="25dp"
+                android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="QU"
                     android:textAppearance="@style/title_style"
-                    android:textSize="35dp"/>
+                    android:textSize="35dp" />
 
                 <ImageView
                     android:id="@+id/o1"
                     android:layout_width="32dp"
                     android:layout_height="30dp"
-                    app:srcCompat="@drawable/title_dice"
-                    android:layout_marginTop="5dp"/>
+                    android:layout_marginTop="5dp"
+                    app:srcCompat="@drawable/title_dice" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="   VAD"
                     android:textAppearance="@style/title_style"
-                    android:textSize="35dp"/>
+                    android:textSize="35dp" />
 
                 <ImageView
                     android:id="@+id/o2"
@@ -71,12 +88,13 @@
                     android:layout_height="30dp"
                     android:layout_marginTop="5dp"
                     app:srcCompat="@drawable/title_dice" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=" ?"
                     android:textAppearance="@style/title_style"
-                    android:textSize="35dp"/>
+                    android:textSize="35dp" />
             </LinearLayout>
 
 
@@ -85,93 +103,101 @@
                 android:layout_height="25dp" />
 
             <!-- Layout contenente i campi da compilare -->
+
             <LinearLayout
+                android:id="@+id/register_form"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                style="@style/background_register">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/credentials_input_title"
-                android:text="Username"/>
+                android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/regUsername"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Scrivi il tuo nome..."
-                style="@style/credentials_input_box"/>
+                <TextView
+                    style="@style/credentials_input_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Username" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
-            <!--Password -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Password"
-                style="@style/credentials_input_title"/>
+                <EditText
+                    android:id="@+id/regUsername"
+                    style="@style/credentials_input_box"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.9"
+                    android:hint="Scrivi il tuo nome..." />
 
-            <EditText
-                android:id="@+id/regPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Crea la tua password..."
-                android:inputType="textPassword"
-                style="@style/credentials_input_box" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
+                <!--Password -->
+                <TextView
+                    style="@style/credentials_input_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Password" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
+                <EditText
+                    android:id="@+id/regPassword"
+                    style="@style/credentials_input_box"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.9"
+                    android:hint="Crea la tua password..."
+                    android:inputType="textPassword" />
 
-            <!-- Conferma Password -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Conferma password"
-                style="@style/credentials_input_title" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
 
-            <EditText
-                android:id="@+id/regConfPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Conferma la tua password..."
-                android:inputType="textPassword"
-                style="@style/credentials_input_box" />
+                <!-- Conferma Password -->
+                <TextView
+                    style="@style/credentials_input_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Conferma password" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
+                <EditText
+                    android:id="@+id/regConfPassword"
+                    style="@style/credentials_input_box"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.9"
+                    android:hint="Conferma la tua password..."
+                    android:inputType="textPassword" />
 
-            <!--Città -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Citta'"
-                style="@style/credentials_input_title"/>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
 
-            <EditText
-                android:id="@+id/regCitta"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Dove ti trovi ora..."
-                style="@style/credentials_input_box"/>
+                <!--Città -->
+                <TextView
+                    style="@style/credentials_input_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Citta'" />
 
-        </LinearLayout>
+                <EditText
+                    android:id="@+id/regCitta"
+                    style="@style/credentials_input_box"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.9"
+                    android:hint="Dove ti trovi ora..." />
+
+            </LinearLayout>
+
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="35dp" />
             <!-- Bottone-->
             <Button
                 android:id="@+id/regButton"
+                style="@style/buttons"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
-                style="@style/buttons"
                 android:text="Iscriviti"
                 android:textSize="20dp" />
 
 
         </LinearLayout>
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

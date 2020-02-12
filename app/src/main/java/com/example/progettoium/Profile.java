@@ -13,7 +13,7 @@ import java.io.Serializable;
 public class Profile extends AppCompatActivity {
     TextView username, bio, citta, planned_trips, friends;
     Person person;
-    Button goHome, editProfile ;
+    Button goHome, editProfile, notifiche ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

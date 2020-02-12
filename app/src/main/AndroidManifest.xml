@@ -20,7 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".AttractionsCheck"></activity>
+        <activity android:name=".AttractionsCheck"/>
         <activity android:name=".Notifiche" />
         <activity android:name=".FriendProfile" />
         <!--
