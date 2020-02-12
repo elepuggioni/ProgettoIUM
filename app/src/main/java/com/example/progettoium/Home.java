@@ -54,7 +54,6 @@ public class Home extends FragmentActivity implements OnMapReadyCallback {
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-
         Intent intent = getIntent();
         Serializable obj = intent.getSerializableExtra(Register.PERSONA);
 

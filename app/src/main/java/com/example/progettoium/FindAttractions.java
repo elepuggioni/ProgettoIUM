@@ -104,12 +104,20 @@ public class FindAttractions extends FragmentActivity implements OnMapReadyCallb
             }
         });
 
+        //Setta la searchbar
+        init();
+
         confirm = findViewById(R.id.attraction_confirm);
-        /*confirm.setOnClickListener(new View.OnClickListener() {
+        confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent showCheck= new Intent(FindAttractions.this, AttractionsCheck.class);
+                showCheck.putExtra(Home.TRIP, trip);
+                showCheck.putExtra(Activities.CATEGORIA,categoria);
+                //showCheck.putExtra(Register.PERSONA, person);
+                startActivity(showCheck);
             }
-        });*/
+        });
 
     }
 
@@ -127,7 +135,6 @@ public class FindAttractions extends FragmentActivity implements OnMapReadyCallb
             Address address = list.get(0);
             LatLng citta = new LatLng(address.getLatitude(),address.getLongitude());
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(citta, 13F));
-
             //Mostra le diverse attrazioni
             showAttractions(categoria, trip.getCity());
         }
@@ -157,7 +164,8 @@ public class FindAttractions extends FragmentActivity implements OnMapReadyCallb
                 if(actionId == EditorInfo.IME_ACTION_SEARCH
                         || actionId== EditorInfo.IME_ACTION_DONE
                         || keyEvent.getAction() == KeyEvent.ACTION_DOWN
-                        || keyEvent.getAction() == KeyEvent.KEYCODE_ENTER){
+                        || keyEvent.getAction() == KeyEvent.KEYCODE_ENTER
+                        && mMap!= null){
                     moveToAttraction();
                 }
                 return false;
@@ -166,17 +174,34 @@ public class FindAttractions extends FragmentActivity implements OnMapReadyCallb
     }
 
     public void moveToAttraction(){
-        Marker address = mMap.addMarker(findAttraction(mSearch.getText().toString()).visible(false));
-        //Si muove solo se l'utente ha cercato un'attrazione nella top 3
+        if(findAttraction(mSearch.getText().toString()) != null) {
+            Marker address = mMap.addMarker(findAttraction(mSearch.getText().toString()).visible(false));
+            //Si muove solo se l'utente ha cercato un'attrazione nella top 3
 
-        if (address.getPosition()==m1.getPosition()){
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(m1.getPosition(),13F));
-        }
-        if (address.getPosition()==m2.getPosition()){
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(m2.getPosition(),13F));
-        }
-        if (address.getPosition()==m3.getPosition()){
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(m3.getPosition(),13F));
+            if (address.getPosition().latitude == m1.getPosition().latitude
+                    && address.getPosition().longitude == m1.getPosition().longitude) {
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(m1.getPosition(), 15F));
+                m1.showInfoWindow();
+            } else if (address.getPosition().latitude == m2.getPosition().latitude
+                    && address.getPosition().longitude == m2.getPosition().longitude) {
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(m2.getPosition(), 15F));
+                m2.showInfoWindow();
+            } else if (address.getPosition().latitude == m3.getPosition().latitude
+                    && address.getPosition().longitude == m3.getPosition().longitude) {
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(m3.getPosition(), 15F));
+                m3.showInfoWindow();
+            }
+
+            address.remove();
+
+            if(mMap!= null){
+                mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+                    @Override
+                    public void onInfoWindowClick(Marker marker) {
+                        changeMarker(categoria, marker);
+                    }
+                });
+            }
         }
     }
 
@@ -224,13 +249,13 @@ public class FindAttractions extends FragmentActivity implements OnMapReadyCallb
                 if (citta.equals("Milano MI, Italia")){
                      m1 = mMap.addMarker(findAttraction("Galleria Vittorio Emanuele Milano").title("Galleria Vittorio Emanuele"));
                      m2 = mMap.addMarker(findAttraction("The Merchant Of Venice - Milano Boutique").title("The Merchant Of Venice"));
-                     m3 = mMap.addMarker(findAttraction("Corso Monforte, 2, 20122 Milano MI").title("Lego Store"));
+                     m3 = mMap.addMarker(findAttraction("Lego Store milano").title("Lego Store"));
                      m4 = mMap.addMarker(findAttraction("Corso Vittorio Emanuele II, 30, 20121 Milano MI").title("The Higline Outlet"));
                      m5 = mMap.addMarker(findAttraction("Via Santa Radegonda, 3, 20121 Milano MI").title("La Rinascente"));
                 }else if(citta.equals("Roma RM, Italia")){
                      m1 = mMap.addMarker(findAttraction("Via dei Pastini, 96-98, 00186 Roma RM").title("Bartolucci Italy"));
-                     m2 = mMap.addMarker(findAttraction("C.C. Forum, Stazione Termini, 00185 Roma RM").title("Foot Locker"));
-                     m3 = mMap.addMarker(findAttraction("Piazza di Spagna, 77, 00187 Roma RM").title("Moncler"));
+                     m2 = mMap.addMarker(findAttraction("foot locker Roma").title("Foot Locker"));
+                     m3 = mMap.addMarker(findAttraction("Moncler roma").title("Moncler"));
                      m4 = mMap.addMarker(findAttraction("Piazza Colonna, 00187 Roma RM").title("Galleria Alberto Sordi"));
                      m5 = mMap.addMarker(findAttraction("Via del Tritone, 61, 00187 Roma RM").title("La Rinascente"));
                 }
@@ -244,8 +269,8 @@ public class FindAttractions extends FragmentActivity implements OnMapReadyCallb
                      m5 = mMap.addMarker(findAttraction("Eataly milano smeraldo").title("Eataly"));
                 }else if(citta.equals("Roma RM, Italia")){
                      m1 = mMap.addMarker(findAttraction("Via Florida, 25, 00186 Roma RM").title("Pizza Florida"));
-                     m2 = mMap.addMarker(findAttraction("Via Francesco Crispi, 19, 00187 Roma RM").title("Ristorante Crispi 19"));
-                     m3 = mMap.addMarker(findAttraction("Via del Gazometro, 54, 00154 Roma RM").title("Sakana Sushi"));
+                     m2 = mMap.addMarker(findAttraction("ristorante crispi 19 roma").title("Ristorante Crispi 19"));
+                     m3 = mMap.addMarker(findAttraction("sakana sushi roma").title("Sakana Sushi"));
                      m4 = mMap.addMarker(findAttraction("Via Santa Maria in Via, 19, 00187 Roma RM").title("Pane E Salame"));
                      m5 = mMap.addMarker(findAttraction("Via della Paglia, 1, 00153 Roma RM").title("Tonnarello"));
                 }
@@ -278,9 +303,6 @@ public class FindAttractions extends FragmentActivity implements OnMapReadyCallb
                 return false;
             }
         });
-
-        //Prepara la schermata
-        init();
 
     }
 
