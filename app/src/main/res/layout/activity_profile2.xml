@@ -66,15 +66,13 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
+                    android:id="@+id/copertina"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
-                    android:layout_marginTop="0dp"
-                    android:id="@+id/copertina"
+                    android:background="@drawable/copertina_icona"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:background="@color/yellow">
-                </ImageView>
+                    app:layout_constraintTop_toTopOf="parent"></ImageView>
 
                 <ImageView
                     android:id="@+id/profile_button"
@@ -282,6 +280,7 @@
 
 
                     <ImageButton
+                        android:id="@+id/delete1"
                         android:layout_width="20dp"
                         android:layout_height="16dp"
                         android:layout_gravity="center_vertical"
@@ -384,6 +383,7 @@
 
 
                     <ImageButton
+                        android:id="@+id/delete2"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_gravity="center_vertical"
@@ -467,6 +467,7 @@
 
 
                     <ImageButton
+                        android:id="@+id/delete3"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_gravity="center_vertical"

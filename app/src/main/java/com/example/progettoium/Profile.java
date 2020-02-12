@@ -13,7 +13,7 @@ import java.io.Serializable;
 public class Profile extends AppCompatActivity {
     TextView username, bio, citta, planned_trips, friends;
     Person person;
-    Button goHome, editProfile, notifiche ;
+    Button goHome, editProfile, notifiche;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +38,7 @@ public class Profile extends AppCompatActivity {
         editProfile = findViewById(R.id.edit_profile);
         planned_trips = findViewById(R.id.planned_trips);
         friends = findViewById(R.id.friends);
+        notifiche = findViewById(R.id.notification);
 
         if (person.getUsername().length() != 0){
             username.setText("@"+person.getUsername());
@@ -91,6 +92,15 @@ public class Profile extends AppCompatActivity {
                     showProfile3.putExtra(Register.PERSONA, person);
                     startActivity(showProfile3);
                 }
+        });
+
+        notifiche.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent showNotifications = new Intent(Profile.this, Notifiche.class);
+                showNotifications.putExtra(Register.PERSONA, person);
+                startActivity(showNotifications);
+            }
         });
     }
 }
