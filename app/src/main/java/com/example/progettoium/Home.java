@@ -1,7 +1,11 @@
 package com.example.progettoium;
 
+import androidx.annotation.DrawableRes;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -13,6 +17,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,6 +45,7 @@ public class Home extends FragmentActivity implements OnMapReadyCallback {
     public static final String TRIP = "Trip";
     private GoogleMap mMap;
     ImageButton profilo;
+    Button random;
     EditText mSearchText;
     Person person;
     Trip trip;
@@ -65,6 +71,8 @@ public class Home extends FragmentActivity implements OnMapReadyCallback {
 
         profilo = findViewById(R.id.profile);
         mSearchText = findViewById(R.id.search);
+        random = findViewById(R.id.random);
+
         trip = new Trip();  //E' stato creato un nuovo viaggio
 
 
@@ -78,6 +86,22 @@ public class Home extends FragmentActivity implements OnMapReadyCallback {
         });
 
         init();
+
+
+        random.setOnClickListener(new View.OnClickListener() {
+            int i = 0;
+            @Override
+            public void onClick(View v) {
+
+                if (i==0){
+                    geoLocate("Milano");
+                    i = 1;
+                }else {
+                    geoLocate("Roma");
+                    i=0;
+                }
+            }
+        });
     }
 
 
@@ -108,15 +132,15 @@ public class Home extends FragmentActivity implements OnMapReadyCallback {
                 || actionId== EditorInfo.IME_ACTION_DONE
                 || keyEvent.getAction() == KeyEvent.ACTION_DOWN
                 || keyEvent.getAction() == KeyEvent.KEYCODE_ENTER){
-                    geoLocate();
+                    geoLocate(mSearchText.getText().toString());
                 }
                 return false;
             }
         });
     }
 
-    private void geoLocate(){
-        String searchString = mSearchText.getText().toString();
+    private void geoLocate(String search){
+        String searchString = search;
 
         Geocoder geocoder = new Geocoder(Home.this);
         List<Address> list = new ArrayList<>();
@@ -145,6 +169,8 @@ public class Home extends FragmentActivity implements OnMapReadyCallback {
                 .title(address.getAddressLine(0))
         );
 
+
+        //  PROBLEMA QUI?
         marker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.down_arrow));
         marker.showInfoWindow();
 
