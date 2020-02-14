@@ -58,14 +58,14 @@ public class AddFriends extends AppCompatActivity {
         });
 
         //Continua su conferma
-        /*continua.setOnClickListener(new View.OnClickListener() {
+        continua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent showContinua = new Intent(AddFriends.this, ConfirmPlan.class);
+                Intent showContinua = new Intent(AddFriends.this, ConfermaTotale.class);
                 showContinua.putExtra(Home.TRIP, viaggio);
                 startActivity(showContinua);
             }
-        });*/
+        });
 
 
         goBack.setOnClickListener(new View.OnClickListener() {

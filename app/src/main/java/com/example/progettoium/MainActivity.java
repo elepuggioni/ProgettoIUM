@@ -120,7 +120,6 @@ public class MainActivity extends AppCompatActivity {
         }else {
             password.setError(null);
         }
-
         return errori == 0;
     }
 

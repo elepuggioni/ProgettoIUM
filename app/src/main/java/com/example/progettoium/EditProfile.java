@@ -81,12 +81,15 @@ public class EditProfile extends AppCompatActivity {
     private boolean CheckInput(){
         int errori = 0;
 
+        /* controlla solo la password, altrimenti sei obbligato a reinserire tutto ogni volta
+
         if (username.getText() == null || username.getText().length() == 0){
             username.setError("Inserire lo username");
             errori ++;
         }else {
             username.setError(null);
         }
+
 
         if (bio.getText() == null || bio.getText().length() == 0){
             bio.setError("La bio non può essere vuota");
@@ -108,21 +111,28 @@ public class EditProfile extends AppCompatActivity {
         }else {
             citta.setError(null);
         }
-
-        if(!password.getText().toString().equals(confermaPassword.getText().toString()) ){
-            confermaPassword.setError("Le due password non coincidono");
-            errori++;
-        }else {
-            confermaPassword.setError(null);
-        }
+*/
+            if (!password.getText().toString().equals(confermaPassword.getText().toString())) {
+                confermaPassword.setError("Le due password non coincidono");
+                errori++;
+            } else {
+                confermaPassword.setError(null);
+            }
 
         return errori ==0;
     }
 
     protected void UpdatePerson(){
+        if(username.getText().length() != 0)
         this.person.setUsername(this.username.getText().toString());
+
+        if(password.getText().length() != 0)
         this.person.setPassword(this.password.getText().toString());
+
+        if(citta.getText().length() != 0)
         this.person.setCitta(this.citta.getText().toString());
+
+        if(bio.getText().length() != 0)
         this.person.setBio(this.bio.getText().toString());
     }
 }

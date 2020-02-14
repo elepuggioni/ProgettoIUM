@@ -192,17 +192,15 @@
             android:layout_weight="1">
 
             <Button
+                android:id="@+id/continuaPlan3"
+                style="@style/buttons_with_arrow"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                style="@style/buttons_with_arrow"
-                android:id="@+id/continuaPlan3"
-                android:text="Continua">
-            </Button>
+                android:text="Continua"></Button>
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp"/>
+                android:layout_height="32dp" />
         </LinearLayout>
 
 
