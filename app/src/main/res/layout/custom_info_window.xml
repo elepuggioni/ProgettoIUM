@@ -6,18 +6,20 @@
     android:layout_height="match_parent"
     android:background="@color/transparent">
 
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/triangle"
+        android:layout_marginTop="180dp"
+        android:layout_marginLeft="105dp"
+        android:background="#fff"
+        app:layout_constraintLeft_toLeftOf="@id/infowindow"
+        app:layout_constraintTop_toTopOf="@id/infowindow"
+        android:transformPivotX="30dp"
+        android:transformPivotY="16dp"
+        android:rotation="45">
+    </ImageView>
 
-       <!-- <ImageView
-
-            app:layout_constraintTop_toTopOf="@id/infowindow"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginLeft="90dp"
-            android:layout_marginTop="200dp"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:id="@+id/window_bottom"
-            android:background="#fff">
-        </ImageView>-->
     <LinearLayout
         android:layout_width="230dp"
         android:layout_height="200dp"
@@ -89,6 +91,5 @@
         app:layout_constraintTop_toTopOf="parent">
 
     </ImageView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

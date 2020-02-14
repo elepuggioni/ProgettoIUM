@@ -2,6 +2,7 @@ package com.example.progettoium;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class Trip implements Serializable {
@@ -13,8 +14,8 @@ public class Trip implements Serializable {
     private List<String> shopping = new ArrayList<>();
     private List<String> ristoranti = new ArrayList<>();
     private List<String> amici = new ArrayList<>();
-
-    //foto, date...
+    private Calendar partenza;
+    private Calendar ritorno;
 
     public Trip(){
         this.setCity("Milano MI, Italia");  //Città di default
@@ -87,4 +88,20 @@ public class Trip implements Serializable {
     public List<String> getAmici() { return amici; }
 
     public void setAmici(List<String> amici) { this.amici = amici; }
+
+    public Calendar getPartenza() {
+        return partenza;
+    }
+
+    public void setPartenza(Calendar partenza) {
+        this.partenza = partenza;
+    }
+
+    public Calendar getRitorno() {
+        return ritorno;
+    }
+
+    public void setRitorno(Calendar ritorno) {
+        this.ritorno = ritorno;
+    }
 }
