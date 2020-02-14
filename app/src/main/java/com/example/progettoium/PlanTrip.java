@@ -59,7 +59,7 @@ public class PlanTrip extends AppCompatActivity {
         }
 
         if (trip.getCity().equals("Roma RM, Italia")){
-            image.setImageResource(R.drawable.romap);
+            image.setImageResource(R.drawable.roma);
         }
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource

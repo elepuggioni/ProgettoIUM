@@ -1,19 +1,12 @@
 package com.example.progettoium;
 
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.Marker;
 
 public class CityWindow implements GoogleMap.InfoWindowAdapter{
@@ -37,13 +30,22 @@ public class CityWindow implements GoogleMap.InfoWindowAdapter{
         }
 
         ImageView tvImage = view.findViewById(R.id.window_image);
+        ImageView img1 = view.findViewById(R.id.img1);
+        ImageView img2 = view.findViewById(R.id.img2);
+
         if(title.equals("Milano MI, Italia")){
             tvImage.setImageResource(R.drawable.milano);
+            img1.setImageResource(R.drawable.m1);
+            img2.setImageResource(R.drawable.m2);
         }else if(title.equals("Roma RM, Italia")){
-            tvImage.setImageResource(R.drawable.milano);
+            tvImage.setImageResource(R.drawable.roma);
+            img1.setImageResource(R.drawable.r);
+            img2.setImageResource(R.drawable.r1);
         }
 
         tvImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        img1.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        img2.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
         /*ImageView imageView = view.findViewById(R.id.window_bottom);
         imageView.setPivotX(imageView.getWidth()/2);

@@ -65,10 +65,17 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
+            <!--<com.applandeo.materialcalendarview.CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />-->
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <EditText
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -79,6 +86,8 @@
                     android:hint="Partenza"
                     android:focusableInTouchMode="false"
                     android:id="@+id/partenzaDate"/>
+
+
                 <EditText
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
