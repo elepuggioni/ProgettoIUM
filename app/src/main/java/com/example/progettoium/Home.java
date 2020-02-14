@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Geocoder;
@@ -169,9 +170,13 @@ public class Home extends FragmentActivity implements OnMapReadyCallback {
                 .title(address.getAddressLine(0))
         );
 
+        int height = 1;
+        int width = 1;
+        BitmapDrawable bitmapdraw = (BitmapDrawable)getResources().getDrawable(R.drawable.heart);
+        Bitmap b = bitmapdraw.getBitmap();
+        Bitmap smallMarker = Bitmap.createScaledBitmap(b, width, height, false);
 
-        //  PROBLEMA QUI?
-        marker.setIcon(BitmapDescriptorFactory.fromResource(R.drawable.down_arrow));
+        marker.setIcon(BitmapDescriptorFactory.fromBitmap(smallMarker));
         marker.showInfoWindow();
 
         mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {

@@ -73,7 +73,10 @@ public class FindAttractions extends FragmentActivity implements OnMapReadyCallb
         cb3 = findViewById(R.id.cb3);
         top3 = findViewById(R.id.attraction_top3);
         removeTop3 = findViewById(R.id.attraction_remove_top3);
-        removeTop3.setTag(1);
+        /*All'inizio la Top 3 è nascosta*/
+        top3.removeView(checkboxes);
+        removeTop3.setTag(2);
+        removeTop3.setBackgroundResource(R.drawable.ic_add);
         mSearch = findViewById(R.id.attraction_search);
 
         subtitle1 =findViewById(R.id.attraction_subtitle1);

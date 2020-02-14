@@ -44,6 +44,13 @@ public class CityWindow implements GoogleMap.InfoWindowAdapter{
         }
 
         tvImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+        /*ImageView imageView = view.findViewById(R.id.window_bottom);
+        imageView.setPivotX(imageView.getWidth()/2);
+        imageView.setPivotY(imageView.getHeight()/2);
+        imageView.setRotation(45);
+        imageView.layout(0,0,70,70);
+        imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);*/
     }
 
     @Override
