@@ -1,6 +1,7 @@
 package com.example.progettoium;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,18 +10,23 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class PlanTrip extends AppCompatActivity {
     Button goBack, continuaPlan1;
     TextView titleCity;
     ImageView image;
     Spinner alloggio;
+    EditText partenza, ritorno;
 
     SeekBar budget;
     TextView bTitle;
@@ -29,11 +35,14 @@ public class PlanTrip extends AppCompatActivity {
     int modelValue = 0;
 
     Trip trip;
+    DatePickerFragment datePickerFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plantrip);
+
+        datePickerFragment = new DatePickerFragment();
 
         goBack = findViewById(R.id.goHome);
         titleCity = findViewById(R.id.titlePlan);
@@ -42,6 +51,8 @@ public class PlanTrip extends AppCompatActivity {
         budget = findViewById(R.id.seekbarBudget);
         bTitle = findViewById(R.id.budgetTitle);
         continuaPlan1 = findViewById(R.id.continuaPlan1);
+        partenza = findViewById(R.id.partenzaDate);
+        ritorno = findViewById(R.id.ritornoDate);
 
         Intent intent = getIntent();
         Serializable obj = intent.getSerializableExtra(Home.TRIP);
@@ -65,6 +76,7 @@ public class PlanTrip extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource
                 (this,R.array.tipo_alloggio, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
         alloggio.setAdapter(adapter);
         alloggio.setOnItemSelectedListener(new OnItemSelectedListener(){
 
@@ -98,6 +110,59 @@ public class PlanTrip extends AppCompatActivity {
         });
 
         trip.setBudget(modelValue);
+
+        partenza.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                datePickerFragment.setCaso(0);
+                datePickerFragment.show(getSupportFragmentManager(),"date picker");
+            }
+        });
+
+        partenza.setOnFocusChangeListener(new View.OnFocusChangeListener() { //funzione di view
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) { //metodo chiamato quando lo stato della view cambia
+                if(hasFocus){
+                    datePickerFragment.setCaso(0);
+                    datePickerFragment.show(getSupportFragmentManager(), "datePicker");
+                }
+            }
+        });
+
+        ritorno.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                datePickerFragment.setCaso(1);
+                datePickerFragment.show(getSupportFragmentManager(),"date picker");
+            }
+        });
+
+        ritorno.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                datePickerFragment.setCaso(1);
+                //if (partenza.getText()!= null) {
+                    //Calendar data = new SimpleDateFormat().parse(partenza.getText());
+                    //datePickerFragment.setDate(new SimpleDateFormat(partenza.getText()));
+                //}
+                datePickerFragment.show(getSupportFragmentManager(), "datePicker");
+            }
+        });
+
+        datePickerFragment.setOnDatePickerFragmentChanged(new DatePickerFragment.DatePickerFragmentListener() {
+            @Override
+            public void onDatePickerFragmentOkButton(DialogFragment dialog, Calendar date) {
+
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                if(datePickerFragment.getCaso() == 0){
+                    partenza.setText(format.format(date.getTime()));
+                }else ritorno.setText(format.format(date.getTime()));
+            }
+
+            @Override
+            public void onDatePickerFragmentCancelButton(DialogFragment dialog) {
+            }
+        });
 
         goBack.setOnClickListener(new View.OnClickListener() {
             @Override
