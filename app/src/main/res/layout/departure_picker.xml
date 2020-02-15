@@ -11,7 +11,8 @@
         android:layout_centerHorizontal="true"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:headerBackground="#FFBA5C"/>
+        style="@style/CustomDatePickerDialogTheme"
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

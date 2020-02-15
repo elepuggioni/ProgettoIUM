@@ -37,7 +37,7 @@ public class FindAttractions extends FragmentActivity implements OnMapReadyCallb
     EditText mSearch;
     Trip trip;
     int categoria;
-    Button confirm, removeTop3;
+    Button confirm, removeTop3, goBack;
     CheckBox cb1, cb2, cb3;
     LinearLayout top3, checkboxes;
     Marker m1,m2,m3;
@@ -78,8 +78,10 @@ public class FindAttractions extends FragmentActivity implements OnMapReadyCallb
         removeTop3.setTag(2);
         removeTop3.setBackgroundResource(R.drawable.ic_add);
         mSearch = findViewById(R.id.attraction_search);
+        goBack = findViewById(R.id.find_goBack);
 
         subtitle1 =findViewById(R.id.attraction_subtitle1);
+
         switch (categoria){
             case 1: subtitle1.setText("ARTE");
             break;
@@ -121,7 +123,27 @@ public class FindAttractions extends FragmentActivity implements OnMapReadyCallb
                 startActivity(showCheck);
             }
         });*/
-
+        goBack.setOnClickListener(new View.OnClickListener() {  //Resetto tutte le liste
+            @Override
+            public void onClick(View v) {
+                switch (categoria){
+                    case 1:
+                        trip.setArte(new ArrayList<String>());
+                        break;
+                    case 2:
+                        trip.setSport(new ArrayList<String>());
+                        break;
+                    case 3:
+                        trip.setShopping(new ArrayList<String>());
+                        break;
+                    case 4:
+                        trip.setRistoranti(new ArrayList<String>());
+                }
+                Intent showAct= new Intent(FindAttractions.this, Activities.class);
+                showAct.putExtra(Home.TRIP, trip);
+                startActivity(showAct);
+            }
+        });
     }
 
     @Override

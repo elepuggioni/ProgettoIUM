@@ -17,6 +17,8 @@ import java.util.Date;
 public class DatePickerFragment extends DialogFragment{
     private Calendar date;
     private int caso;
+    private int set;
+    private int[] inizio;
     public DatePicker datePicker;
     //creo il listener (vedi metodi interfaccia)
     private DatePickerFragmentListener listener;
@@ -36,12 +38,16 @@ public class DatePickerFragment extends DialogFragment{
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View vista;
 
-        if (getCaso() == 0){
+        if (getCaso() == 0){    //Partenza
             vista = inflater.inflate(R.layout.departure_picker,null);
-            datePicker = vista.findViewById(R.id.datePicker1); //come costruttore prende il contesto
-        }else {
+            datePicker = vista.findViewById(R.id.datePicker1);
+            if (getSet() != 0)
+                initDatePicker(getInizio());
+        }else {     //Ritorno
             vista = inflater.inflate(R.layout.landing_picker,null);
-            datePicker = vista.findViewById(R.id.datePicker2); //come costruttore prende il contesto
+            datePicker = vista.findViewById(R.id.datePicker2);
+            if (getSet() != 0)
+                initDatePicker(getInizio());
         }
 
 
@@ -95,9 +101,26 @@ public class DatePickerFragment extends DialogFragment{
         this.caso = caso;
     }
 
-    public void initDatePicker(int year, int month, int day){
-        this.datePicker.updateDate(year, month, day);
+    public void initDatePicker(int[]i ){
+        datePicker.updateDate(i[0], i[1], i[2]);
     }
+
+    public int getSet() {
+        return set;
+    }
+
+    public void setSet(int set) {
+        this.set = set;
+    }
+
+    public int[] getInizio() {
+        return inizio;
+    }
+
+    public void setInizio(int[] inizio) {
+        this.inizio = inizio;
+    }
+
     //stiamo creando noi degli handle, interfaccia con i metodi che gestiranno gli eventi
     public interface DatePickerFragmentListener{
         public void onDatePickerFragmentOkButton( DialogFragment dialog, Calendar date );

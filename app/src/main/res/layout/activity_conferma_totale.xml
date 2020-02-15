@@ -84,14 +84,6 @@
                             android:textSize="24sp"
                             android:textStyle="bold" />
 
-                        <TextView
-                            android:id="@+id/partenza_paese"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/roboto_regular"
-                            android:text="Italia"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -177,15 +169,6 @@
                         android:layout_weight="1"
                         android:orientation="vertical">
 
-                        <TextView
-                            android:id="@+id/ritorno_paese"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/roboto_regular"
-                            android:gravity="end"
-                            android:text="Italia"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/ritorno_citta"
@@ -195,7 +178,7 @@
                             android:gravity="end"
                             android:text="Milano"
                             android:textAllCaps="true"
-                            android:textSize="24sp"
+                            android:textSize="20sp"
                             android:textStyle="bold" />
                     </LinearLayout>
                 </LinearLayout>
@@ -242,7 +225,7 @@
                             app:srcCompat="@drawable/bank" />
 
                         <TextView
-                            android:id="@+id/textView14"
+                            android:id="@+id/conferma_arte"
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
                             android:layout_marginLeft="4dp"
@@ -266,7 +249,7 @@
                             app:srcCompat="@drawable/award" />
 
                         <TextView
-                            android:id="@+id/textView13"
+                            android:id="@+id/conferma_sport"
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
                             android:layout_marginLeft="4dp"
@@ -300,7 +283,7 @@
                             app:srcCompat="@drawable/shopping_bag" />
 
                         <TextView
-                            android:id="@+id/textView12"
+                            android:id="@+id/conferma_shopping"
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
                             android:layout_marginLeft="4dp"
@@ -324,7 +307,7 @@
                             app:srcCompat="@drawable/restaurant" />
 
                         <TextView
-                            android:id="@+id/textView11"
+                            android:id="@+id/conferma_ristoranti"
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
                             android:layout_marginLeft="4dp"
@@ -411,7 +394,7 @@
                         android:fontFamily="@font/roboto_regular"
                         android:gravity="center_vertical"
                         android:text=": Hotel"
-                        android:textSize="18sp" />
+                        android:textSize="16sp" />
                 </LinearLayout>
 
                 <LinearLayout

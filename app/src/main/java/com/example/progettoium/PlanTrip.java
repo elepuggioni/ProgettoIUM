@@ -188,6 +188,7 @@ public class PlanTrip extends AppCompatActivity {
             @Override
             public void onDatePickerFragmentOkButton(DialogFragment dialog, Calendar date) {
 
+/* ATTENZIONE CI SONO INTERFERENZE CON LE DATE */
                 if(datePickerFragment.getCaso() == 0){
                     data_partenza = date.getTime();
                     partenza.setText(format.format(date.getTime()));
