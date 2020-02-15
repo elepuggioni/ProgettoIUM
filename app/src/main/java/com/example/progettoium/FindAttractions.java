@@ -111,7 +111,7 @@ public class FindAttractions extends FragmentActivity implements OnMapReadyCallb
         init();
 
         confirm = findViewById(R.id.attraction_confirm);
-        /*confirm.setOnClickListener(new View.OnClickListener() {
+        confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent showCheck= new Intent(FindAttractions.this, AttractionsCheck.class);
@@ -120,7 +120,7 @@ public class FindAttractions extends FragmentActivity implements OnMapReadyCallb
                 //showCheck.putExtra(Register.PERSONA, person);
                 startActivity(showCheck);
             }
-        });*/
+        });
 
     }
 

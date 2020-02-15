@@ -3,7 +3,10 @@ package com.example.progettoium;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
@@ -41,7 +44,7 @@ public class AttractionsCheck extends AppCompatActivity {
         title.setText(trip.getCity());
 
         int obj2 = intent.getIntExtra(Activities.CATEGORIA,0);
-        if (obj2!= 0){
+        if (obj2 != 0){
             categoria = obj2;
         }
 
@@ -74,14 +77,18 @@ public class AttractionsCheck extends AppCompatActivity {
     }
 
     public void createCheck(){
-        CheckBox c = new CheckBox(getApplicationContext());
         int i;
-        for (i=0; i<lista.size(); i++){
-            c.setHeight(50);
-            c.setPadding(20,10,0,0);
+
+        for (i = 0; i < lista.size(); i++){
+            CheckBox c = new CheckBox(this);
+            c.setHeight(125);
             c.setClickable(true);
+            c.setChecked(true);
             c.setText(lista.get(i).toString());
             c.setId(i);
+            c.setPadding(16, 8, 16, 0);
+            c.setTextSize(16);
+            c.setTextColor(Color.parseColor("#808080"));
             checkboxes.addView(c);
         }
     }
