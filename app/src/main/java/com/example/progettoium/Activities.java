@@ -17,7 +17,6 @@ public class Activities extends AppCompatActivity {
     Button goBack, continua;
     TextView titleCity;
     ImageView arte, sport, shopping, risto;
-
     Trip viaggio;
 
 
@@ -42,6 +41,9 @@ public class Activities extends AppCompatActivity {
         }else {
             viaggio = new Trip();
         }
+
+
+        boolean flag = intent.getBooleanExtra(AttractionsCheck.FLAG,false);
 
         titleCity.setText(viaggio.getCity());
 
@@ -86,6 +88,9 @@ public class Activities extends AppCompatActivity {
             }
         });
 
+        if (flag){
+            continua.setText("continua");
+        }else continua.setText("non adesso...");
 
         continua.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.ContextThemeWrapper;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -17,12 +18,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AttractionsCheck extends AppCompatActivity {
-
+    public final static String FLAG = "Flag";
     TextView title, subtitle1;
     Trip trip;
     Integer categoria;
     LinearLayout checkboxes;
     List<String> lista = new ArrayList<>();
+    Button confirm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +67,36 @@ public class AttractionsCheck extends AppCompatActivity {
         }
 
         checkboxes = findViewById(R.id.check_checkboxes);
+        confirm = findViewById(R.id.check_confirm);
         createCheck();
+
+        confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (categoria){
+                    case 1:
+                        trip.setArte(lista);
+                        break;
+                    case 2:
+                        trip.setSport(lista);
+                        break;
+                    case 3:
+                        trip.setShopping(lista);
+                        break;
+                    case 4:
+                        trip.setRistoranti(lista);
+                        break;
+                    default: subtitle1.setText("CATEGORIA NON TROVATA");
+                }
+
+
+                Intent showAttr = new Intent(AttractionsCheck.this, Activities.class);
+                showAttr.putExtra(Home.TRIP, trip);
+                showAttr.putExtra(AttractionsCheck.FLAG,true);
+                startActivity(showAttr);
+            }
+        });
+
     }
     public void onCheckboxClicked(View view) {
         CheckBox c = (CheckBox) view;
