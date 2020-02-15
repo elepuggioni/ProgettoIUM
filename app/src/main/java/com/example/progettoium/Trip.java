@@ -21,6 +21,8 @@ public class Trip implements Serializable {
         this.setCity("Milano MI, Italia");  //Città di default
         this.setAlloggio("");
         this.setBudget(0);
+        this.setPartenza(null);
+        this.setRitorno(null);
     }
 
     public Trip(String city, String alloggio, Integer budget){

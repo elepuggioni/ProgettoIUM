@@ -34,9 +34,11 @@ public class PlanTrip extends AppCompatActivity {
     int maxValue = 1500;
     int modelValue = 0;
 
+    Date data_partenza = null;
     Trip trip;
     DatePickerFragment datePickerFragment;
-
+    Calendar scelta;
+    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +55,13 @@ public class PlanTrip extends AppCompatActivity {
         continuaPlan1 = findViewById(R.id.continuaPlan1);
         partenza = findViewById(R.id.partenzaDate);
         ritorno = findViewById(R.id.ritornoDate);
+
+        if(scelta==null){
+            scelta = Calendar.getInstance();
+            scelta.set(Calendar.YEAR, 1995);
+            scelta.set(Calendar.MONTH, Calendar.JANUARY);
+            scelta.set(Calendar.DAY_OF_MONTH, 1);
+        }
 
         Intent intent = getIntent();
         Serializable obj = intent.getSerializableExtra(Home.TRIP);
@@ -72,6 +81,14 @@ public class PlanTrip extends AppCompatActivity {
         if (trip.getCity().equals("Roma RM, Italia")){
             image.setImageResource(R.drawable.roma);
         }
+
+        if (trip.getPartenza() != null)
+            partenza.setText(format.format(trip.getPartenza().getTime()));
+
+        if (trip.getRitorno() != null)
+            ritorno.setText(format.format(trip.getRitorno().getTime()));
+
+
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource
                 (this,R.array.tipo_alloggio, android.R.layout.simple_spinner_item);
@@ -93,6 +110,10 @@ public class PlanTrip extends AppCompatActivity {
 
         });
 
+        if(trip.getBudget()!= 0){
+            updateValue(trip.getBudget());
+            budget.setProgress(trip.getBudget());
+        }
 
         budget.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -109,11 +130,26 @@ public class PlanTrip extends AppCompatActivity {
             }
         });
 
-        trip.setBudget(modelValue);
+
+/*   DATE   */
 
         partenza.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (trip.getPartenza() != null){
+                    int y = trip.getPartenza().get(Calendar.YEAR);
+                    int m = trip.getPartenza().get(Calendar.MONTH);
+                    int d = trip.getPartenza().get(Calendar.DAY_OF_MONTH);
+                    // partenza
+                    //datePickerFragment.initDatePicker(y,m,d);
+                    Calendar sce = Calendar.getInstance();
+                    sce.set(Calendar.YEAR, y);
+                    sce.set(Calendar.MONTH, m);
+                    sce.set(Calendar.DAY_OF_MONTH,d);
+                    datePickerFragment.setDate(sce);
+
+                }
+
                 datePickerFragment.setCaso(0);
                 datePickerFragment.show(getSupportFragmentManager(),"date picker");
             }
@@ -132,6 +168,9 @@ public class PlanTrip extends AppCompatActivity {
         ritorno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (trip.getRitorno() != null)  // partenza
+                    datePickerFragment.setDate(trip.getRitorno());
+
                 datePickerFragment.setCaso(1);
                 datePickerFragment.show(getSupportFragmentManager(),"date picker");
             }
@@ -141,10 +180,6 @@ public class PlanTrip extends AppCompatActivity {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 datePickerFragment.setCaso(1);
-                //if (partenza.getText()!= null) {
-                    //Calendar data = new SimpleDateFormat().parse(partenza.getText());
-                    //datePickerFragment.setDate(new SimpleDateFormat(partenza.getText()));
-                //}
                 datePickerFragment.show(getSupportFragmentManager(), "datePicker");
             }
         });
@@ -153,10 +188,14 @@ public class PlanTrip extends AppCompatActivity {
             @Override
             public void onDatePickerFragmentOkButton(DialogFragment dialog, Calendar date) {
 
-                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
                 if(datePickerFragment.getCaso() == 0){
+                    data_partenza = date.getTime();
                     partenza.setText(format.format(date.getTime()));
-                }else ritorno.setText(format.format(date.getTime()));
+                    trip.setPartenza(date);
+                }else{
+                    ritorno.setText(format.format(date.getTime()));
+                    trip.setRitorno(date);
+                }
             }
 
             @Override
@@ -175,6 +214,8 @@ public class PlanTrip extends AppCompatActivity {
         continuaPlan1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                trip.setBudget(modelValue);
                 Intent showFindAttr = new Intent(PlanTrip.this, Activities.class);
                 showFindAttr.putExtra(Home.TRIP, trip);
                 startActivity(showFindAttr);
@@ -197,4 +238,6 @@ public class PlanTrip extends AppCompatActivity {
         this.modelValue = newValue;
         bTitle.setText("Budget: "+this.modelValue);
     }
+
+
 }

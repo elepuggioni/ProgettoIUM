@@ -6,20 +6,23 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.CalendarView;
 import android.widget.DatePicker;
 
 import androidx.fragment.app.DialogFragment;
 
 import java.util.Calendar;
+import java.util.Date;
 
-public class DatePickerFragment extends DialogFragment {
+public class DatePickerFragment extends DialogFragment{
     private Calendar date;
     private int caso;
     public DatePicker datePicker;
     //creo il listener (vedi metodi interfaccia)
     private DatePickerFragmentListener listener;
 
-    public Dialog onCreateDialog(Bundle savedInstanceState){
+
+    public Dialog onCreateDialog (Bundle savedInstanceState){
         super.onCreateDialog(savedInstanceState);//uso il metodo di Dialog
 
         //SE è null gli metto valori di default
@@ -42,15 +45,14 @@ public class DatePickerFragment extends DialogFragment {
         }
 
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity()); //è il dialog (la finestra vuota) su cui
-        // mettere il datepicker, contiene anche i bottoni
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-        builder.setView(vista); //qua settiamo il datepicker all'interno della finestra vuota
+        builder.setView(vista);
 
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) { //quando premiamo ok stiamo assegnando a date
-                date.set(Calendar.YEAR, datePicker.getYear()); //mese, giorno e anno selezionato
+            public void onClick(DialogInterface dialog, int which) {
+                date.set(Calendar.YEAR, datePicker.getYear());
                 date.set(Calendar.MONTH, datePicker.getMonth());
                 date.set(Calendar.DAY_OF_MONTH, datePicker.getDayOfMonth());
 
@@ -72,19 +74,17 @@ public class DatePickerFragment extends DialogFragment {
 
         return builder.create();
     }
-    //interazione con il picker
+
     public Calendar getDate() {
         return date;
     }
 
     public void setDate(Calendar date) {
         this.date = date;
-        //calendarView.setDate(da);
     }
 
     public void setOnDatePickerFragmentChanged(DatePickerFragmentListener l){
-        this.listener = l; //questa funzione viene chiamata nella main activity per inizializzare l'attributo listener
-        //nella classe DatePickerFragment
+        this.listener = l;
     }
 
     public int getCaso() {
@@ -95,6 +95,9 @@ public class DatePickerFragment extends DialogFragment {
         this.caso = caso;
     }
 
+    public void initDatePicker(int year, int month, int day){
+        this.datePicker.updateDate(year, month, day);
+    }
     //stiamo creando noi degli handle, interfaccia con i metodi che gestiranno gli eventi
     public interface DatePickerFragmentListener{
         public void onDatePickerFragmentOkButton( DialogFragment dialog, Calendar date );
