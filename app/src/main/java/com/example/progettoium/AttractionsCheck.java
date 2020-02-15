@@ -98,13 +98,16 @@ public class AttractionsCheck extends AppCompatActivity {
         });
 
     }
-    public void onCheckboxClicked(View view) {
-        CheckBox c = (CheckBox) view;
 
-        if (!c.isChecked()){
-            lista.remove(c.getId());
-        } else
+    public void clickCheckbox(View v){
+        CheckBox c = (CheckBox) v;
+
+        if (c.isChecked() && !(lista.contains(c.getText().toString()))) {
             lista.add(c.getText().toString());
+        }
+        else if(!(c.isChecked())){
+            lista.remove(c.getText().toString());
+        }
     }
 
     public void createCheck(){
@@ -121,6 +124,12 @@ public class AttractionsCheck extends AppCompatActivity {
             c.setTextSize(16);
             c.setTextColor(Color.parseColor("#808080"));
             checkboxes.addView(c);
+            c.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    clickCheckbox(v);
+                }
+            });
         }
     }
 
