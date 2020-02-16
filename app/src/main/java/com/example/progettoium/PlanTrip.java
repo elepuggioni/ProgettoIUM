@@ -37,6 +37,7 @@ public class PlanTrip extends AppCompatActivity {
 
     Date data_partenza = null;
     Trip trip;
+    Person person;
     DatePickerFragment datePickerFragment;
     Calendar scelta;
     SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
@@ -72,6 +73,14 @@ public class PlanTrip extends AppCompatActivity {
             trip = (Trip) obj;
         } else {
             trip = new Trip();
+        }
+
+        Serializable obj2 = intent.getSerializableExtra(Register.PERSONA);
+
+        if(obj2 instanceof Person){
+            person = (Person) obj2;
+        }else {
+            person = new Person();
         }
 
         //Cambio le scritte in base alla città scelta dall'utente
@@ -191,9 +200,7 @@ public class PlanTrip extends AppCompatActivity {
                 }
                 if (trip.getPartenza() != null) {
                     //Se era stata settata una data di partenza, la si setta come data minima
-                    //e iniziale
                     datePickerFragment.setMin_date(trip.getPartenza());
-
                 }
 
                 datePickerFragment.setInizio(i);
@@ -226,6 +233,7 @@ public class PlanTrip extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent showHome = new Intent(PlanTrip.this, Home.class);
+                showHome.putExtra(Register.PERSONA, person);
                 startActivity(showHome);
             }
         });
@@ -237,6 +245,7 @@ public class PlanTrip extends AppCompatActivity {
                 trip.setBudget(modelValue);
                 Intent showFindAttr = new Intent(PlanTrip.this, Activities.class);
                 showFindAttr.putExtra(Home.TRIP, trip);
+                showFindAttr.putExtra(Register.PERSONA, person);
                 startActivity(showFindAttr);
             }
         });

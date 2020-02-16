@@ -75,7 +75,7 @@ public class Home extends FragmentActivity implements OnMapReadyCallback {
         random = findViewById(R.id.random);
 
         trip = new Trip();  //E' stato creato un nuovo viaggio
-
+        trip.setDeparture_city(person.getCitta());  //La città di partenza è quella della persona
 
         profilo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -185,6 +185,7 @@ public class Home extends FragmentActivity implements OnMapReadyCallback {
                 Intent showPlanTrip = new Intent(Home.this, PlanTrip.class);
                 trip.setCity(address.getAddressLine(0));
                 showPlanTrip.putExtra(Home.TRIP, trip );
+                showPlanTrip.putExtra(Register.PERSONA, person);
                 startActivity(showPlanTrip);
             }
         });

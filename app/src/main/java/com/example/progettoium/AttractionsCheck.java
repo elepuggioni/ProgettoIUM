@@ -146,8 +146,4 @@ public class AttractionsCheck extends AppCompatActivity {
         }
     }
 
-    public void removeObj(){
-
-    }
-
 }

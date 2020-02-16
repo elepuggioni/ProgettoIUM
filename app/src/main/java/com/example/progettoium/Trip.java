@@ -7,6 +7,7 @@ import java.util.List;
 
 public class Trip implements Serializable {
     private String city;
+    private String departure_city;
     private String alloggio;
     private Integer budget;
     private List<String> arte = new ArrayList<>();
@@ -19,6 +20,7 @@ public class Trip implements Serializable {
 
     public Trip(){
         this.setCity("Milano MI, Italia");  //Città di default
+        this.setDeparture_city("Cagliari CA, Italia");
         this.setAlloggio("");
         this.setBudget(0);
         this.setPartenza(null);
@@ -105,5 +107,13 @@ public class Trip implements Serializable {
 
     public void setRitorno(Calendar ritorno) {
         this.ritorno = ritorno;
+    }
+
+    public String getDeparture_city() {
+        return departure_city;
+    }
+
+    public void setDeparture_city(String departure_city) {
+        this.departure_city = departure_city;
     }
 }

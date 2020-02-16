@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.Serializable;
@@ -14,8 +15,11 @@ import java.util.Calendar;
 public class ConfermaTotale extends AppCompatActivity {
     Button goBack, conferma, annulla;
     Trip viaggio;
+    ImageView amico1, amico2;
     TextView partenza_citta, partenza_data, ritorno_citta, ritorno_data;
     TextView arte, shopping, ristoranti, sport, budget, alloggio;
+
+    Person person;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +40,8 @@ public class ConfermaTotale extends AppCompatActivity {
         sport = findViewById(R.id.conferma_sport);
         budget = findViewById(R.id.budget);
         alloggio = findViewById(R.id.tipo_alloggio);
-
+        amico1 = findViewById(R.id.foto1);
+        amico2 = findViewById(R.id.foto2);
 
         Intent intent = getIntent();
         Serializable obj = intent.getSerializableExtra(Home.TRIP);
@@ -45,6 +50,14 @@ public class ConfermaTotale extends AppCompatActivity {
             viaggio = (Trip) obj;
         }else {
             viaggio = new Trip();
+        }
+
+        Serializable obj2 = intent.getSerializableExtra(Register.PERSONA);
+
+        if(obj2 instanceof Person){
+            person = (Person) obj2;
+        }else {
+            person = new Person();
         }
 
         //partenza_citta.setText();
@@ -65,7 +78,20 @@ public class ConfermaTotale extends AppCompatActivity {
         ristoranti.setText(": "+viaggio.getRistoranti().size()+" ristoranti");
         sport.setText(": "+viaggio.getSport().size()+" attrazioni");
         budget.setText(viaggio.getBudget()+" euro");
-        alloggio.setText(": "+viaggio.getAlloggio());
+        if (!viaggio.getAlloggio().equals("Scegli il tipo di alloggio")){
+            alloggio.setText(": "+viaggio.getAlloggio());
+        }else alloggio.setText(": ");
+
+
+        for (String s: viaggio.getAmici()){
+            if (s.equals("Mary Jane Watson")){
+                amico1.setVisibility(View.VISIBLE);
+            }
+
+            if (s.equals("Mark Ruffalo")){
+                amico2.setVisibility(View.VISIBLE);
+            }
+        }
 
         goBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,16 +105,19 @@ public class ConfermaTotale extends AppCompatActivity {
         annulla.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent showAddFriends = new Intent(ConfermaTotale.this, AddFriends.class);
-                showAddFriends.putExtra(Home.TRIP, viaggio);
-                startActivity(showAddFriends);
+               // Intent showAddFriends = new Intent(ConfermaTotale.this, AddFriends.class);
+                //showAddFriends.putExtra(Home.TRIP, viaggio);
+                //startActivity(showAddFriends);
             }
         });
 
         conferma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //do stuff
+                person.getViaggi().add(viaggio);    //Aggiunto il viaggio
+                Intent showHome = new Intent(ConfermaTotale.this, Home.class);
+                showHome.putExtra(Register.PERSONA,person);
+                startActivity(showHome);
             }
         });
     }

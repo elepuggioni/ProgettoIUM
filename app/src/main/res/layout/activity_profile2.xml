@@ -235,6 +235,7 @@
 
                     </ImageButton>
                     <LinearLayout
+                        android:id="@+id/viaggio_creato"
                         android:layout_width="210dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
@@ -245,6 +246,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:id="@+id/titolo_viaggio"
                             android:text="Milano"
                             android:textSize="16dp"
                             android:fontFamily="@font/roboto_medium"
@@ -253,6 +255,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:id="@+id/date_viaggio"
                             android:text="13/04/2020  -  20/04/2020"
                             android:fontFamily="@font/roboto_regular"
                             android:textSize="14dp"

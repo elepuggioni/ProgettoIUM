@@ -3,18 +3,15 @@ package com.example.progettoium;
 import android.widget.ImageView;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Person implements Serializable {
     private String username;
     private String password;
     private String citta;
     private String bio;
-/*
-    si può fare così??? idk
-    private ImageView foto;
-    private ImageView copertina;
-*/
-
+    private List<Trip> viaggi = new ArrayList<>();
 
     public Person(){
         this.setUsername("");
@@ -61,5 +58,13 @@ public class Person implements Serializable {
 
     public void setBio(String bio) {
         this.bio = bio;
+    }
+
+    public List<Trip> getViaggi() {
+        return viaggi;
+    }
+
+    public void setViaggi(List<Trip> viaggi) {
+        this.viaggi = viaggi;
     }
 }

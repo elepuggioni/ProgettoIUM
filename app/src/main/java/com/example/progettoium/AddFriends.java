@@ -17,6 +17,7 @@ public class AddFriends extends AppCompatActivity {
     TextView nomeAmico1, nomeAmico2;
 
     Trip viaggio;
+    Person person;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +40,32 @@ public class AddFriends extends AppCompatActivity {
             viaggio = new Trip();
         }
 
+        Serializable obj2 = intent.getSerializableExtra(Register.PERSONA);
+
+        if(obj2 instanceof Person){
+            person = (Person) obj2;
+        }else {
+            person = new Person();
+        }
+
+        for (String s: viaggio.getAmici()){
+            if (s.equals("Mary Jane Watson")){
+                amico1.setChecked(true);
+            }
+            if (s.equals("Mark Ruffalo")){
+                amico2.setChecked(true);
+            }
+        }
+
         amico1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (amico1.isChecked()){
+                if (amico1.isChecked() && !(viaggio.getAmici().contains(nomeAmico1.getText().toString()))) {
                     viaggio.getAmici().add(nomeAmico1.getText().toString());
+                }
+                else if(!(amico1.isChecked())){
+                    viaggio.getAmici().remove(nomeAmico1.getText().toString());
+
                 }
             }
         });
@@ -51,8 +73,12 @@ public class AddFriends extends AppCompatActivity {
         amico2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (amico1.isChecked()){
+
+                if (amico2.isChecked() && !(viaggio.getAmici().contains(nomeAmico2.getText().toString()))) {
                     viaggio.getAmici().add(nomeAmico2.getText().toString());
+                }
+                else if(!(amico2.isChecked())){
+                    viaggio.getAmici().remove(nomeAmico2.getText().toString());
                 }
             }
         });
@@ -63,6 +89,7 @@ public class AddFriends extends AppCompatActivity {
             public void onClick(View v) {
                 Intent showContinua = new Intent(AddFriends.this, ConfermaTotale.class);
                 showContinua.putExtra(Home.TRIP, viaggio);
+                showContinua.putExtra(Register.PERSONA,person);
                 startActivity(showContinua);
             }
         });
@@ -73,6 +100,7 @@ public class AddFriends extends AppCompatActivity {
             public void onClick(View v) {
                 Intent showHome = new Intent(AddFriends.this, Activities.class);
                 showHome.putExtra(Home.TRIP, viaggio);
+                showHome.putExtra(Register.PERSONA,person);
                 startActivity(showHome);
             }
         });

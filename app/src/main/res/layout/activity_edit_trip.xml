@@ -33,7 +33,7 @@
         android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/back_arrow"
+                android:id="@+id/edit_back"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/ic_back_arrow" />
@@ -54,7 +54,7 @@
         android:layout_height="15dp" />
 
         <TextView
-            android:id="@+id/titolo_citta"
+            android:id="@+id/edit_titolo_citta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -270,7 +270,7 @@
             android:layout_height="15dp" />
 
         <Button
-            android:id="@+id/salva"
+            android:id="@+id/edit_salva"
             style="@style/buttons_with_arrow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

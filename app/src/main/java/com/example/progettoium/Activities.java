@@ -18,7 +18,7 @@ public class Activities extends AppCompatActivity {
     TextView titleCity;
     ImageView arte, sport, shopping, risto;
     Trip viaggio;
-
+    Person person;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +42,13 @@ public class Activities extends AppCompatActivity {
             viaggio = new Trip();
         }
 
+        Serializable obj2 = intent.getSerializableExtra(Register.PERSONA);
+
+        if(obj2 instanceof Person){
+            person = (Person) obj2;
+        }else {
+            person = new Person();
+        }
 
         boolean flag = intent.getBooleanExtra(AttractionsCheck.FLAG,false);
 
@@ -97,6 +104,7 @@ public class Activities extends AppCompatActivity {
             public void onClick(View v) {
                 Intent showContinua = new Intent(Activities.this, AddFriends.class);
                 showContinua.putExtra(Home.TRIP, viaggio);
+                showContinua.putExtra(Register.PERSONA,person);
                 startActivity(showContinua);
             }
         });
@@ -106,6 +114,7 @@ public class Activities extends AppCompatActivity {
             public void onClick(View v) {
                 Intent showHome = new Intent(Activities.this, PlanTrip.class);
                 showHome.putExtra(Home.TRIP, viaggio);
+                showHome.putExtra(Register.PERSONA,person);
                 startActivity(showHome);
             }
         });
