@@ -16,8 +16,9 @@ import java.util.Date;
 
 public class DatePickerFragment extends DialogFragment{
     private Calendar date;
+    private Calendar min_date = getToday();
+    private Calendar max_date = getMax();
     private int caso;
-    private int set;
     private int[] inizio;
     public DatePicker datePicker;
     //creo il listener (vedi metodi interfaccia)
@@ -41,16 +42,13 @@ public class DatePickerFragment extends DialogFragment{
         if (getCaso() == 0){    //Partenza
             vista = inflater.inflate(R.layout.departure_picker,null);
             datePicker = vista.findViewById(R.id.datePicker1);
-            if (getSet() != 0)
-                initDatePicker(getInizio());
+
         }else {     //Ritorno
             vista = inflater.inflate(R.layout.landing_picker,null);
             datePicker = vista.findViewById(R.id.datePicker2);
-            if (getSet() != 0)
-                initDatePicker(getInizio());
         }
 
-
+        initDatePicker(getInizio());
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         builder.setView(vista);
@@ -103,14 +101,8 @@ public class DatePickerFragment extends DialogFragment{
 
     public void initDatePicker(int[]i ){
         datePicker.updateDate(i[0], i[1], i[2]);
-    }
-
-    public int getSet() {
-        return set;
-    }
-
-    public void setSet(int set) {
-        this.set = set;
+        datePicker.setMinDate(min_date.getTimeInMillis());
+        datePicker.setMaxDate(max_date.getTimeInMillis());
     }
 
     public int[] getInizio() {
@@ -121,9 +113,53 @@ public class DatePickerFragment extends DialogFragment{
         this.inizio = inizio;
     }
 
-    //stiamo creando noi degli handle, interfaccia con i metodi che gestiranno gli eventi
+    public Calendar getMin_date() {
+        return min_date;
+    }
+
+    public void setMin_date(Calendar min_date) {
+        this.min_date = min_date;
+    }
+
+    public void setMax_date(Calendar max_date){
+        this.max_date = max_date;
+    }
+
     public interface DatePickerFragmentListener{
         public void onDatePickerFragmentOkButton( DialogFragment dialog, Calendar date );
         public void onDatePickerFragmentCancelButton( DialogFragment dialog );
+    }
+
+    public Calendar getToday() {
+        Calendar calendar = Calendar.getInstance();
+        Calendar cal = Calendar.getInstance();
+        int yy = calendar.get(Calendar.YEAR);
+        int mm = calendar.get(Calendar.MONTH);
+        int dd = calendar.get(Calendar.DAY_OF_MONTH);
+
+        cal.set(Calendar.MONTH, mm);
+        cal.set(Calendar.DAY_OF_MONTH, dd);
+        cal.set(Calendar.YEAR, yy);
+        return cal;
+    }
+    public Calendar getMax() {
+        Calendar calendar = Calendar.getInstance();
+        Calendar cal = Calendar.getInstance();
+        int yy = calendar.get(Calendar.YEAR);
+        int mm = calendar.get(Calendar.MONTH);
+        int dd = calendar.get(Calendar.DAY_OF_MONTH);
+
+        cal.set(Calendar.MONTH, mm);
+        cal.set(Calendar.DAY_OF_MONTH, dd);
+        cal.set(Calendar.YEAR, yy+5);
+        return cal;
+    }
+
+    public void resetMax(){
+        this.max_date = getMax();
+    }
+
+    public void resetMin(){
+        this.min_date = getToday();
     }
 }

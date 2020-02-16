@@ -2,6 +2,7 @@ package com.example.progettoium;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -24,7 +25,7 @@ public class AttractionsCheck extends AppCompatActivity {
     Integer categoria;
     LinearLayout checkboxes;
     List<String> lista = new ArrayList<>();
-    Button confirm;
+    Button confirm, goBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +69,8 @@ public class AttractionsCheck extends AppCompatActivity {
 
         checkboxes = findViewById(R.id.check_checkboxes);
         confirm = findViewById(R.id.check_confirm);
+        goBack = findViewById(R.id.check_goHome);
+
         createCheck();
 
         confirm.setOnClickListener(new View.OnClickListener() {
@@ -94,6 +97,16 @@ public class AttractionsCheck extends AppCompatActivity {
                 showAttr.putExtra(Home.TRIP, trip);
                 showAttr.putExtra(AttractionsCheck.FLAG,true);
                 startActivity(showAttr);
+            }
+        });
+
+        goBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent showFindAttr = new Intent(AttractionsCheck.this, FindAttractions.class);
+                showFindAttr.putExtra(Home.TRIP, trip);
+                showFindAttr.putExtra(Activities.CATEGORIA, categoria);
+                startActivity(showFindAttr);
             }
         });
 

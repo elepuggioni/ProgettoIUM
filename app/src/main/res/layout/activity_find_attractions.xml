@@ -25,10 +25,6 @@
 
     </LinearLayout>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -72,7 +68,7 @@
         android:textSize="14dp"
         style="@style/profile_subtitle"
         android:id="@+id/attraction_subtitle2"
-        android:text="Seleziona le attrazioni da \nvedere nel tuo prossimo viaggio\ncliccandone il nome sulla mappa">
+        android:text="Seleziona le attrazioni da vedere nel tuo prossimo\nviaggio cliccandone il nome sulla mappa">
 
     </TextView>
 
@@ -203,5 +199,4 @@
 
     </LinearLayout>
 
-    </ScrollView>
 </LinearLayout>

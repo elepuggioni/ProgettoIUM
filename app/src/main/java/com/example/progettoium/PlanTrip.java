@@ -17,6 +17,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.io.Serializable;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -39,6 +40,7 @@ public class PlanTrip extends AppCompatActivity {
     DatePickerFragment datePickerFragment;
     Calendar scelta;
     SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +58,7 @@ public class PlanTrip extends AppCompatActivity {
         partenza = findViewById(R.id.partenzaDate);
         ritorno = findViewById(R.id.ritornoDate);
 
-        if(scelta==null){
+        if (scelta == null) {
             scelta = Calendar.getInstance();
             scelta.set(Calendar.YEAR, 1995);
             scelta.set(Calendar.MONTH, Calendar.JANUARY);
@@ -66,19 +68,19 @@ public class PlanTrip extends AppCompatActivity {
         Intent intent = getIntent();
         Serializable obj = intent.getSerializableExtra(Home.TRIP);
 
-        if(obj instanceof Trip){
+        if (obj instanceof Trip) {
             trip = (Trip) obj;
-        }else {
+        } else {
             trip = new Trip();
         }
 
         //Cambio le scritte in base alla città scelta dall'utente
         titleCity.setText(trip.getCity());
-        if(trip.getCity().equals("Milano MI, Italia")){
+        if (trip.getCity().equals("Milano MI, Italia")) {
             image.setImageResource(R.drawable.milano);
         }
 
-        if (trip.getCity().equals("Roma RM, Italia")){
+        if (trip.getCity().equals("Roma RM, Italia")) {
             image.setImageResource(R.drawable.roma);
         }
 
@@ -89,13 +91,12 @@ public class PlanTrip extends AppCompatActivity {
             ritorno.setText(format.format(trip.getRitorno().getTime()));
 
 
-
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource
-                (this,R.array.tipo_alloggio, android.R.layout.simple_spinner_item);
+                (this, R.array.tipo_alloggio, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         alloggio.setAdapter(adapter);
-        alloggio.setOnItemSelectedListener(new OnItemSelectedListener(){
+        alloggio.setOnItemSelectedListener(new OnItemSelectedListener() {
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -110,7 +111,7 @@ public class PlanTrip extends AppCompatActivity {
 
         });
 
-        if(trip.getBudget()!= 0){
+        if (trip.getBudget() != 0) {
             updateValue(trip.getBudget());
             budget.setProgress(trip.getBudget());
         }
@@ -120,10 +121,12 @@ public class PlanTrip extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 updateValue(seekBar.getProgress());
             }
+
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
 
             }
+
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 updateValue(seekBar.getProgress());
@@ -131,34 +134,39 @@ public class PlanTrip extends AppCompatActivity {
         });
 
 
-/*   DATE   */
+        /*   DATE   */
 
         partenza.setOnClickListener(new View.OnClickListener() {
+            //All'inizio la data iniziale è quella odierna
+            int[] i = {getToday().get(Calendar.YEAR),getToday().get(Calendar.MONTH), getToday().get(Calendar.DAY_OF_MONTH)};
+
             @Override
             public void onClick(View v) {
-                if (trip.getPartenza() != null){
+                if (trip.getPartenza() != null) {
                     int y = trip.getPartenza().get(Calendar.YEAR);
                     int m = trip.getPartenza().get(Calendar.MONTH);
                     int d = trip.getPartenza().get(Calendar.DAY_OF_MONTH);
-                    // partenza
-                    //datePickerFragment.initDatePicker(y,m,d);
-                    Calendar sce = Calendar.getInstance();
-                    sce.set(Calendar.YEAR, y);
-                    sce.set(Calendar.MONTH, m);
-                    sce.set(Calendar.DAY_OF_MONTH,d);
-                    datePickerFragment.setDate(sce);
+                    //Se è già settata la partenza, si cambia la data iniziale
+                    i[0] = y;
+                    i[1]= m;
+                    i[2] = d;
 
                 }
+                if(trip.getRitorno() != null){  //Se è settata la data di ritorno, si setta la data massima
+                    datePickerFragment.setMax_date(trip.getRitorno());
+                }
 
+                datePickerFragment.resetMin();  //Resetto la data minima
+                datePickerFragment.setInizio(i);
                 datePickerFragment.setCaso(0);
-                datePickerFragment.show(getSupportFragmentManager(),"date picker");
+                datePickerFragment.show(getSupportFragmentManager(), "date picker");
             }
         });
 
         partenza.setOnFocusChangeListener(new View.OnFocusChangeListener() { //funzione di view
             @Override
-            public void onFocusChange(View v, boolean hasFocus) { //metodo chiamato quando lo stato della view cambia
-                if(hasFocus){
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
                     datePickerFragment.setCaso(0);
                     datePickerFragment.show(getSupportFragmentManager(), "datePicker");
                 }
@@ -168,11 +176,30 @@ public class PlanTrip extends AppCompatActivity {
         ritorno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (trip.getRitorno() != null)  // partenza
-                    datePickerFragment.setDate(trip.getRitorno());
+                //All'inizio viene settata la data odierna
+                int[] i = {getToday().get(Calendar.YEAR),getToday().get(Calendar.MONTH), getToday().get(Calendar.DAY_OF_MONTH)};
 
+                if (trip.getRitorno() != null) {
+                    //Se era stata già settata la data di ritorno, si mostra quella
+                    int y = trip.getRitorno().get(Calendar.YEAR);
+                    int m = trip.getRitorno().get(Calendar.MONTH);
+                    int d = trip.getRitorno().get(Calendar.DAY_OF_MONTH);
+
+                    i[0] = y;
+                    i[1]= m;
+                    i[2] = d;
+                }
+                if (trip.getPartenza() != null) {
+                    //Se era stata settata una data di partenza, la si setta come data minima
+                    //e iniziale
+                    datePickerFragment.setMin_date(trip.getPartenza());
+
+                }
+
+                datePickerFragment.setInizio(i);
+                datePickerFragment.resetMax();  //Resetto la data massima
                 datePickerFragment.setCaso(1);
-                datePickerFragment.show(getSupportFragmentManager(),"date picker");
+                datePickerFragment.show(getSupportFragmentManager(), "date picker");
             }
         });
 
@@ -187,16 +214,7 @@ public class PlanTrip extends AppCompatActivity {
         datePickerFragment.setOnDatePickerFragmentChanged(new DatePickerFragment.DatePickerFragmentListener() {
             @Override
             public void onDatePickerFragmentOkButton(DialogFragment dialog, Calendar date) {
-
-/* ATTENZIONE CI SONO INTERFERENZE CON LE DATE */
-                if(datePickerFragment.getCaso() == 0){
-                    data_partenza = date.getTime();
-                    partenza.setText(format.format(date.getTime()));
-                    trip.setPartenza(date);
-                }else{
-                    ritorno.setText(format.format(date.getTime()));
-                    trip.setRitorno(date);
-                }
+                setDataScelta(date);
             }
 
             @Override
@@ -224,21 +242,63 @@ public class PlanTrip extends AppCompatActivity {
         });
     }
 
-    protected void updateValue(int newValue){
+    protected void updateValue(int newValue) {
         //verifico che newValue sia nel range e minore di 100
         newValue = newValue > maxValue ? maxValue : newValue;
         //verifico che newValue sia nel range e maggiore di 0
         newValue = newValue < minValue ? minValue : newValue;
 
         //aggiorno il valore visualizzato sulla seekbar
-        if(this.budget.getProgress() != modelValue){
+        if (this.budget.getProgress() != modelValue) {
             this.budget.setProgress(modelValue);
         }
 
         //aggiorno la variabile che indica il valore attuale della calcolatrice
         this.modelValue = newValue;
-        bTitle.setText("Budget: "+this.modelValue);
+        bTitle.setText("Budget: " + this.modelValue);
     }
 
+    public void setDataScelta(Calendar data) {
+
+        Calendar d = Calendar.getInstance();
+
+        if (datePickerFragment.getCaso() == 0) {
+            data_partenza = data.getTime();
+            partenza.setText(format.format(data.getTime()));
+            Date da = new Date();
+
+            try {
+                da = format.parse(partenza.getText().toString());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            d.setTime(da);
+            trip.setPartenza(d);
+        } else {
+            ritorno.setText(format.format(data.getTime()));
+            Date da = new Date();
+
+            try {
+                da = format.parse(ritorno.getText().toString());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            d.setTime(da);
+            trip.setRitorno(d);
+        }
+    }
+
+    public Calendar getToday() {
+        Calendar calendar = Calendar.getInstance();
+        Calendar cal = Calendar.getInstance();
+        int yy = calendar.get(Calendar.YEAR);
+        int mm = calendar.get(Calendar.MONTH);
+        int dd = calendar.get(Calendar.DAY_OF_MONTH);
+
+        cal.set(Calendar.MONTH, mm);
+        cal.set(Calendar.DAY_OF_MONTH, dd);
+        cal.set(Calendar.YEAR, yy);
+        return cal;
+    }
 
 }

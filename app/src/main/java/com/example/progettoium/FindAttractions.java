@@ -73,6 +73,7 @@ public class FindAttractions extends FragmentActivity implements OnMapReadyCallb
         cb3 = findViewById(R.id.cb3);
         top3 = findViewById(R.id.attraction_top3);
         removeTop3 = findViewById(R.id.attraction_remove_top3);
+
         /*All'inizio la Top 3 è nascosta*/
         top3.removeView(checkboxes);
         removeTop3.setTag(2);
@@ -161,6 +162,7 @@ public class FindAttractions extends FragmentActivity implements OnMapReadyCallb
             Address address = list.get(0);
             LatLng citta = new LatLng(address.getLatitude(),address.getLongitude());
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(citta, 13F));
+
             //Mostra le diverse attrazioni
             showAttractions(categoria, trip.getCity());
         }
@@ -304,9 +306,11 @@ public class FindAttractions extends FragmentActivity implements OnMapReadyCallb
             default:break;
         }
 
+        //Setta le checkbox
         cb1.setText(m1.getTitle());
         cb2.setText(m2.getTitle());
         cb3.setText(m3.getTitle());
+
 
         //Nessuno dei marker è stato selezionato
         m1.setTag((Integer) 0);
@@ -315,6 +319,27 @@ public class FindAttractions extends FragmentActivity implements OnMapReadyCallb
         m4.setTag((Integer)0);
         m5.setTag((Integer)0);
 
+        List<String> lista_attrazioni = getAttractionList();
+
+        if(lista_attrazioni!= null){        //Se la lista non è vuota, setto gli elementi corrispondenti
+            for(String i: lista_attrazioni){
+                if(i.equals(m1.getTitle())){
+                    setMarker(m1,1);
+                }
+                if(i.equals(m2.getTitle())){
+                    setMarker(m2,2);
+                }
+                if(i.equals(m3.getTitle())){
+                    setMarker(m3,3);
+                }
+                if(i.equals(m4.getTitle())){
+                    setMarker(m4,0);
+                }
+                if(i.equals(m5.getTitle())){
+                    setMarker(m5,0);
+                }
+            }
+        }
 
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
@@ -408,4 +433,31 @@ public class FindAttractions extends FragmentActivity implements OnMapReadyCallb
         }
     }
 
+    public List<String> getAttractionList(){
+        switch (categoria){
+            case 1:
+                return trip.getArte();
+            case 2:
+                return trip.getSport();
+            case 3:
+                return trip.getShopping();
+            case 4:
+                return trip.getRistoranti();
+        }
+        return null;
+    }
+
+    public void setMarker(Marker m, int top3){
+        m.setTag((Integer) 1);  //Lo setto selezionato
+        m.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+
+        //Se sono nella top3, checko le caselle
+        if (top3==1){
+            changeCheckbox(0,m.getTitle(),cb1);
+        } else if (top3==2){
+            changeCheckbox(0,m.getTitle(),cb2);
+        }else if (top3==3){
+            changeCheckbox(0,m.getTitle(),cb3);
+        }
+    }
 }
