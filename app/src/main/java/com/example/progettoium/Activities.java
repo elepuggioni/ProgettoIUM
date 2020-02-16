@@ -1,10 +1,13 @@
 package com.example.progettoium;
 
 import android.content.Intent;
+import android.graphics.BlendMode;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +20,8 @@ public class Activities extends AppCompatActivity {
     Button goBack, continua;
     TextView titleCity;
     ImageView arte, sport, shopping, risto;
+    LinearLayout ar,sp,sh,ri;
+
     Trip viaggio;
     Person person;
 
@@ -32,6 +37,10 @@ public class Activities extends AppCompatActivity {
         sport = findViewById(R.id.sportImage);
         shopping = findViewById(R.id.shoppingImage);
         risto = findViewById(R.id.ristoImage);
+        ar = findViewById(R.id.act_arte);
+        sp = findViewById(R.id.act_sport);
+        sh = findViewById(R.id.act_shopping);
+        ri = findViewById(R.id.act_ristoranti);
 
         Intent intent = getIntent();
         Serializable obj = intent.getSerializableExtra(Home.TRIP);
@@ -58,6 +67,7 @@ public class Activities extends AppCompatActivity {
         arte.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ar.setBackgroundColor(getResources().getColor(R.color.yellow));
                 Intent showArte = new Intent(Activities.this, FindAttractions.class);
                 showArte.putExtra(Home.TRIP, viaggio);
                 showArte.putExtra(Activities.CATEGORIA, 1);
@@ -68,6 +78,7 @@ public class Activities extends AppCompatActivity {
         sport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                sp.setBackgroundColor(getResources().getColor(R.color.yellow));
                 Intent showSport = new Intent(Activities.this, FindAttractions.class);
                 showSport.putExtra(Home.TRIP, viaggio);
                 showSport.putExtra(Activities.CATEGORIA, 2);
@@ -78,6 +89,7 @@ public class Activities extends AppCompatActivity {
         shopping.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                sh.setBackgroundColor(getResources().getColor(R.color.yellow));
                 Intent showShopping = new Intent(Activities.this, FindAttractions.class);
                 showShopping.putExtra(Home.TRIP, viaggio);
                 showShopping.putExtra(Activities.CATEGORIA, 3);
@@ -88,6 +100,7 @@ public class Activities extends AppCompatActivity {
         risto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ri.setBackgroundColor(getResources().getColor(R.color.yellow));
                 Intent showRisto = new Intent(Activities.this, FindAttractions.class);
                 showRisto.putExtra(Home.TRIP, viaggio);
                 showRisto.putExtra(Activities.CATEGORIA, 4);

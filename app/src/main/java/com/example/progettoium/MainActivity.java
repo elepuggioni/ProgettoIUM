@@ -101,8 +101,10 @@ public class MainActivity extends AppCompatActivity {
         int errori = 0;
 
         //se la modalità debug è attiva e inserisci le credenziali di debug, per saltare la registrazione
-        if(DEBUG && username.getText().toString().equals(username_debug) && password.getText().toString().equals(password_debug))
+        if(DEBUG && username.getText().toString().equals(username_debug) && password.getText().toString().equals(password_debug)){
+            person.setCitta("Cagliari CA, Italia");
             return true;
+        }
 
         if (username.getText() == null || username.getText().length() == 0
                 || !username.getText().toString().equals(person.getUsername())){
