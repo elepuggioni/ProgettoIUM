@@ -120,9 +120,15 @@ public class Home extends FragmentActivity implements OnMapReadyCallback {
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng cagliari = new LatLng(39.226979, 9.114642);
-        mMap.addMarker(new MarkerOptions().position(cagliari).title("Marker in Cagliari"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(cagliari, 5.5F));
+        if (person.getCitta().length()>0){
+            MarkerOptions citta = findCity(person.getCitta());
+            mMap.addMarker(citta);
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(citta.getPosition(),5.5F));
+        }else{
+            LatLng cagliari = new LatLng(39.226979, 9.114642);
+            mMap.addMarker(new MarkerOptions().position(cagliari).title("Marker in Cagliari"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(cagliari, 5.5F));
+        }
     }
 
     private void init(){
@@ -182,13 +188,32 @@ public class Home extends FragmentActivity implements OnMapReadyCallback {
         mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             @Override
             public void onInfoWindowClick(Marker marker) {
-                Intent showPlanTrip = new Intent(Home.this, PlanTrip.class);
-                trip.setCity(address.getAddressLine(0));
-                showPlanTrip.putExtra(Home.TRIP, trip );
-                showPlanTrip.putExtra(Register.PERSONA, person);
-                startActivity(showPlanTrip);
+                if(marker.getTitle().equals("Milano MI, Italia")|| marker.getTitle().equals("Roma RM, Italia")){
+                    Intent showPlanTrip = new Intent(Home.this, PlanTrip.class);
+                    trip.setCity(address.getAddressLine(0));
+                    showPlanTrip.putExtra(Home.TRIP, trip );
+                    showPlanTrip.putExtra(Register.PERSONA, person);
+                    startActivity(showPlanTrip);
+                }
             }
         });
+    }
+
+    public MarkerOptions findCity(String nome){
+        Geocoder geocoder = new Geocoder(Home.this);
+
+        List<Address> list = new ArrayList<>();
+        try {
+            list = geocoder.getFromLocationName(nome,1);
+        }catch (IOException e){};
+
+        if(list.size()>0){
+            Address address = list.get(0);
+            LatLng attrazione = new LatLng(address.getLatitude(),address.getLongitude());
+            MarkerOptions markerOptions = new MarkerOptions().position(attrazione).title("Tu sei qui");
+            return markerOptions;
+        }
+        return null;
     }
 
 }

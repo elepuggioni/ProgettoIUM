@@ -249,6 +249,7 @@
                     android:paddingTop="5dp">
 
                     <ImageButton
+                        android:id="@+id/mary1"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_marginLeft="20dp"
@@ -258,6 +259,7 @@
                     </ImageButton>
 
                     <LinearLayout
+                        android:id="@+id/mary2"
                         style="@style/profile_subtitle"
                         android:layout_width="210dp"
                         android:layout_height="wrap_content"

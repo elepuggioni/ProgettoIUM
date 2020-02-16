@@ -11,7 +11,7 @@ import java.io.Serializable;
 
 public class FriendProfile extends AppCompatActivity {
     Person person;
-    Button goBack, like, share;
+    Button goBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +29,7 @@ public class FriendProfile extends AppCompatActivity {
             person = new Person();
         }
 
-        goBack = findViewById(R.id.back_arrow);
-        like = findViewById(R.id.like);
-        share = findViewById(R.id.share);
+        goBack = findViewById(R.id.friend_back);
 
         goBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,20 +37,6 @@ public class FriendProfile extends AppCompatActivity {
                 Intent showProfile = new Intent(FriendProfile.this, Profile3.class);
                 showProfile.putExtra(Register.PERSONA, person);
                 startActivity(showProfile);
-            }
-        });
-
-        like.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //do stuff
-            }
-        });
-
-        share.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //do other stuff
             }
         });
     }

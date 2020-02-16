@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.io.Serializable;
@@ -14,6 +16,8 @@ public class Profile3 extends AppCompatActivity {
     TextView username, bio, citta, completed_trips, planned_trips;
     Person person;
     Button goHome, editProfile, notifiche;
+    LinearLayout mary2;
+    ImageButton mary1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,8 @@ public class Profile3 extends AppCompatActivity {
         completed_trips = findViewById(R.id.completed_trips);
         planned_trips = findViewById(R.id.planned_trips);
         notifiche = findViewById(R.id.notification);
+        mary1 = findViewById(R.id.mary1);
+        mary2 = findViewById(R.id.mary2);
 
         if (person.getUsername().length() != 0){
             username.setText("@"+person.getUsername());
@@ -102,5 +108,24 @@ public class Profile3 extends AppCompatActivity {
             }
         });
 
+        mary1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent showFriend = new Intent(Profile3.this, FriendProfile.class);
+                showFriend.putExtra(Register.PERSONA, person);
+                startActivity(showFriend);
+            }
+        });
+
+        mary2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent showFriend = new Intent(Profile3.this, FriendProfile.class);
+                showFriend.putExtra(Register.PERSONA, person);
+                startActivity(showFriend);
+            }
+        });
     }
 }
