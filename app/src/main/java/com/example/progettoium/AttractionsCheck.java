@@ -27,6 +27,8 @@ public class AttractionsCheck extends AppCompatActivity {
     List<String> lista = new ArrayList<>();
     Button confirm, goBack;
 
+    Person person;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +51,14 @@ public class AttractionsCheck extends AppCompatActivity {
         int obj2 = intent.getIntExtra(Activities.CATEGORIA,0);
         if (obj2 != 0){
             categoria = obj2;
+        }
+
+        Serializable obj3 = intent.getSerializableExtra(Register.PERSONA);
+
+        if(obj3 instanceof Person){
+            person = (Person) obj3;
+        }else {
+            person = new Person();
         }
 
         switch (categoria){
@@ -96,6 +106,7 @@ public class AttractionsCheck extends AppCompatActivity {
                 Intent showAttr = new Intent(AttractionsCheck.this, Activities.class);
                 showAttr.putExtra(Home.TRIP, trip);
                 showAttr.putExtra(AttractionsCheck.FLAG,true);
+                showAttr.putExtra(Register.PERSONA, person);
                 startActivity(showAttr);
             }
         });
@@ -106,6 +117,7 @@ public class AttractionsCheck extends AppCompatActivity {
                 Intent showFindAttr = new Intent(AttractionsCheck.this, FindAttractions.class);
                 showFindAttr.putExtra(Home.TRIP, trip);
                 showFindAttr.putExtra(Activities.CATEGORIA, categoria);
+                showFindAttr.putExtra(Register.PERSONA, person);
                 startActivity(showFindAttr);
             }
         });

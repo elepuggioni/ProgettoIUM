@@ -2,7 +2,10 @@ package com.example.progettoium;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,18 +16,20 @@ import java.io.Serializable;
 import java.util.Calendar;
 
 public class ConfermaTotale extends AppCompatActivity {
-    Button goBack, conferma, annulla;
+    Button goBack, conferma, annulla, delete_viaggio, undo;
     Trip viaggio;
     ImageView amico1, amico2;
-    TextView partenza_citta, partenza_data, ritorno_citta, ritorno_data;
+    TextView partenza_citta, partenza_data, ritorno_citta, ritorno_data, delete_subtitle;
     TextView arte, shopping, ristoranti, sport, budget, alloggio;
 
     Person person;
+    Dialog dialog_delete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_conferma_totale);
+        dialog_delete= new Dialog(this);
 
         goBack = findViewById(R.id.go_back);
         conferma = findViewById(R.id.conferma);
@@ -60,18 +65,20 @@ public class ConfermaTotale extends AppCompatActivity {
             person = new Person();
         }
 
-        //partenza_citta.setText();
+        partenza_citta.setText(person.getCitta());
         if(viaggio.getPartenza() != null){
             int m = viaggio.getPartenza().get(Calendar.MONTH) +1;
             partenza_data.setText(viaggio.getPartenza().get(Calendar.DAY_OF_MONTH) + "/"+
                     m+"/"+viaggio.getPartenza().get(Calendar.YEAR));
-        }
+        }else partenza_data.setText("");
+
         ritorno_citta.setText(viaggio.getCity());
+
         if(viaggio.getRitorno() != null){
             int m = viaggio.getRitorno().get(Calendar.MONTH) +1;
             ritorno_data.setText(viaggio.getRitorno().get(Calendar.DAY_OF_MONTH) + "/"+
                     m+"/"+viaggio.getRitorno().get(Calendar.YEAR));
-        }
+        }else ritorno_data.setText("");
 
         arte.setText(": "+viaggio.getArte().size()+" monumenti");
         shopping.setText(": "+viaggio.getShopping().size()+" negozi");
@@ -98,6 +105,7 @@ public class ConfermaTotale extends AppCompatActivity {
             public void onClick(View v) {
                 Intent showAddFriends = new Intent(ConfermaTotale.this, AddFriends.class);
                 showAddFriends.putExtra(Home.TRIP, viaggio);
+                showAddFriends.putExtra(Register.PERSONA,person);
                 startActivity(showAddFriends);
             }
         });
@@ -105,9 +113,7 @@ public class ConfermaTotale extends AppCompatActivity {
         annulla.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // Intent showAddFriends = new Intent(ConfermaTotale.this, AddFriends.class);
-                //showAddFriends.putExtra(Home.TRIP, viaggio);
-                //startActivity(showAddFriends);
+                showDelete();
             }
         });
 
@@ -120,5 +126,34 @@ public class ConfermaTotale extends AppCompatActivity {
                 startActivity(showHome);
             }
         });
+    }
+
+    public void showDelete(){
+
+        dialog_delete.setContentView(R.layout.delete_viaggio);
+        delete_subtitle = dialog_delete.findViewById(R.id.delete_subtitle);
+        delete_subtitle.setText("Vuoi davvero eliminare \nil viaggio pianificato?");
+
+        delete_viaggio = dialog_delete.findViewById(R.id.delete_all);
+        undo = dialog_delete.findViewById(R.id.undo);
+
+        delete_viaggio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent showHome = new Intent(ConfermaTotale.this, Home.class);
+                showHome.putExtra(Register.PERSONA,person);
+                startActivity(showHome);
+            }
+        });
+
+        undo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog_delete.dismiss();
+            }
+        });
+
+        dialog_delete.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog_delete.show();
     }
 }

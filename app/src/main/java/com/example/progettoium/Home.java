@@ -5,12 +5,15 @@ import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.FragmentActivity;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Geocoder;
@@ -46,10 +49,11 @@ public class Home extends FragmentActivity implements OnMapReadyCallback {
     public static final String TRIP = "Trip";
     private GoogleMap mMap;
     ImageButton profilo;
-    Button random;
+    Button random, help, close_help;
     EditText mSearchText;
     Person person;
     Trip trip;
+    Dialog dialog_helper;
 
     //Widgets
     @Override
@@ -61,6 +65,7 @@ public class Home extends FragmentActivity implements OnMapReadyCallback {
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        dialog_helper = new Dialog(this);
         Intent intent = getIntent();
         Serializable obj = intent.getSerializableExtra(Register.PERSONA);
 
@@ -73,6 +78,7 @@ public class Home extends FragmentActivity implements OnMapReadyCallback {
         profilo = findViewById(R.id.profile);
         mSearchText = findViewById(R.id.search);
         random = findViewById(R.id.random);
+        help = findViewById(R.id.helper1);
 
         trip = new Trip();  //E' stato creato un nuovo viaggio
         trip.setDeparture_city(person.getCitta());  //La città di partenza è quella della persona
@@ -103,6 +109,14 @@ public class Home extends FragmentActivity implements OnMapReadyCallback {
                 }
             }
         });
+
+        //Dialog helper
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showHelper();
+            }
+        });
     }
 
 
@@ -119,9 +133,10 @@ public class Home extends FragmentActivity implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        if (person.getCitta().length()>0){
+        if (person.getCitta().length()>3){
             MarkerOptions citta = findCity(person.getCitta());
+            person.setCitta(citta.getTitle());
+            citta.title("Tu sei qui");
             mMap.addMarker(citta);
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(citta.getPosition(),5.5F));
         }else{
@@ -210,10 +225,24 @@ public class Home extends FragmentActivity implements OnMapReadyCallback {
         if(list.size()>0){
             Address address = list.get(0);
             LatLng attrazione = new LatLng(address.getLatitude(),address.getLongitude());
-            MarkerOptions markerOptions = new MarkerOptions().position(attrazione).title("Tu sei qui");
+            MarkerOptions markerOptions = new MarkerOptions().position(attrazione).title(address.getAddressLine(0));
             return markerOptions;
         }
         return null;
+    }
+
+    public void showHelper(){
+        dialog_helper.setContentView(R.layout.helper1);
+        close_help = dialog_helper.findViewById(R.id.close_helper1);
+        close_help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog_helper.dismiss();
+            }
+        });
+
+        dialog_helper.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog_helper.show();
     }
 
 }

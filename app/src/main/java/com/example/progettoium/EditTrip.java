@@ -30,9 +30,11 @@ public class EditTrip extends AppCompatActivity {
             person = new Person();
         }
 
-        titolo = findViewById(R.id.edit_titolo_citta);
         int i = person.getViaggi().size();
-        titolo.setText(person.getViaggi().get(i-1).getCity());
+        if(i>0){
+            titolo = findViewById(R.id.edit_titolo_citta);
+            titolo.setText(person.getViaggi().get(i-1).getCity());
+        }
 
         back = findViewById(R.id.edit_back);
         salva = findViewById(R.id.edit_salva);
@@ -45,6 +47,7 @@ public class EditTrip extends AppCompatActivity {
                 startActivity(showProfile2);
             }
         });
+
         salva.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

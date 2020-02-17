@@ -3,6 +3,7 @@ package com.example.progettoium;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,8 +19,8 @@ public class MainActivity extends AppCompatActivity {
     //variabili di debug
     static final String username_debug = "debug";
     static final String password_debug = "debug";
-    static final boolean DEBUG = true;
-    TextView debug_profile, debug_plan, debug_edittrip, debug_findattractions;
+    static final boolean DEBUG = false;
+    TextView debug_profile, debug_plan, debug_edittrip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

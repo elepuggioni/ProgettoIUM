@@ -73,6 +73,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/helper1"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="460dp"
+        android:background="@drawable/help_button"
+        android:padding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.916"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </Button>
+
 
 </RelativeLayout>
 

@@ -38,8 +38,8 @@
 
                 <Button
                     android:id="@+id/notification"
-                    android:layout_width="34dp"
-                    android:layout_height="28dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="13dp"
                     android:layout_marginRight="13dp"

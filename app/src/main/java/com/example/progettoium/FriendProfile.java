@@ -18,8 +18,6 @@ public class FriendProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friend_profile);
 
-        overridePendingTransition(0,0);
-
         Intent intent = getIntent();
         Serializable obj = intent.getSerializableExtra(Register.PERSONA);
 

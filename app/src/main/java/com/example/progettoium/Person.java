@@ -1,5 +1,6 @@
 package com.example.progettoium;
 
+import android.view.View;
 import android.widget.ImageView;
 
 import java.io.Serializable;
@@ -67,4 +68,5 @@ public class Person implements Serializable {
     public void setViaggi(List<Trip> viaggi) {
         this.viaggi = viaggi;
     }
+
 }

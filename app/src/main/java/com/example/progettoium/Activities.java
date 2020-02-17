@@ -69,6 +69,8 @@ public class Activities extends AppCompatActivity {
             public void onClick(View v) {
                 ar.setBackgroundColor(getResources().getColor(R.color.yellow));
                 Intent showArte = new Intent(Activities.this, FindAttractions.class);
+
+                showArte.putExtra(Register.PERSONA,person);
                 showArte.putExtra(Home.TRIP, viaggio);
                 showArte.putExtra(Activities.CATEGORIA, 1);
                 startActivity(showArte);
@@ -80,6 +82,8 @@ public class Activities extends AppCompatActivity {
             public void onClick(View v) {
                 sp.setBackgroundColor(getResources().getColor(R.color.yellow));
                 Intent showSport = new Intent(Activities.this, FindAttractions.class);
+
+                showSport.putExtra(Register.PERSONA,person);
                 showSport.putExtra(Home.TRIP, viaggio);
                 showSport.putExtra(Activities.CATEGORIA, 2);
                 startActivity(showSport);
@@ -91,6 +95,7 @@ public class Activities extends AppCompatActivity {
             public void onClick(View v) {
                 sh.setBackgroundColor(getResources().getColor(R.color.yellow));
                 Intent showShopping = new Intent(Activities.this, FindAttractions.class);
+                showShopping.putExtra(Register.PERSONA,person);
                 showShopping.putExtra(Home.TRIP, viaggio);
                 showShopping.putExtra(Activities.CATEGORIA, 3);
                 startActivity(showShopping);
@@ -102,6 +107,8 @@ public class Activities extends AppCompatActivity {
             public void onClick(View v) {
                 ri.setBackgroundColor(getResources().getColor(R.color.yellow));
                 Intent showRisto = new Intent(Activities.this, FindAttractions.class);
+
+                showRisto.putExtra(Register.PERSONA,person);
                 showRisto.putExtra(Home.TRIP, viaggio);
                 showRisto.putExtra(Activities.CATEGORIA, 4);
                 startActivity(showRisto);

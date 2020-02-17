@@ -11,7 +11,7 @@
         android:layout_height="40dp"
         android:id="@+id/triangle"
         android:layout_marginTop="180dp"
-        android:layout_marginLeft="105dp"
+        android:layout_marginLeft="95dp"
         android:background="#fff"
         app:layout_constraintLeft_toLeftOf="@id/infowindow"
         app:layout_constraintTop_toTopOf="@id/infowindow"
@@ -81,7 +81,7 @@
 
     </LinearLayout>
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/esc"
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -90,6 +90,6 @@
         app:layout_constraintLeft_toLeftOf="@id/infowindow"
         app:layout_constraintTop_toTopOf="parent">
 
-    </ImageView>
+    </ImageView>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

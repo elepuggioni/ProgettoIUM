@@ -2,7 +2,10 @@ package com.example.progettoium;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
@@ -33,14 +36,18 @@ import java.util.List;
 
 public class FindAttractions extends FragmentActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
-    TextView title, subtitle1;
+    TextView title, subtitle1, delete_subtitle;
     EditText mSearch;
     Trip trip;
     int categoria;
-    Button confirm, removeTop3, goBack;
+    Button confirm, removeTop3, goBack, help, close_help;
+    Button undo, ok;
     CheckBox cb1, cb2, cb3;
     LinearLayout top3, checkboxes;
+
+    Person person;
     Marker m1,m2,m3;
+    Dialog dialog_helper, dialog_delete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +56,9 @@ public class FindAttractions extends FragmentActivity implements OnMapReadyCallb
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map_category);
         mapFragment.getMapAsync(this);
+
+        dialog_helper = new Dialog(this);
+        dialog_delete = new Dialog(this);
 
         Intent intent = getIntent();
         Serializable obj = intent.getSerializableExtra(Home.TRIP);
@@ -67,6 +77,15 @@ public class FindAttractions extends FragmentActivity implements OnMapReadyCallb
             categoria = obj2;
         }
 
+        Serializable obj3 = intent.getSerializableExtra(Register.PERSONA);
+
+        if(obj3 instanceof Person){
+            person = (Person) obj3;
+        }else {
+            person = new Person();
+        }
+
+        help = findViewById(R.id.helper2);
         checkboxes = findViewById(R.id.attraction_checkboxes);
         cb1 = findViewById(R.id.cb1);
         cb2 = findViewById(R.id.cb2);
@@ -120,7 +139,7 @@ public class FindAttractions extends FragmentActivity implements OnMapReadyCallb
                 Intent showCheck= new Intent(FindAttractions.this, AttractionsCheck.class);
                 showCheck.putExtra(Home.TRIP, trip);
                 showCheck.putExtra(Activities.CATEGORIA,categoria);
-                //showCheck.putExtra(Register.PERSONA, person);
+                showCheck.putExtra(Register.PERSONA, person);
                 startActivity(showCheck);
             }
         });
@@ -128,22 +147,17 @@ public class FindAttractions extends FragmentActivity implements OnMapReadyCallb
         goBack.setOnClickListener(new View.OnClickListener() {  //Resetto tutte le liste
             @Override
             public void onClick(View v) {
-                switch (categoria){
-                    case 1:
-                        trip.setArte(new ArrayList<String>());
-                        break;
-                    case 2:
-                        trip.setSport(new ArrayList<String>());
-                        break;
-                    case 3:
-                        trip.setShopping(new ArrayList<String>());
-                        break;
-                    case 4:
-                        trip.setRistoranti(new ArrayList<String>());
-                }
-                Intent showAct= new Intent(FindAttractions.this, Activities.class);
-                showAct.putExtra(Home.TRIP, trip);
-                startActivity(showAct);
+                showSure();
+
+            }
+        });
+
+
+        //Dialog helper
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showHelper();
             }
         });
     }
@@ -460,4 +474,61 @@ public class FindAttractions extends FragmentActivity implements OnMapReadyCallb
             changeCheckbox(0,m.getTitle(),cb3);
         }
     }
+
+    public void showHelper(){
+        dialog_helper.setContentView(R.layout.helper2);
+        close_help = dialog_helper.findViewById(R.id.close_helper2);
+
+        close_help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog_helper.dismiss();
+            }
+        });
+
+        dialog_helper.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog_helper.show();
+    }
+
+    public void showSure(){
+        dialog_delete.setContentView(R.layout.delete_viaggio);
+        delete_subtitle = dialog_delete.findViewById(R.id.delete_subtitle);
+        delete_subtitle.setText("Non hai confermato. \nTornando indietro elimini tutte le attrazioni selezionate.\nVuoi davvero tornare indietro?");
+        undo = dialog_delete.findViewById(R.id.undo);
+        ok = dialog_delete.findViewById(R.id.delete_all);
+
+        undo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog_delete.dismiss();
+            }
+        });
+
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (categoria){
+                    case 1:
+                        trip.setArte(new ArrayList<String>());
+                        break;
+                    case 2:
+                        trip.setSport(new ArrayList<String>());
+                        break;
+                    case 3:
+                        trip.setShopping(new ArrayList<String>());
+                        break;
+                    case 4:
+                        trip.setRistoranti(new ArrayList<String>());
+                }
+                Intent showAct= new Intent(FindAttractions.this, Activities.class);
+                showAct.putExtra(Register.PERSONA, person);
+                showAct.putExtra(Home.TRIP, trip);
+                startActivity(showAct);
+            }
+        });
+
+        dialog_delete.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog_delete.show();
+    }
+
 }

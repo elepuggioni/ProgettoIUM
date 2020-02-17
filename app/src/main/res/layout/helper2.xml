@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:gravity="center">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="15dp"
+        app:cardBackgroundColor="@color/grigino"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                style="@style/page_titles_style"
+                android:text="CATEGORIA">
+
+            </TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                style="@style/page_subtitles_style"
+                android:textSize="14dp"
+                android:text="Seleziona le attrazioni da visitare nel tuo viaggio.\n Naviga la mappa; selezionale
+dalla top 3 o cercale con la barra inferiore. Per selezionare un'attrazione, clicca sul segnaposto
+e clicca di nuovo il nome di essa per selezionarla. Per eliminarla, esegui gli stessi passaggi.">
+
+            </TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                style="@style/page_subtitles_style"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:text="N.B: Questa è una versione demo:
+puoi inserire nella barra solamente i nomi delle attrazioni della top3, seguiti dal nome della citta.">
+
+            </TextView>
+
+            <Button
+                android:id="@+id/close_helper2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="OK!"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bottoni_principali">
+            </Button>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>
