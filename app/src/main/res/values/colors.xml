@@ -6,6 +6,7 @@
     <color name="transparent">#000000FF</color>
     <color name="yellow">#FFC82C</color>
     <color name="orange">#FFBA5C</color>
+    <color name="dark_orange">#FFB000</color>
     <color name="light_grey">#808080</color>
     <color name="grigino">#EFF2F7</color>
     <color name="grigio">#808080</color>

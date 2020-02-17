@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@color/yellow" />
-    <corners android:radius="6dp" />
-    <size android:height="50dp"/>
-</shape>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:state_pressed="true"
+        android:state_enabled="true"
+        android:drawable="@drawable/bottoni_principali_click"
+    />
+
+    <item android:state_enabled="true">
+        <shape >
+            <solid android:color="@color/yellow" />
+            <corners android:radius="6dp" />
+            <size android:height="50dp"/>
+        </shape>
+    </item>
+
+
+
+
+</selector>
