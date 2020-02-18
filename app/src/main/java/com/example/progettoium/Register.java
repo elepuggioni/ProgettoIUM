@@ -14,7 +14,7 @@ public class Register extends AppCompatActivity {
     public static final String PERSONA = "Persona";
 
     EditText username, password, confPassword, citta;
-    Button iscriviti;
+    Button iscriviti, goLogin;
     Person person;
 
     @Override
@@ -27,6 +27,7 @@ public class Register extends AppCompatActivity {
         confPassword =findViewById(R.id.regConfPassword);
         citta = findViewById(R.id.regCitta);
         iscriviti = findViewById(R.id.regButton);
+        goLogin = findViewById(R.id.register_goLogin);
         person = new Person();
 
         iscriviti.setOnClickListener(new View.OnClickListener() {
@@ -40,7 +41,17 @@ public class Register extends AppCompatActivity {
                 }
             }
         });
+
+        goLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent showHome = new Intent(Register.this, MainActivity.class);
+                showHome.putExtra(Register.PERSONA,person);
+                startActivity(showHome);
+            }
+        });
     }
+
     private boolean CheckInput() {
         int errori = 0;
 

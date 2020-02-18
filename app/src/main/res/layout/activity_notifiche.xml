@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Notifiche">
+    tools:context=".Notifiche"
+    android:background="@color/design_default_color_background">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,6 +52,7 @@
                 android:textStyle="bold" />
 
             <LinearLayout
+                android:id="@+id/notifica"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/peach"
@@ -127,43 +129,6 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/friend_icon3"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="15dp"
-                    app:srcCompat="@drawable/blob" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <TextView
-                        android:id="@+id/friend_name3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="Amico121"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/friend_notification3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium dolorem.."
-                        android:textColor="@color/grigio"
-                        android:textSize="16sp" />
-                </LinearLayout>
-            </LinearLayout>
 
         </LinearLayout>
     </LinearLayout>

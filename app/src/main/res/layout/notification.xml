@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:gravity="center">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="15dp"
+        app:cardBackgroundColor="@color/grigino"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                style="@style/page_titles_style"
+                android:textSize="20dp"
+                android:text="Amico124 ti ha invitato\nal suo viaggio a Parigi! ">
+
+            </TextView>
+            <TextView
+                android:id="@+id/delete_subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="center_horizontal"
+                style="@style/page_subtitles_style"
+                android:textSize="18dp"
+                android:text="Partenza: 24 Marzo 2020\nRitorno: 1 Aprile 2020">
+
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp">
+
+                <Button
+                    android:id="@+id/rifiuta"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:text="RIFIUTA"
+                    android:layout_marginRight="30dp"
+                    android:textColor="@color/orange"
+                    android:background="@drawable/bottone_annulla">
+                </Button>
+                <Button
+                    android:id="@+id/accetta"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:text="ACCETTA"
+                    android:textColor="@color/bianco"
+                    android:background="@drawable/bottone_conferma">
+                </Button>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

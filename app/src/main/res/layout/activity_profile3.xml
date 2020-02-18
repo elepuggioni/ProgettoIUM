@@ -311,6 +311,7 @@
                 </TextView>
 
                 <LinearLayout
+                    android:id="@+id/ruffalo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="0dp"
@@ -359,6 +360,7 @@
 
 
                     <ImageButton
+                        android:id="@+id/friend_remove"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center_vertical"

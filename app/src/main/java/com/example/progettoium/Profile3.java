@@ -2,7 +2,10 @@ package com.example.progettoium;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,13 +14,16 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Profile3 extends AppCompatActivity {
-    TextView username, bio, citta, completed_trips, planned_trips;
+    TextView username, bio, citta, completed_trips, planned_trips, delete_subtitle;
     Person person;
-    Button goHome, editProfile, notifiche;
-    LinearLayout mary2;
+    Button goHome, editProfile, notifiche, ok, undo;
+    LinearLayout mary2, mark;
     ImageButton mary1;
+    ImageButton remove_friend;
+    Dialog remove_dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +31,8 @@ public class Profile3 extends AppCompatActivity {
         setContentView(R.layout.activity_profile3);
         //Transizioni tra le activity
         overridePendingTransition(0,0);
+        remove_dialog = new Dialog(this);
+
         Intent intent = getIntent();
         Serializable obj = intent.getSerializableExtra(Register.PERSONA);
 
@@ -44,6 +52,8 @@ public class Profile3 extends AppCompatActivity {
         notifiche = findViewById(R.id.notification);
         mary1 = findViewById(R.id.mary1);
         mary2 = findViewById(R.id.mary2);
+        mark = findViewById(R.id.ruffalo);
+        remove_friend = findViewById(R.id.friend_remove);
 
         if (person.getUsername().length() != 0){
             username.setText("@"+person.getUsername());
@@ -127,5 +137,37 @@ public class Profile3 extends AppCompatActivity {
                 startActivity(showFriend);
             }
         });
+
+        remove_friend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showRemove();
+            }
+        });
+    }
+    public void showRemove(){
+        remove_dialog.setContentView(R.layout.delete_viaggio);
+        delete_subtitle = remove_dialog.findViewById(R.id.delete_subtitle);
+        delete_subtitle.setText("Vuoi davvero rimuovere Mark Ruffalo\n dai tuoi amici?");
+        undo = remove_dialog.findViewById(R.id.undo);
+        ok = remove_dialog.findViewById(R.id.delete_all);
+
+        undo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                remove_dialog.dismiss();
+            }
+        });
+
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mark.removeAllViews();
+                remove_dialog.dismiss();
+            }
+        });
+
+        remove_dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        remove_dialog.show();
     }
 }
