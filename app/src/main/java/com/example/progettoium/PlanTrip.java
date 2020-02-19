@@ -252,7 +252,7 @@ public class PlanTrip extends AppCompatActivity {
     }
 
     protected void updateValue(int newValue) {
-        //verifico che newValue sia nel range e minore di 100
+        //verifico che newValue sia nel range e minore di 1500
         newValue = newValue > maxValue ? maxValue : newValue;
         //verifico che newValue sia nel range e maggiore di 0
         newValue = newValue < minValue ? minValue : newValue;
@@ -262,7 +262,6 @@ public class PlanTrip extends AppCompatActivity {
             this.budget.setProgress(modelValue);
         }
 
-        //aggiorno la variabile che indica il valore attuale della calcolatrice
         this.modelValue = newValue;
         bTitle.setText("Budget: " + this.modelValue);
     }

@@ -128,6 +128,7 @@
                     style="@style/credentials_input_box"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="text"
                     android:alpha="0.9"
                     android:hint="Scrivi il tuo nome..." />
 
@@ -186,6 +187,7 @@
                     style="@style/credentials_input_box"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="text"
                     android:alpha="0.9"
                     android:hint="Dove ti trovi ora..." />
 

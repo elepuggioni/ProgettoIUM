@@ -91,11 +91,11 @@ public class ConfermaTotale extends AppCompatActivity {
 
 
         for (String s: viaggio.getAmici()){
-            if (s.equals("Mary Jane Watson")){
+            if (s.equals("@maryjanewatson")){
                 amico1.setVisibility(View.VISIBLE);
             }
 
-            if (s.equals("Mark Ruffalo")){
+            if (s.equals("@markruffalo")){
                 amico2.setVisibility(View.VISIBLE);
             }
         }

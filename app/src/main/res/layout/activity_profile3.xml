@@ -271,7 +271,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/roboto_medium"
-                            android:text="Mary Jane Watson"
+                            android:text="\@maryjanewatson"
                             android:textColor="#000"
                             android:textSize="16dp">
 
@@ -340,7 +340,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/roboto_medium"
-                            android:text="Mark Ruffalo"
+                            android:text="\@markruffalo"
                             android:textColor="#000"
                             android:textSize="16dp">
 
