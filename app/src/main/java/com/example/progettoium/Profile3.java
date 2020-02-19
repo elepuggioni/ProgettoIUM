@@ -148,7 +148,7 @@ public class Profile3 extends AppCompatActivity {
     public void showRemove(){
         remove_dialog.setContentView(R.layout.delete_viaggio);
         delete_subtitle = remove_dialog.findViewById(R.id.delete_subtitle);
-        delete_subtitle.setText("Vuoi davvero rimuovere Mark Ruffalo\n dai tuoi amici?");
+        delete_subtitle.setText("Vuoi davvero rimuovere @markruffalo\n dai tuoi amici?");
         undo = remove_dialog.findViewById(R.id.undo);
         ok = remove_dialog.findViewById(R.id.delete_all);
 

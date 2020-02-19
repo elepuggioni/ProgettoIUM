@@ -49,10 +49,10 @@ public class AddFriends extends AppCompatActivity {
         }
 
         for (String s: viaggio.getAmici()){
-            if (s.equals("Mary Jane Watson")){
+            if (s.equals("@maryjanewatson")){
                 amico1.setChecked(true);
             }
-            if (s.equals("Mark Ruffalo")){
+            if (s.equals("@markruffalo")){
                 amico2.setChecked(true);
             }
         }
