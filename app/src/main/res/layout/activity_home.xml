@@ -7,19 +7,16 @@
     android:layout_width="match_parent"
     tools:context=".Home">
 
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:map="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Home"
-        map:layout_constraintStart_toStartOf="parent"
-        map:layout_constrainedHeight="true"
-        map:layout_constraintEnd_toEndOf="parent"
-        map:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constrainedHeight="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".Home" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -66,26 +63,27 @@
         android:id="@+id/random"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="500dp"
-        android:layout_marginLeft="295dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="70dp"
         android:background="@drawable/random_button"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.916"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"/>
 
     <Button
         android:id="@+id/helper1"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:layout_marginLeft="320dp"
-        android:layout_marginTop="460dp"
+        android:layout_marginBottom="140dp"
+        android:layout_marginRight="10dp"
         android:background="@drawable/help_button"
         android:padding="5dp"
+        android:layout_alignParentRight="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.916"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_alignParentBottom="true">
 
     </Button>
 
