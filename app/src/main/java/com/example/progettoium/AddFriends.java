@@ -14,7 +14,7 @@ import java.io.Serializable;
 public class AddFriends extends AppCompatActivity {
     Button goBack, continua;
     CheckBox amico1, amico2;
-    TextView nomeAmico1, nomeAmico2;
+    TextView nomeAmico1, nomeAmico2, title;
 
     Trip viaggio;
     Person person;
@@ -26,6 +26,7 @@ public class AddFriends extends AppCompatActivity {
 
         goBack = findViewById(R.id.goHome);
         continua = findViewById(R.id.continuaPlan3);
+        title = findViewById(R.id.titleFriends);
         amico1 = findViewById(R.id.scegliAmico1);
         amico2 = findViewById(R.id.scegliAmico2);
         nomeAmico1 = findViewById(R.id.nomeAmico1);
@@ -48,6 +49,7 @@ public class AddFriends extends AppCompatActivity {
             person = new Person();
         }
 
+        title.setText("Vuoi viaggiare a "+viaggio.getCity()+" con i tuoi amici?");
         for (String s: viaggio.getAmici()){
             if (s.equals("@maryjanewatson")){
                 amico1.setChecked(true);

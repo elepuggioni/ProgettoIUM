@@ -102,7 +102,6 @@ public class AttractionsCheck extends AppCompatActivity {
                     default: subtitle1.setText("CATEGORIA NON TROVATA");
                 }
 
-
                 Intent showAttr = new Intent(AttractionsCheck.this, Activities.class);
                 showAttr.putExtra(Home.TRIP, trip);
                 showAttr.putExtra(AttractionsCheck.FLAG,true);
